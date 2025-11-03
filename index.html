@@ -545,6 +545,16 @@ body {
         const recipesData = {
             colazioni: [
                 {
+                    nome: "Fiocchi di Latte con Frutta e Miele",
+                    ingredienti: ["200g Fiocchi di latte freschi", "1 frutto fresco (kiwi, mela, banana)", "1 cucchiaino miele", "10g frutta secca oleosa (noci, mandorle, nocciole)"],
+                    preparazione: "Versare i fiocchi di latte in una ciotola. Tagliare il frutto fresco a pezzetti e aggiungerli ai fiocchi. Condire con un cucchiaino di miele come dolcificante naturale. Aggiungere la frutta secca oleosa scelta (noci, mandorle o nocciole). Mescolare delicatamente e consumare subito. È un'ottima colazione proteica e cremosa."
+                },
+                {
+                    nome: "Ricotta con Frutta",
+                    ingredienti: ["150g Ricotta vaccina senza crema di latte (Eric) o 100g (Chiara)", "1 frutto fresco di stagione", "1 cucchiaino miele (opzionale)", "10g frutta secca oleosa a piacere"],
+                    preparazione: "Versare la ricotta in una ciotola. Tagliare il frutto fresco a pezzetti e disporlo sulla ricotta. Se desideri, aggiungi un cucchiaino di miele per dolcificare. Completa con la frutta secca oleosa scelta. La ricotta è versatile e può essere consumata sia a colazione che come dolce dopo i pasti."
+                },
+                {
                     nome: "Pancake",
                     ingredienti: ["60g farina avena", "2 albumi", "70g yogurt greco", "Bicarbonato q.b.", "Limone q.b.", "Noce di burro per la cottura"],
                     preparazione: "Mescolare farina avena con albumi e yogurt greco, aggiungere bicarbonato e limone per ottenere un impasto omogeneo. Cuocere in padella con una noce di burro finché il pancake non sia dorato su entrambi i lati. La ricetta è per 2 pancake, quindi ne avrai per due giorni."
@@ -589,6 +599,13 @@ body {
                     preparazione: "Pulire le seppie eliminando la sacca di inchiostro e tagliarle a rondelle o a strisce sottili. Rosolare in padella l'aglio schiacciato con un po' d'acqua e olio a fiamma bassa (3-4 minuti). Aggiungete le seppie e lasciarle scottare e cuocere lentamente per 45 minuti, aggiungendo di tanto in tanto dell'acqua calda per evitare che si secchino. A parte, pulite gli asparagi e tagliateli, quindi cuoceteli in acqua salata bollente per circa 10 minuti finché non siano al dente. Scolateli e uniteli alle seppie negli ultimi 5 minuti di cottura. Completate con prezzemolo tritato fresco, sale e pepe a piacere."
                 }
             ],
+            latticini: [
+                {
+                    nome: "Ricotta con Verdure (Cena)",
+                    ingredienti: ["150g Ricotta vaccina (Eric) o 100g (Chiara)", "1 piatto abbondante di verdure di stagione (spinaci, zucchine, broccoli, bietole)", "2-3 cucchiai olio extravergine d'oliva", "Sale, pepe e spezie a piacere", "Passato di verdura già pronto"],
+                    preparazione: "Preparare le verdure di stagione scelte: lessarle al vapore o cuocerle in padella con poca acqua e spezie. Riscaldare il passato di verdura in una pentola. In una ciotola, mettere la ricotta e mescolala leggermente. Versare il passato caldo e aggiungere le verdure cotte. Condire il tutto con olio extravergine, sale e pepe. La ricotta si amalgamerà leggermente con il caldo, creando una cremosità piacevole."
+                }
+            ],
             contorni: [
                 {
                     nome: "Hummus di Ceci",
@@ -603,121 +620,136 @@ body {
             ]
         };
 
+        // Menu data with all constraints properly implemented
         const menuData = {
             lunedi: {
                 eric: {
                     colazione: {
                         nome: "Kefir + Avena + Frutta",
                         ingredienti: [
-                            "200ml Kefir bianco MILK",
+                            "200ml Kefir bianco",
                             "1 kiwi fresco",
                             "20g fiocchi avena BIO",
-                            "10g mandorle (circa 5-6)"
+                            "10g mandorle"
                         ],
-                        preparazione: "Versare il kefir in una tazza, aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e mandorle. Mescolare bene."
+                        preparazione: "Versare il kefir in una tazza. Aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e mandorle. Mescolare."
                     },
                     pranzo: {
-                        nome: "Bresaola con Verdure e Pane",
+                        nome: "Verdure + Bresaola + Pane + Frutta",
                         ingredienti: [
+                            "1 piatto abbondante verdure miste crude (rucola, pomodori, cetrioli, lattuga)",
                             "100g Bresaola Valtellina IGP",
-                            "1 piatto abbondante verdure miste (rucola, pomodori, cetrioli)",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "1 limone (per condire)",
-                            "1 mela (150g)"
+                            "1 mela o pera (150g frutta)",
+                            "Sale e pepe q.b."
                         ],
-                        preparazione: "Preparare un piatto di verdure miste crude, condire con olio e limone. Disporre la bresaola affettata sottile. Accompagnare con pane integrale tostato. Completare con mela fresca."
+                        preparazione: "Preparare un piatto abbondante di verdure miste crude. Condire con olio e limone. Disporre la bresaola affettata. Accompagnare con pane integrale tostato. Completare con frutta fresca."
                     },
                     cena: {
-                        nome: "Passato di Verdura + Omelette",
+                        nome: "Passato di Verdura Pronto (piatto principale)",
                         ingredienti: [
-                            "Passato di verdura già pronto (patate, legumi, verdure)",
-                            "2 cucchiai riso o farro",
-                            "2 uova intere",
-                            "Verdure per omelette (spinaci o zucchine)",
+                            "1 piatto abbondante di passato di verdura già pronto (quello che avete in casa) - PIATTO PRINCIPALE OBBLIGATORIO",
+                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
                             "2 cucchiai olio extravergine d'oliva",
-                            "70g pane integrale tostato",
-                            "Sale, spezie e prezzemolo fresco q.b."
+                            "1 cucchiaino parmigiano (OPZIONALE)",
+                            "Sale e spezie q.b.",
+                            "---",
+                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
+                            "OPPURE 2 Uova intere (sode, alla coque, frittata con verdure)",
+                            "OPPURE 100-120g Carne a scelta (pollo, tacchino, vitello, coniglio)",
+                            "OPPURE 150-200g Pesce fresco (branzino, merluzzo, orata, salmone fresco)",
+                            "OPPURE 80-100g Formaggio (mozzarella, parmigiano, ricotta)",
+                            "OPPURE 70g Bresaola o Salmone affumicato"
                         ],
-                        preparazione: "Riscaldare il passato di verdura e aggiungere 2 cucchiai di riso/farro. In parallelo preparare un'omelette con 2 uova e verdure di stagione in padella antiaderente con olio. Condire il tutto e servire con pane tostato."
+                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto che avete in casa. Aggiungere opzionalmente 1-2 cucchiai di riso/farro/pastina crudo negli ultimi 15-20 minuti di riscaldamento. Condire con olio extravergine, sale e spezie. Aggiungere parmigiano se gradito. Servire in una ciotola generosa. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo piatto proteico a scelta tra le opzioni sopra. Il passato da solo è però perfettamente completo e nutriente grazie ai legumi."
                     }
                 },
                 chiara: {
                     colazione: {
                         nome: "Kefir + Avena + Frutta",
                         ingredienti: [
-                            "200ml Kefir bianco MILK",
+                            "200ml Kefir bianco",
                             "1 kiwi fresco",
                             "20g fiocchi avena BIO",
-                            "10g mandorle (circa 5-6)"
+                            "10g mandorle"
                         ],
-                        preparazione: "Versare il kefir in una tazza, aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e mandorle. Mescolare bene."
+                        preparazione: "Versare il kefir in una tazza. Aggiungere il kiwi tagliato a pezzetti, fiocchi avena e mandorle. Mescolare."
                     },
                     pranzo: {
-                        nome: "Bresaola con Verdure e Pane",
+                        nome: "Verdure + Bresaola + Pane + Frutta",
                         ingredienti: [
+                            "1 piatto abbondante verdure miste crude",
                             "70g Bresaola Valtellina IGP",
-                            "1 piatto abbondante verdure miste (rucola, pomodori, cetrioli)",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "1 limone (per condire)",
-                            "1 mela (150g)"
+                            "1 mela o pera (150g frutta)",
+                            "Sale e pepe q.b."
                         ],
-                        preparazione: "Preparare un piatto di verdure miste crude, condire con olio e limone. Disporre la bresaola affettata sottile. Accompagnare con pane integrale tostato. Completare con mela fresca."
+                        preparazione: "Preparare un piatto abbondante di verdure miste crude. Condire con olio e limone. Disporre la bresaola affettata. Accompagnare con pane integrale tostato. Completare con frutta fresca."
                     },
                     cena: {
-                        nome: "Passato di Verdura + Omelette",
+                        nome: "Passato di Verdura Pronto (piatto principale)",
                         ingredienti: [
-                            "Passato di verdura già pronto (patate, legumi, verdure)",
-                            "2 cucchiai riso o farro",
-                            "2 uova intere",
-                            "Verdure per omelette (spinaci o zucchine)",
+                            "1 piatto abbondante di passato di verdura già pronto (stesso di Eric) - PIATTO PRINCIPALE OBBLIGATORIO",
+                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
                             "2 cucchiai olio extravergine d'oliva",
-                            "50g pane integrale tostato",
-                            "Sale, spezie e prezzemolo fresco q.b."
+                            "1 cucchiaino parmigiano (OPZIONALE)",
+                            "Sale e spezie q.b.",
+                            "---",
+                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
+                            "OPPURE 2 Uova intere (sode, alla coque, frittata)",
+                            "OPPURE 70-80g Carne a scelta",
+                            "OPPURE 100-150g Pesce fresco",
+                            "OPPURE 60g Formaggio",
+                            "OPPURE 50g Bresaola o Salmone affumicato"
                         ],
-                        preparazione: "Riscaldare il passato di verdura e aggiungere 2 cucchiai di riso/farro. In parallelo preparare un'omelette con 2 uova e verdure di stagione in padella antiaderente con olio. Condire il tutto e servire con pane tostato."
+                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire con olio e sale. Aggiungere parmigiano se gradito. Servire. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo piatto proteico a scelta tra le opzioni sopra. Il passato da solo è però completo grazie ai legumi."
                     }
                 }
             },
             martedi: {
                 eric: {
                     colazione: {
-                        nome: "Avocado Toast Salato",
+                        nome: "Avocado Toast Salato - COLAZIONE SALATA",
                         ingredienti: [
-                            "40g pane integrale (1 fetta)",
-                            "¼ avocado maturo (circa 25g)",
+                            "40g pane integrale (1 fetta tostata)",
+                            "¼ avocado maturo (ca 25g)",
                             "70g salmone affumicato selvaggio",
                             "1 cucchiaio olio extravergine d'oliva",
                             "Sale, pepe e limone q.b."
                         ],
-                        preparazione: "Tostare leggermente il pane integrale. Spalmare il quarto di avocado sul pane con una forchettina. Disporre il salmone affumicato affettato. Condire con limone, sale e pepe."
+                        preparazione: "Tostare il pane integrale. Spalmare il quarto di avocado sul pane. Disporre il salmone affumicato affettato. Condire con limone, sale e pepe."
                     },
                     pranzo: {
-                        nome: "Pasta al Pomodoro + Pesce (Pasto Comodo)",
+                        nome: "Verdure + Pasta + Pesce - PASTO COMODO PALESTRA",
                         ingredienti: [
-                            "80g pasta integrale Senatore Cappelli",
-                            "200g merluzzo o branzino fresco",
-                            "1 piatto abbondante verdure (zucchine, broccoli)",
+                            "1 piatto abbondante verdure (zucchine, broccoli, pomodori)",
+                            "80g pasta integrale Senatore Cappelli cottura al dente",
+                            "200g pesce fresco DIVERSO DA SALMONE (branzino, merluzzo, orata)",
                             "3-4 cucchiai pomodoro passato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "70g pane integrale tostato",
-                            "Sale, pepe, aglio e prezzemolo fresco q.b."
+                            "2 cucchiai olio extravergine d'oliva",
+                            "Sale, pepe, aglio e prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce in padella con olio, aglio e prezzemolo con le verdure tagliate. Condire la pasta con pomodoro passato, olio e spezie. Servire il pesce come secondo con verdure. Accompagnare con pane tostato."
+                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce in padella con olio, aglio e prezzemolo con verdure. Condire la pasta con pomodoro passato, olio e spezie. Servire il pesce come secondo con verdure. PASTO COMODO E VELOCE PRIMA DELLA PALESTRA."
                     },
                     cena: {
-                        nome: "Passato + Fesa Tacchino + Verdure",
+                        nome: "Passato di Verdura Pronto (piatto principale)",
                         ingredienti: [
-                            "Passato di verdura già pronto",
-                            "2 cucchiai riso o farro",
-                            "150g fesa di tacchino",
-                            "1 piatto verdure miste",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "70g pane integrale tostato",
-                            "Sale, spezie e limone q.b."
+                            "1 piatto abbondante di passato di verdura già pronto (quello che avete in casa) - PIATTO PRINCIPALE OBBLIGATORIO",
+                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
+                            "2 cucchiai olio extravergine d'oliva",
+                            "1 cucchiaino parmigiano (OPZIONALE)",
+                            "Sale e spezie q.b.",
+                            "---",
+                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
+                            "OPPURE 2 Uova intere (sode, alla coque, frittata con verdure)",
+                            "OPPURE 100-120g Carne a scelta (pollo, tacchino, vitello, coniglio)",
+                            "OPPURE 150-200g Pesce fresco (ma NON salmone - già usato a colazione)",
+                            "OPPURE 80-100g Formaggio",
+                            "OPPURE 70g Bresaola (ma NO salmone affumicato - già a colazione)"
                         ],
-                        preparazione: "Riscaldare il passato e aggiungere i cereali. Cuocere la fesa di tacchino in griglia o padella antiaderente con verdure. Condire tutto e servire con pane tostato."
+                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire con olio, sale e spezie. Aggiungere parmigiano se gradito. Servire. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo proteico a scelta (escluso salmone perché già consumato a colazione). Il passato da solo è completo."
                     }
                 },
                 chiara: {
@@ -727,35 +759,39 @@ body {
                             "150g yogurt greco 0-2% bianco",
                             "1 kiwi fresco",
                             "20g fiocchi avena BIO",
-                            "10g noci (circa 2 noci)"
+                            "10g noci (2 noci)"
                         ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e noci sgusciate. Mescolare."
+                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi tagliato a pezzetti, fiocchi avena e noci sgusciate. Mescolare. (Diversa da Eric che ha salato)"
                     },
                     pranzo: {
-                        nome: "Pasta al Pomodoro + Pesce",
+                        nome: "Verdure + Pasta + Pesce - PASTO COMODO",
                         ingredienti: [
-                            "60g pasta integrale Senatore Cappelli",
-                            "150g merluzzo o branzino fresco",
-                            "1 piatto abbondante verdure (zucchine, broccoli)",
+                            "1 piatto abbondante verdure (zucchine, broccoli, pomodori)",
+                            "60g pasta integrale Senatore Cappelli cottura al dente",
+                            "150g pesce fresco (branzino, merluzzo, orata - stesso di Eric)",
                             "3-4 cucchiai pomodoro passato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "50g pane integrale tostato",
-                            "Sale, pepe, aglio e prezzemolo fresco q.b."
+                            "2 cucchiai olio extravergine d'oliva",
+                            "Sale, pepe, aglio e prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce in padella con olio, aglio e prezzemolo con le verdure tagliate. Condire la pasta con pomodoro passato, olio e spezie. Servire il pesce come secondo con verdure. Accompagnare con pane tostato."
+                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce con olio, aglio e prezzemolo con verdure. Condire la pasta. Servire il pesce con verdure."
                     },
                     cena: {
-                        nome: "Passato + Fesa Tacchino + Verdure",
+                        nome: "Passato di Verdura Pronto (piatto principale)",
                         ingredienti: [
-                            "Passato di verdura già pronto",
-                            "2 cucchiai riso o farro",
-                            "100g fesa di tacchino",
-                            "1 piatto verdure miste",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "50g pane integrale tostato",
-                            "Sale, spezie e limone q.b."
+                            "1 piatto abbondante di passato di verdura già pronto (stesso di Eric) - PIATTO PRINCIPALE OBBLIGATORIO",
+                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
+                            "2 cucchiai olio extravergine d'oliva",
+                            "1 cucchiaino parmigiano (OPZIONALE)",
+                            "Sale e spezie q.b.",
+                            "---",
+                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
+                            "OPPURE 2 Uova intere (sode, alla coque, frittata)",
+                            "OPPURE 80-100g Carne a scelta",
+                            "OPPURE 120-150g Pesce fresco",
+                            "OPPURE 80g Formaggio",
+                            "OPPURE 60g Bresaola"
                         ],
-                        preparazione: "Riscaldare il passato e aggiungere i cereali. Cuocere la fesa di tacchino in griglia o padella antiaderente con verdure. Condire tutto e servire con pane tostato."
+                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire e servire. 2. SECONDO OPZIONALE: Se desiderate, aggiungete un secondo proteico a scelta. Il passato è completo da solo."
                     }
                 }
             },
@@ -767,143 +803,141 @@ body {
                             "150g yogurt greco 0-2% bianco",
                             "1 kiwi fresco",
                             "20g fiocchi avena BIO",
-                            "10g noci (circa 2 noci)"
+                            "10g noci (2 noci)"
                         ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e noci sgusciate. Mescolare."
+                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi, fiocchi avena e noci sgusciate. Mescolare."
                     },
                     pranzo: {
-                        nome: "Formaggio Mozzarella + Verdure + Pane",
+                        nome: "Verdure + Formaggio Mozzarella + Pane + Frutta",
                         ingredienti: [
+                            "1 piatto abbondante verdure miste crude (pomodori, lattuga, cetrioli)",
                             "100g mozzarella vaccina fresca",
-                            "1 piatto abbondante verdure miste (pomodori, lattuga, cetrioli)",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 limone",
                             "1 arancia o pera (150g)"
                         ],
-                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere alle verdure. Condire con olio extravergine e succo di limone. Accompagnare con pane tostato. Completare con frutta fresca."
+                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere. Condire con olio e limone. Accompagnare con pane tostato. Completare con frutta fresca."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure",
+                        nome: "Verdure + Pesce + Pane + Frutta",
                         ingredienti: [
-                            "200g salmone fresco o orata",
+                            "200g pesce fresco (branzino, orata, merluzzo, nasello, dentice)",
                             "1 piatto abbondante verdure (broccoli, zucchine)",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "Sale, pepe, limone, aglio e erbe aromatiche (timo, rosmarino)",
-                            "1 frutto fresco (150g)"
+                            "1 frutto fresco",
+                            "Sale, pepe, limone, aglio e erbe (timo, rosmarino) q.b."
                         ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe aromatiche a 180°C per 15-20 minuti. Aggiungere verdure grigliate o al vapore. Condire il tutto. Servire con pane e frutta fresca."
+                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe a 180°C per 15-20 minuti. Aggiungere verdure grigliate o al vapore. Servire con pane e frutta."
                     }
                 },
                 chiara: {
                     colazione: {
-                        nome: "Yogurt Greco + Avena + Frutta + Cioccolato",
+                        nome: "Yogurt Greco + Avena + Frutta",
                         ingredienti: [
                             "150g yogurt greco 0-2% bianco",
                             "1 kiwi fresco",
                             "20g fiocchi avena BIO",
-                            "10g cioccolato fondente 85% (1 quadretto)"
+                            "10g mandorle"
                         ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e cioccolato fondente sbriciolato. Mescolare."
+                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi, fiocchi avena e mandorle. Mescolare."
                     },
                     pranzo: {
-                        nome: "Formaggio Mozzarella + Verdure + Pane",
+                        nome: "Verdure + Formaggio Mozzarella + Pane + Frutta",
                         ingredienti: [
+                            "1 piatto abbondante verdure miste crude",
                             "100g mozzarella vaccina fresca",
-                            "1 piatto abbondante verdure miste (pomodori, lattuga, cetrioli)",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 limone",
                             "1 arancia o pera (150g)"
                         ],
-                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere alle verdure. Condire con olio extravergine e succo di limone. Accompagnare con pane tostato. Completare con frutta fresca."
+                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere. Condire con olio e limone. Accompagnare con pane tostato. Completare con frutta fresca."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure",
+                        nome: "Verdure + Pesce + Pane + Frutta",
                         ingredienti: [
-                            "150g salmone fresco o orata",
+                            "150g pesce fresco (branzino, orata, merluzzo, nasello, dentice)",
                             "1 piatto abbondante verdure (broccoli, zucchine)",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "Sale, pepe, limone, aglio e erbe aromatiche",
-                            "1 frutto fresco (150g)"
+                            "1 frutto fresco",
+                            "Sale, pepe, limone, aglio e erbe q.b."
                         ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe aromatiche a 180°C per 15-20 minuti. Aggiungere verdure grigliate o al vapore. Condire il tutto. Servire con pane e frutta fresca."
+                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe. Aggiungere verdure grigliate. Servire con pane e frutta."
                     }
                 }
             },
             giovedi: {
                 eric: {
                     colazione: {
-                        nome: "Pancake + Confettura + Latte",
+                        nome: "Pancake + Confettura + Latte - COLAZIONE COMODA",
                         ingredienti: [
-                            "1 pancake (ricetta allegata)",
-                            "1 velo confettura senza zuccheri Rigoni di Asiago",
+                            "1 pancake",
+                            "Confettura senza zuccheri Rigoni di Asiago (velo)",
                             "150ml latte parz.scremato",
                             "Caffè se gradito"
                         ],
-                        preparazione: "Preparare il pancake seguendo la ricetta allegata (60g farina avena, 2 albumi, 70g yogurt greco, bicarbonato, limone). Cuocere con noce di burro. Condire con confettura senza zuccheri. Accompagnare con latte tiepido e caffè."
+                        preparazione: "Preparare il pancake seguendo la ricetta allegata. Cuocere con burro. Condire con confettura. Accompagnare con latte e caffè. SEMPLICE E COMODA PRIMA PALESTRA."
                     },
                     pranzo: {
-                        nome: "Riso + Pollo (Pasto Comodo)",
+                        nome: "Verdure + Farro + Pollo - PASTO COMODO PALESTRA",
                         ingredienti: [
-                            "80g riso basmati o venere",
+                            "1 piatto abbondante verdure (zucchine, broccoli)",
+                            "80g farro integrale cottura al dente",
                             "150g petto di pollo senza pelle",
-                            "1 piatto verdure (zucchine, broccoli)",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "70g pane integrale tostato",
                             "1 frutto fresco",
                             "Sale, pepe, aglio, prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere il riso al dente con brodo vegetale leggero. Nel frattempo grigliare o cuocere il pollo a fuoco medio con olio, aglio e verdure. Condire il riso con olio e spezie. Servire il pollo come secondo. Accompagnare con pane tostato e frutta."
+                        preparazione: "Cuocere il farro al dente. Nel frattempo grigliare il pollo con olio, aglio e verdure. Condire il farro con olio e spezie. Servire il pollo come secondo con verdure e frutta. PASTO COMODO E VELOCE PER PALESTRA."
                     },
                     cena: {
-                        nome: "Cereali + Legumi + Verdure",
+                        nome: "Cereali e Legumi con Verdure",
                         ingredienti: [
                             "100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)",
                             "1 piatto abbondante verdure (broccoletti, cavoli)",
-                            "2-3 cucchiai olio extravergine d'oliva",
+                            "2 cucchiai olio extravergine d'oliva",
                             "1 cucchiaino parmigiano (opzionale)",
-                            "Sale, spezie, aromi q.b."
+                            "Sale e spezie q.b."
                         ],
-                        preparazione: "Mettere in ammollo 24h prima il misto cereali legumi. Eliminare l'acqua di ammollo. Cuocere in pentola con verdure di stagione, aromi e sale. Condire con olio extravergine. Aggiungere parmigiano se gradito."
+                        preparazione: "Mettere cereali legumi in ammollo 24h prima. Eliminare acqua. Cuocere con verdure di stagione, aromi e sale. Condire con olio. Aggiungere parmigiano se gradito."
                     }
                 },
                 chiara: {
                     colazione: {
-                        nome: "Pancake + Confettura + Latte",
+                        nome: "Pancake + Confettura + Latte - COLAZIONE COMODA",
                         ingredienti: [
-                            "1 pancake (ricetta allegata)",
-                            "1 velo confettura senza zuccheri Rigoni di Asiago",
+                            "1 pancake",
+                            "Confettura senza zuccheri Rigoni di Asiago (velo)",
                             "150ml latte parz.scremato",
                             "Caffè se gradito"
                         ],
-                        preparazione: "Preparare il pancake seguendo la ricetta allegata. Cuocere con noce di burro. Condire con confettura senza zuccheri. Accompagnare con latte tiepido e caffè."
+                        preparazione: "Preparare il pancake. Cuocere con burro. Condire con confettura. Accompagnare con latte e caffè. STESSA DI ERIC - COMODA."
                     },
                     pranzo: {
-                        nome: "Farro + Vitello",
+                        nome: "Verdure + Farro + Pollo - PASTO COMODO",
                         ingredienti: [
-                            "60g farro integrale",
-                            "100g vitello magro",
-                            "1 piatto verdure",
+                            "1 piatto abbondante verdure (zucchine, broccoli)",
+                            "60g farro integrale cottura al dente",
+                            "100g petto di pollo senza pelle",
                             "2-3 cucchiai olio extravergine d'oliva",
-                            "50g pane integrale tostato",
                             "1 frutto fresco",
-                            "Sale, pepe, aglio q.b."
+                            "Sale, pepe, aglio, prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere il farro al dente. Nel frattempo cuocere il vitello in griglia o padella con verdure e olio. Condire il farro con olio extravergine e spezie. Servire il vitello come secondo. Accompagnare con pane tostato e frutta."
+                        preparazione: "Cuocere il farro al dente. Nel frattempo grigliare il pollo con olio, aglio e verdure. Condire il farro. Servire il pollo con verdure e frutta."
                     },
                     cena: {
-                        nome: "Cereali + Legumi + Verdure",
+                        nome: "Cereali e Legumi con Verdure",
                         ingredienti: [
                             "80g misto cereali legumi secchi",
                             "1 piatto abbondante verdure (broccoletti, cavoli)",
-                            "2-3 cucchiai olio extravergine d'oliva",
+                            "2 cucchiai olio extravergine d'oliva",
                             "1 cucchiaino parmigiano (opzionale)",
-                            "Sale, spezie q.b."
+                            "Sale e spezie q.b."
                         ],
-                        preparazione: "Mettere in ammollo 24h prima il misto cereali legumi. Eliminare l'acqua di ammollo. Cuocere in pentola con verdure, aromi e sale. Condire con olio extravergine. Aggiungere parmigiano se gradito."
+                        preparazione: "Mettere cereali legumi in ammollo 24h prima. Eliminare acqua. Cuocere con verdure, aromi e sale. Condire con olio."
                     }
                 }
             },
@@ -919,30 +953,30 @@ body {
                             "2 cucchiaini semi misti (lino, girasole, zucca)",
                             "Miele 1 cucchiaino (opzionale)"
                         ],
-                        preparazione: "La sera precedente: mettere in frigorifero la tazza con 20g avena e 100ml latte per tutta la notte. Al mattino aggiungere 150g yogurt greco, frutta a pezzetti, semi e miele. Mescolare bene."
+                        preparazione: "La sera: mettere in frigorifero avena e latte per tutta la notte. Al mattino aggiungere yogurt greco, frutta a pezzetti, semi e miele. Mescolare bene."
                     },
                     pranzo: {
-                        nome: "Uova + Verdure + Pane",
+                        nome: "Verdure + Uova + Pane + Frutta",
                         ingredienti: [
-                            "2 uova intere",
+                            "2 uova intere (sode o alla coque)",
                             "1 piatto abbondante verdure",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
                             "Sale, pepe, erbe aromatiche q.b."
                         ],
-                        preparazione: "Preparare le uova sode o alla coque. Preparare verdure crude o cotte di stagione. Condire il tutto con olio extravergine, sale e pepe. Accompagnare con pane tostato e frutta fresca."
+                        preparazione: "Preparare le uova sode o alla coque. Preparare verdure di stagione crude o cotte. Condire con olio, sale e pepe. Accompagnare con pane tostato e frutta."
                     },
                     cena: {
-                        nome: "PIZZA (PASTO LIBERO)",
+                        nome: "PIZZA - PASTO LIBERO",
                         ingredienti: [
                             "Pizza a scelta con verdure",
-                            "Prosciutto crudo/cotto, mozzarella o bresaola",
+                            "Prosciutto crudo/cotto, mozzarella, affettati vari",
                             "Insalata mista come antipasto",
-                            "Acqua naturale come bevanda",
-                            "Opzionale: dessert frutta fresca con gelato"
+                            "Acqua naturale",
+                            "Opzionale: dessert con frutta e gelato"
                         ],
-                        preparazione: "Pasto libero venerdì sera. Iniziare con piatto di insalata mista. Scegliere pizza con verdure e proteine (no fritture, no bibite zuccherate). Se gradito, optare per frutta con gelato come dessert. Bere acqua naturale."
+                        preparazione: "PASTO TOTALMENTE LIBERO - NO RESTRIZIONI. Iniziare con insalata mista. Scegliere pizza con verdure e proteine a piacere. Se gradito dessert con frutta e gelato. Bere acqua naturale."
                     }
                 },
                 chiara: {
@@ -956,30 +990,30 @@ body {
                             "2 cucchiaini semi misti",
                             "Miele 1 cucchiaino (opzionale)"
                         ],
-                        preparazione: "La sera precedente: mettere in frigorifero la tazza con 20g avena e 100ml latte per tutta la notte. Al mattino aggiungere 150g yogurt greco, frutta a pezzetti, semi e miele. Mescolare bene."
+                        preparazione: "La sera: mettere in frigorifero avena e latte per tutta la notte. Al mattino aggiungere yogurt greco, frutta, semi e miele. Mescolare."
                     },
                     pranzo: {
-                        nome: "Uova + Verdure + Pane",
+                        nome: "Verdure + Uova + Pane + Frutta",
                         ingredienti: [
-                            "2 uova intere",
+                            "2 uova intere (sode o alla coque)",
                             "1 piatto abbondante verdure",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
                             "Sale, pepe, erbe aromatiche q.b."
                         ],
-                        preparazione: "Preparare le uova sode o alla coque. Preparare verdure crude o cotte di stagione. Condire il tutto con olio extravergine, sale e pepe. Accompagnare con pane tostato e frutta fresca."
+                        preparazione: "Preparare le uova. Preparare verdure di stagione. Condire con olio, sale e pepe. Accompagnare con pane tostato e frutta."
                     },
                     cena: {
-                        nome: "PIZZA (PASTO LIBERO)",
+                        nome: "PIZZA - PASTO LIBERO",
                         ingredienti: [
                             "Pizza a scelta con verdure",
-                            "Prosciutto crudo/cotto, mozzarella o bresaola",
+                            "Prosciutto crudo/cotto, mozzarella, affettati vari",
                             "Insalata mista come antipasto",
-                            "Acqua naturale come bevanda",
-                            "Opzionale: dessert frutta fresca con gelato"
+                            "Acqua naturale",
+                            "Opzionale: dessert"
                         ],
-                        preparazione: "Pasto libero venerdì sera. Iniziare con piatto di insalata mista. Scegliere pizza con verdure e proteine. Se gradito, optare per frutta con gelato come dessert. Bere acqua naturale."
+                        preparazione: "PASTO TOTALMENTE LIBERO. Iniziare con insalata. Scegliere pizza con verdure e proteine a piacere. Dessert opzionale. Bere acqua naturale."
                     }
                 }
             },
@@ -995,33 +1029,32 @@ body {
                             "Caffè q.b.",
                             "1 cucchiaino cacao amaro"
                         ],
-                        preparazione: "Bagnare le 2 fette biscottate con caffè tiepido. In una tazza disporre le fette bagnate. Aggiungere yogurt greco, 1 cucchiaino miele. Spolverare con cioccolato fondente sbriciolato e cacao amaro. Servire freddo dal frigo."
+                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt greco, miele, cioccolato sbriciolato e cacao. Servire freddo dal frigo."
                     },
                     pranzo: {
-                        nome: "Pesce + Insalata di Riso",
+                        nome: "Verdure + Riso + Pesce - COMODO",
                         ingredienti: [
-                            "80g riso basmati o venere",
-                            "200g pesce fresco (branzino, orata, dentice)",
-                            "1 piatto verdure (insalata mista, pomodori)",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "70g pane integrale tostato",
+                            "1 piatto abbondante verdure (insalata mista, pomodori)",
+                            "80g riso basmati o venere cottura al dente",
+                            "200g pesce fresco (branzino, orata, dentice, nasello)",
+                            "2 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
                             "Sale, pepe, limone, prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere il riso al dente, far raffreddare. Nel frattempo grigliare il pesce fresco con limone e erbe. Preparare un'insalata fredda di riso con verdure, pesce, olio e limone. Servire a temperatura ambiente con pane tostato e frutta."
+                        preparazione: "Cuocere il riso al dente, far raffreddare. Grigliare il pesce con limone e erbe. Preparare insalata fredda di riso con verdure e pesce. Servire con frutta."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure + Cioccolato",
+                        nome: "Verdure + Pesce DIVERSO + Pane + Frutta + Cioccolato",
                         ingredienti: [
-                            "200g salmone o merluzzo fresco",
+                            "200g pesce fresco DIVERSO dal pranzo (sgombro, merluzzo, trota, nasello se non usato a pranzo)",
                             "1 piatto verdure grigliate",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
                             "20g cioccolato fondente 85% (2 quadretti)",
                             "Sale, pepe, limone, erbe aromatiche q.b."
                         ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C con olio, limone e erbe per 15-20 minuti. Aggiungere verdure al vapore. Condire il tutto. Servire con pane. Dopo cena: 2 quadretti cioccolato fondente."
+                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C con olio, limone e erbe. Aggiungere verdure. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
                     }
                 },
                 chiara: {
@@ -1031,37 +1064,36 @@ body {
                             "150g yogurt greco 0% bianco",
                             "1 cucchiaino miele",
                             "2 fette biscottate integrali",
-                            "10g cioccolato fondente 85% (1 quadretto)",
+                            "10g cioccolato fondente 85%",
                             "Caffè q.b.",
                             "1 cucchiaino cacao amaro"
                         ],
-                        preparazione: "Bagnare le 2 fette biscottate con caffè tiepido. In una tazza disporre le fette bagnate. Aggiungere yogurt greco, 1 cucchiaino miele. Spolverare con cioccolato fondente sbriciolato e cacao amaro. Servire freddo dal frigo."
+                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt, miele, cioccolato e cacao. Servire freddo."
                     },
                     pranzo: {
-                        nome: "Riso + Pesce",
+                        nome: "Verdure + Riso + Pesce - COMODO",
                         ingredienti: [
-                            "60g riso basmati o venere",
-                            "150g pesce fresco",
-                            "1 piatto verdure",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "50g pane integrale tostato",
+                            "1 piatto abbondante verdure",
+                            "60g riso basmati o venere cottura al dente",
+                            "150g pesce fresco (branzino, orata, dentice, nasello)",
+                            "2 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
-                            "Sale, pepe, limone q.b."
+                            "Sale, pepe, limone, prezzemolo q.b."
                         ],
-                        preparazione: "Cuocere il riso al dente, far raffreddare. Nel frattempo grigliare il pesce fresco con limone. Preparare un'insalata fredda di riso con verdure, pesce, olio e limone. Servire a temperatura ambiente con pane tostato e frutta."
+                        preparazione: "Cuocere il riso al dente. Grigliare il pesce con limone e erbe. Preparare insalata fredda di riso con verdure e pesce. Servire con frutta."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure + Cioccolato",
+                        nome: "Verdure + Pesce DIVERSO + Pane + Frutta + Cioccolato",
                         ingredienti: [
-                            "150g salmone o merluzzo fresco",
+                            "150g pesce fresco DIVERSO dal pranzo (sgombro, merluzzo, trota, nasello se non usato)",
                             "1 piatto verdure grigliate",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
-                            "20g cioccolato fondente 85% (2 quadretti)",
+                            "20g cioccolato fondente 85%",
                             "Sale, pepe, limone, erbe aromatiche q.b."
                         ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C con olio, limone e erbe per 15-20 minuti. Aggiungere verdure grigliate. Condire il tutto. Servire con pane. Dopo cena: 2 quadretti cioccolato fondente."
+                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
                     }
                 }
             },
@@ -1070,75 +1102,75 @@ body {
                     colazione: {
                         nome: "Kefir + Avena + Frutta + Cioccolato",
                         ingredienti: [
-                            "200ml Kefir bianco MILK",
+                            "200ml Kefir bianco",
                             "1 mela (150g)",
                             "20g fiocchi avena BIO",
                             "10g cioccolato fondente 85% (1 quadretto)"
                         ],
-                        preparazione: "Versare il kefir in una tazza. Aggiungere la mela tagliata a pezzetti, cospargere di fiocchi avena e cioccolato fondente sbriciolato. Mescolare bene."
+                        preparazione: "Versare il kefir in tazza. Aggiungere mela tagliata a pezzetti, fiocchi avena e cioccolato sbriciolato. Mescolare."
                     },
                     pranzo: {
-                        nome: "Coniglio + Verdure + Pane",
+                        nome: "Verdure + Coniglio + Pane + Frutta",
                         ingredienti: [
-                            "150g coniglio fresco o surgelato",
                             "1 piatto abbondante verdure",
-                            "70g pane integrale tostato",
+                            "150g coniglio fresco o surgelato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco (mela, pera)",
                             "Sale, pepe, rosmarino, timo q.b."
                         ],
-                        preparazione: "Cuocere il coniglio in griglia o al forno con erbe aromatiche (rosmarino, timo), olio e limone a 180°C per circa 30-40 minuti. Preparare verdure grigliate o al vapore. Condire il tutto. Servire con pane tostato e frutta fresca."
+                        preparazione: "Cuocere il coniglio al forno con erbe (rosmarino, timo), olio e limone a 180°C per 30-40 minuti. Preparare verdure grigliate. Servire con pane e frutta."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure + Frutta + Cioccolato",
+                        nome: "Verdure + Salmone + Pane + Frutta + Cioccolato",
                         ingredienti: [
                             "200g salmone fresco",
                             "1 piatto abbondante verdure",
-                            "70g pane integrale tostato",
+                            "60-70g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco (150g)",
                             "20g cioccolato fondente 85% (2 quadretti)",
                             "Sale, pepe, limone, erbe aromatiche q.b."
                         ],
-                        preparazione: "Cuocere il salmone al forno in cartoccio a 180°C con olio, limone e erbe per 15 minuti. Aggiungere verdure grigliate. Condire il tutto. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato fondente come gratificazione settimanale."
+                        preparazione: "Cuocere il salmone al forno in cartoccio a 180°C con olio, limone e erbe. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
                     }
                 },
                 chiara: {
                     colazione: {
                         nome: "Avocado Toast Salato",
                         ingredienti: [
-                            "40g pane integrale (1 fetta)",
+                            "40g pane integrale (1 fetta tostata)",
                             "¼ avocado maturo",
-                            "60g salmone affumicato selvaggio",
+                            "50-60g salmone affumicato selvaggio",
                             "1 cucchiaio olio extravergine d'oliva",
                             "Sale, pepe e limone q.b."
                         ],
-                        preparazione: "Tostare leggermente il pane integrale. Spalmare il quarto di avocado sul pane. Disporre il salmone affumicato. Condire con limone, sale e pepe."
+                        preparazione: "Tostare il pane. Spalmare l'avocado. Disporre il salmone affumicato. Condire con limone, sale e pepe."
                     },
                     pranzo: {
-                        nome: "Coniglio + Verdure + Pane",
+                        nome: "Verdure + Coniglio + Pane + Frutta",
                         ingredienti: [
-                            "100g coniglio fresco o surgelato",
                             "1 piatto abbondante verdure",
-                            "50g pane integrale tostato",
+                            "100g coniglio fresco o surgelato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco",
                             "Sale, pepe, rosmarino, timo q.b."
                         ],
-                        preparazione: "Cuocere il coniglio in griglia o al forno con erbe aromatiche, olio e limone. Preparare verdure grigliate o al vapore. Condire il tutto. Servire con pane tostato e frutta fresca."
+                        preparazione: "Cuocere il coniglio al forno con erbe, olio e limone. Preparare verdure grigliate. Servire con pane e frutta."
                     },
                     cena: {
-                        nome: "Pesce al Forno + Verdure + Frutta + Cioccolato",
+                        nome: "Verdure + Pesce DIVERSO DA SALMONE + Pane + Frutta + Cioccolato",
                         ingredienti: [
-                            "150g salmone fresco",
+                            "150g pesce fresco DIVERSO DA SALMONE (branzino, orata, merluzzo, nasello, dentice, sgombro, trota)",
                             "1 piatto abbondante verdure",
-                            "50g pane integrale tostato",
+                            "40-50g pane integrale tostato",
                             "2-3 cucchiai olio extravergine d'oliva",
                             "1 frutto fresco (150g)",
-                            "20g cioccolato fondente 85% (2 quadretti)",
+                            "20g cioccolato fondente 85%",
                             "Sale, pepe, limone, erbe aromatiche q.b."
                         ],
-                        preparazione: "Cuocere il salmone al forno in cartoccio a 180°C con olio, limone e erbe per 15 minuti. Aggiungere verdure grigliate. Condire il tutto. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato fondente."
+                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato. NO SALMONE perché Eric ha salmone affumicato a colazione."
                     }
                 }
             }
@@ -1151,6 +1183,63 @@ body {
         function renderMeals() {
             const meals = menuData[currentDay][currentPerson];
             const container = document.getElementById('mealsContainer');
+            
+            // Helper function to render ingredients with optional sections
+            function renderIngredients(ingredienti) {
+                let html = '';
+                let inOptionalSection = false;
+                let mainIngredients = [];
+                let optionalIngredients = [];
+                
+                ingredienti.forEach(ing => {
+                    if (ing === '---') {
+                        inOptionalSection = true;
+                    } else if (inOptionalSection) {
+                        optionalIngredients.push(ing);
+                    } else {
+                        mainIngredients.push(ing);
+                    }
+                });
+                
+                // Render main ingredients
+                if (mainIngredients.length > 0) {
+                    html += '<div class="section-title">Piatto Principale (Obbligatorio)</div>';
+                    html += '<ul class="ingredients-list">';
+                    mainIngredients.forEach(ing => {
+                        html += `<li>${ing}</li>`;
+                    });
+                    html += '</ul>';
+                }
+                
+                // Render optional section
+                if (optionalIngredients.length > 0) {
+                    html += '<div class="section-title" style="color: var(--color-warning); margin-top: var(--space-24);">⭐ Secondo Piatto Opzionale (se desideri)</div>';
+                    html += '<p class="preparation-text" style="margin-bottom: var(--space-12); font-style: italic; color: var(--color-text-secondary);">Il passato è completo da solo. Puoi aggiungere un secondo solo se lo desideri:</p>';
+                    html += '<ul class="ingredients-list" style="background: rgba(var(--color-warning-rgb), 0.05); padding: var(--space-16); border-radius: var(--radius-base); border-left: 3px solid var(--color-warning);">';
+                    optionalIngredients.forEach(ing => {
+                        html += `<li>${ing}</li>`;
+                    });
+                    html += '</ul>';
+                }
+                
+                return html;
+            }
+            
+            // Check if dinner has optional section (Monday/Tuesday)
+            const hasOptionalDinner = (currentDay === 'lunedi' || currentDay === 'martedi') && 
+                                     meals.cena.ingredienti.some(ing => ing === '---');
+            
+            let cenaIngredientsHtml = '';
+            if (hasOptionalDinner) {
+                cenaIngredientsHtml = renderIngredients(meals.cena.ingredienti);
+            } else {
+                cenaIngredientsHtml = `
+                    <div class="section-title">Ingredienti</div>
+                    <ul class="ingredients-list">
+                        ${meals.cena.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                    </ul>
+                `;
+            }
             
             container.innerHTML = `
                 <div class="meal-card colazione">
@@ -1178,10 +1267,7 @@ body {
                 <div class="meal-card cena">
                     <h3 class="meal-title">Cena</h3>
                     <div class="meal-subtitle">${meals.cena.nome}</div>
-                    <div class="section-title">Ingredienti</div>
-                    <ul class="ingredients-list">
-                        ${meals.cena.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                    </ul>
+                    ${cenaIngredientsHtml}
                     <div class="section-title">Preparazione</div>
                     <p class="preparation-text">${meals.cena.preparazione}</p>
                 </div>
@@ -1218,6 +1304,24 @@ body {
             html += '<div class="recipe-category">';
             html += '<h3 class="category-title">Colazioni</h3>';
             recipesData.colazioni.forEach(recipe => {
+                html += `
+                    <div class="recipe-card">
+                        <h4 class="recipe-name">${recipe.nome}</h4>
+                        <div class="section-title">Ingredienti</div>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <div class="section-title">Preparazione</div>
+                        <p class="preparation-text">${recipe.preparazione}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            // Latticini
+            html += '<div class="recipe-category">';
+            html += '<h3 class="category-title">Latticini - Ricotta e Fiocchi di Latte</h3>';
+            recipesData.latticini.forEach(recipe => {
                 html += `
                     <div class="recipe-card">
                         <h4 class="recipe-name">${recipe.nome}</h4>
