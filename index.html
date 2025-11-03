@@ -250,6 +250,24 @@ body {
     border-color: var(--color-primary);
 }
 
+.recipes-btn {
+    background: var(--color-bg-3);
+    border: 2px solid var(--color-success);
+    font-weight: var(--font-weight-bold);
+}
+
+.recipes-btn:hover {
+    background: var(--color-bg-3);
+    border-color: var(--color-success);
+    transform: translateY(-2px);
+}
+
+.recipes-btn.active {
+    background: var(--color-success);
+    color: var(--color-btn-primary-text);
+    border-color: var(--color-success);
+}
+
 .person-toggle {
     display: flex;
     gap: var(--space-12);
@@ -363,6 +381,85 @@ body {
     margin: 0;
 }
 
+/* Recipes Section */
+.recipes-container {
+    display: none;
+}
+
+.recipes-container.active {
+    display: block;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-24);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    margin-bottom: var(--space-24);
+}
+
+.back-btn:hover {
+    background: var(--color-secondary-hover);
+}
+
+.recipes-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin: 0 0 var(--space-32) 0;
+    text-align: center;
+}
+
+.recipe-category {
+    margin-bottom: var(--space-32);
+}
+
+.category-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin: 0 0 var(--space-20) 0;
+    padding-bottom: var(--space-12);
+    border-bottom: 2px solid var(--color-border);
+    text-transform: uppercase;
+}
+
+.recipe-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-24);
+    margin-bottom: var(--space-20);
+    box-shadow: var(--shadow-sm);
+}
+
+.recipe-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.recipe-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin: 0 0 var(--space-16) 0;
+}
+
+.weekly-plan {
+    display: block;
+}
+
+.weekly-plan.hidden {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: var(--space-16);
@@ -416,6 +513,7 @@ body {
                     <button class="day-tab" data-day="venerdi">Venerdì</button>
                     <button class="day-tab" data-day="sabato">Sabato</button>
                     <button class="day-tab" data-day="domenica">Domenica</button>
+                    <button class="day-tab recipes-btn" id="recipesBtn">📖 RICETTE</button>
                 </div>
             </div>
 
@@ -428,12 +526,83 @@ body {
             </div>
         </div>
 
-        <div class="meals-container" id="mealsContainer">
-            <!-- Meals will be dynamically inserted here -->
+        <div class="weekly-plan" id="weeklyPlan">
+            <div class="meals-container" id="mealsContainer">
+                <!-- Meals will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="recipes-container" id="recipesContainer">
+            <button class="back-btn" id="backBtn">← Torna al Piano Settimanale</button>
+            <h2 class="recipes-title">Ricette Consigliate dal Nutrizionista</h2>
+            <div id="recipesContent">
+                <!-- Recipes will be dynamically inserted here -->
+            </div>
         </div>
     </div>
 
     <script>
+        const recipesData = {
+            colazioni: [
+                {
+                    nome: "Pancake",
+                    ingredienti: ["60g farina avena", "2 albumi", "70g yogurt greco", "Bicarbonato q.b.", "Limone q.b.", "Noce di burro per la cottura"],
+                    preparazione: "Mescolare farina avena con albumi e yogurt greco, aggiungere bicarbonato e limone per ottenere un impasto omogeneo. Cuocere in padella con una noce di burro finché il pancake non sia dorato su entrambi i lati. La ricetta è per 2 pancake, quindi ne avrai per due giorni."
+                },
+                {
+                    nome: "Tiramisù Fit",
+                    ingredienti: ["150g yogurt greco 0% bianco", "1 cucchiaino miele", "2 fette biscottate integrali", "10g cioccolato fondente 85%", "Caffè q.b.", "Cacao amaro q.b."],
+                    preparazione: "Bagnare le 2 fette biscottate con caffè tiepido. Riponi le fette bagnate in una tazza. Aggiungi lo yogurt greco, 1 cucchiaino di miele per dolcificare, 1 quadretto (10g) di cioccolato fondente sbriciolato. Completa la preparazione con una spolverata di cacao amaro. Riponi in frigo e servi freddo."
+                },
+                {
+                    nome: "Avocado Toast Salato",
+                    ingredienti: ["40g pane integrale (1 fetta)", "¼ avocado maturo", "70g salmone affumicato selvaggio (oppure prosciutto cotto Rovagnati o uovo)", "1 cucchiaio olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "Limone q.b."],
+                    preparazione: "Tostare leggermente il pane integrale. Spalmare il quarto di avocado maturo sul pane con una forchettina. Disporre il salmone affumicato affettato sopra l'avocado. Condire con limone, sale e pepe a piacere."
+                }
+            ],
+            carni: [
+                {
+                    nome: "Cubetti di Pollo alla Curcuma e Avocado",
+                    ingredienti: ["120g petto di pollo", "12g avocado", "Qualche pomodorino", "½ cucchiaino curcuma in polvere", "Sale q.b.", "Pepe q.b.", "1 rametto timo fresco"],
+                    preparazione: "Tagliate il petto di pollo a cubetti da circa 4 cm per lato. Sbucciate l'avocado, sciacquate i pomodorini e tagliate tutto a dadini. Scaldate bene una padella antiaderente e cuocete il pollo muovendolo di tanto in tanto in modo da dorarlo su tutti i lati (circa 10-12 minuti). Una volta pronto aggiungete la curcuma, saltate leggermente, spolverate con pepe e mescolate. Mettete nel piatto i cubetti di pollo, aggiungete i dadini di avocado e pomodoro, guarnite con qualche foglia di timo fresco."
+                },
+                {
+                    nome: "Pollo Aromatizzato al Timo",
+                    ingredienti: ["120g petto di pollo", "1 spicchio aglio", "20g olive nere", "10g capperi dissalati", "Timo fresco q.b.", "1 cucchiaino olio extravergine d'oliva", "1-2 mestoli brodo vegetale", "Sale q.b.", "Pepe q.b."],
+                    preparazione: "Rosolare il pollo con l'olio, l'aglio schiacciato, il sale e il pepe per 10 minuti fino a dorare leggermente. Unire le olive nere tagliate a metà e private del nocciolo, i capperi dissalati ben sciacquati, il timo fresco e il brodo vegetale con un dado privo di glutammato di sodio. Coprire e cuocere per altri 45-50 minuti a fuoco medio-basso, mescolando di tanto in tanto e aggiungendo brodo se necessario."
+                }
+            ],
+            pesci: [
+                {
+                    nome: "Salmone Fresco con Pomodorini e Olive",
+                    ingredienti: ["700-800g salmone fresco senza pelle e spine", "500-600g pomodorini ciliegini", "100g olive nere", "Basilico fresco q.b.", "Olio extravergine d'oliva q.b.", "Sale iodato q.b.", "Pepe q.b."],
+                    preparazione: "Preparate una padella con un velo di acqua e qualche foglia di basilico tritata. Scaldate la padella a fuoco alto e mettete a cuocere i filetti di salmone, girandoli spesso su ambo i lati senza farli cuocere troppo (circa 3-4 minuti per lato). Terminata la cottura lasciateli riposare. Aggiungete i pomodorini lavati e tagliati a metà, olive nere, sale e pepe. Riaccendete il fuoco per qualche minuto e aggiungete ancora del basilico tritato fresco. Dopo massimo 5 minuti di cottura chiudete il fuoco, lasciate raffreddare leggermente e servite nei piatti condendo a crudo con un filo di olio extravergine d'oliva."
+                },
+                {
+                    nome: "Salmone Marinato al Lime e Zenzero con Semi di Chia",
+                    ingredienti: ["1 lime", "2 cm di radice di zenzero fresco", "180-200g salmone fresco senza pelle", "10g semi di chia", "30g misticanza (insalata mista)", "Sale q.b.", "Pepe q.b."],
+                    preparazione: "Grattugiate la scorza di un lime e mettetela da parte. Spremete il succo, miscelatelo allo zenzero grattugiato fresco e versate il condimento marinato sul filetto di salmone. Lasciate marinare per 10 minuti a temperatura ambiente. Poi tamponate il salmone con un pezzo di carta da cucina e ricoprite la superficie con i semi di chia premendoli leggermente. Scaldate bene una padella antiaderente e cuocete a fiamma viva il salmone per tre minuti per lato (mantenendolo al dente). Mettete nel piatto le foglie d'insalata mista, adagiatevi sopra il salmone tagliato a fette, spolverate con un pizzico di sale, pepe e guarnite con scorza di lime grattugiata."
+                },
+                {
+                    nome: "Seppioline con Asparagi",
+                    ingredienti: ["200g seppie pulite", "200g asparagi freschi", "1 ciuffo prezzemolo fresco", "1 spicchio aglio", "Peperoncino fresco q.b.", "1 cucchiaino olio extravergine d'oliva", "1-2 mestoli acqua bollente", "Sale q.b."],
+                    preparazione: "Pulire le seppie eliminando la sacca di inchiostro e tagliarle a rondelle o a strisce sottili. Rosolare in padella l'aglio schiacciato con un po' d'acqua e olio a fiamma bassa (3-4 minuti). Aggiungete le seppie e lasciarle scottare e cuocere lentamente per 45 minuti, aggiungendo di tanto in tanto dell'acqua calda per evitare che si secchino. A parte, pulite gli asparagi e tagliateli, quindi cuoceteli in acqua salata bollente per circa 10 minuti finché non siano al dente. Scolateli e uniteli alle seppie negli ultimi 5 minuti di cottura. Completate con prezzemolo tritato fresco, sale e pepe a piacere."
+                }
+            ],
+            contorni: [
+                {
+                    nome: "Hummus di Ceci",
+                    ingredienti: ["200g ceci secchi (ammollati per 24 ore)", "2 spicchi aglio", "Succo di 1 limone", "3-4 cucchiai olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "1 pizzico paprika dolce", "Acqua di cottura dei ceci q.b."],
+                    preparazione: "Mettere i ceci in ammollo per 24 ore in acqua fredda, cambiandola se possibile durante il giorno. Sciacquarli bene e cuocerli in acqua salata fino a renderli morbidi (circa 1-2 ore a fuoco medio o in pentola a pressione 20 minuti). Scolare i ceci mantenendo da parte parte dell'acqua di cottura. Frullare i ceci cotti con aglio, succo di limone fresco, olio extravergine d'oliva, sale e pepe. Aggiungere l'acqua di cottura poco a poco mentre frullate fino a raggiungere la consistenza desiderata (cremosa e liscia). Versare in una ciotola, fare un piccolo incavo al centro, versarvi un filo di olio EVO e una spolverata di paprika dolce. Servire con crostini di pane integrale tostato."
+                },
+                {
+                    nome: "Vellutata di Legumi e Verdure",
+                    ingredienti: ["150g legumi misti secchi (lenticchie rosse, fagioli, ceci - mix a piacere)", "200g verdure di stagione (carote, sedano, zucchine, broccoli)", "1 cipolla media", "2 spicchi aglio", "4-5 mestoli brodo vegetale leggero", "2 cucchiai olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "Prezzemolo fresco q.b.", "Pane integrale tostato per crostini"],
+                    preparazione: "Ammollare i legumi misti secchi per 24 ore in acqua fredda. Sciacquarli bene e riporli in una pentola. Tritare la cipolla e l'aglio finemente e farli rosolare brevemente in olio extravergine. Aggiungere i legumi sciacquati, le verdure tagliate a pezzi grossi e il brodo vegetale. Portare a ebollizione, quindi abbassare il fuoco e cuocere a fuoco medio per 45-60 minuti fino a quando tutti gli ingredienti siano ben cotti e teneri. A cottura ultimata, frullare il tutto con un frullatore ad immersione fino a ottenere una consistenza liscia e vellutata, aggiungendo brodo se troppo densa. Aggiustare di sale e pepe. Versare nei piatti, guarnire con un filo di olio EVO e prezzemolo fresco tritato. Servire con crostini di pane integrale tostato per inzupparvi dentro."
+                }
+            ]
+        };
+
         const menuData = {
             lunedi: {
                 eric: {
@@ -977,6 +1146,7 @@ body {
 
         let currentDay = 'lunedi';
         let currentPerson = 'eric';
+        let currentView = 'weekly'; // 'weekly' or 'recipes'
 
         function renderMeals() {
             const meals = menuData[currentDay][currentPerson];
@@ -1036,6 +1206,119 @@ body {
                 currentPerson = btn.dataset.person;
                 renderMeals();
             });
+        });
+
+        // Recipes view functions
+        function renderRecipes() {
+            const container = document.getElementById('recipesContent');
+            
+            let html = '';
+            
+            // Colazioni
+            html += '<div class="recipe-category">';
+            html += '<h3 class="category-title">Colazioni</h3>';
+            recipesData.colazioni.forEach(recipe => {
+                html += `
+                    <div class="recipe-card">
+                        <h4 class="recipe-name">${recipe.nome}</h4>
+                        <div class="section-title">Ingredienti</div>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <div class="section-title">Preparazione</div>
+                        <p class="preparation-text">${recipe.preparazione}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            // Carni
+            html += '<div class="recipe-category">';
+            html += '<h3 class="category-title">Piatti Principali - Carni</h3>';
+            recipesData.carni.forEach(recipe => {
+                html += `
+                    <div class="recipe-card">
+                        <h4 class="recipe-name">${recipe.nome}</h4>
+                        <div class="section-title">Ingredienti</div>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <div class="section-title">Preparazione</div>
+                        <p class="preparation-text">${recipe.preparazione}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            // Pesci
+            html += '<div class="recipe-category">';
+            html += '<h3 class="category-title">Piatti Principali - Pesci</h3>';
+            recipesData.pesci.forEach(recipe => {
+                html += `
+                    <div class="recipe-card">
+                        <h4 class="recipe-name">${recipe.nome}</h4>
+                        <div class="section-title">Ingredienti</div>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <div class="section-title">Preparazione</div>
+                        <p class="preparation-text">${recipe.preparazione}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            // Contorni
+            html += '<div class="recipe-category">';
+            html += '<h3 class="category-title">Contorni e Piatti Unici</h3>';
+            recipesData.contorni.forEach(recipe => {
+                html += `
+                    <div class="recipe-card">
+                        <h4 class="recipe-name">${recipe.nome}</h4>
+                        <div class="section-title">Ingredienti</div>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                        <div class="section-title">Preparazione</div>
+                        <p class="preparation-text">${recipe.preparazione}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+
+        function showRecipes() {
+            currentView = 'recipes';
+            document.getElementById('weeklyPlan').classList.add('hidden');
+            document.getElementById('recipesContainer').classList.add('active');
+            document.querySelectorAll('.day-tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById('recipesBtn').classList.add('active');
+            renderRecipes();
+        }
+
+        function showWeeklyPlan() {
+            currentView = 'weekly';
+            document.getElementById('weeklyPlan').classList.remove('hidden');
+            document.getElementById('recipesContainer').classList.remove('active');
+            document.getElementById('recipesBtn').classList.remove('active');
+            // Restore the active day tab
+            document.querySelectorAll('.day-tab').forEach(tab => {
+                if (tab.dataset.day === currentDay) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        // Recipes button event listener
+        document.getElementById('recipesBtn').addEventListener('click', () => {
+            showRecipes();
+        });
+
+        // Back button event listener
+        document.getElementById('backBtn').addEventListener('click', () => {
+            showWeeklyPlan();
         });
 
         // Initial render
