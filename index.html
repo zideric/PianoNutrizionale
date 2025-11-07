@@ -3,1435 +3,726 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Nutrizionale Settimanale - Eric e Chiara</title>
+    <title>Piano Nutrizionale - Eric e Chiara</title>
     <style>
-        :root {
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
+:root {
   --color-cream-50: rgba(252, 252, 249, 1);
   --color-cream-100: rgba(255, 255, 253, 1);
   --color-gray-200: rgba(245, 245, 245, 1);
   --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
   --color-slate-500: rgba(98, 108, 113, 1);
   --color-brown-600: rgba(94, 82, 64, 1);
   --color-charcoal-700: rgba(31, 33, 33, 1);
   --color-charcoal-800: rgba(38, 40, 40, 1);
   --color-slate-900: rgba(19, 52, 59, 1);
   --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
   --color-teal-500: rgba(33, 128, 141, 1);
   --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
-
   --color-brown-600-rgb: 94, 82, 64;
   --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
-
-  --color-bg-1: rgba(59, 130, 246, 0.08);
-  --color-bg-2: rgba(245, 158, 11, 0.08);
-  --color-bg-3: rgba(34, 197, 94, 0.08);
-  --color-bg-4: rgba(239, 68, 68, 0.08);
-  --color-bg-5: rgba(147, 51, 234, 0.08);
-  --color-bg-6: rgba(249, 115, 22, 0.08);
-  --color-bg-7: rgba(236, 72, 153, 0.08);
-  --color-bg-8: rgba(6, 182, 212, 0.08);
-
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
   --color-text: var(--color-slate-900);
   --color-text-secondary: var(--color-slate-500);
   --color-primary: var(--color-teal-500);
   --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
   --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
   --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
-
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-size-sm: 12px;
   --font-size-base: 14px;
-  --font-size-md: 14px;
   --font-size-lg: 16px;
   --font-size-xl: 18px;
   --font-size-2xl: 20px;
   --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-
-  --space-4: 4px;
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
-  --space-20: 20px;
   --space-24: 24px;
   --space-32: 32px;
-
-  --radius-sm: 6px;
   --radius-base: 8px;
-  --radius-md: 10px;
   --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-
-    --color-bg-1: rgba(29, 78, 216, 0.15);
-    --color-bg-2: rgba(180, 83, 9, 0.15);
-    --color-bg-3: rgba(21, 128, 61, 0.15);
-    --color-bg-4: rgba(185, 28, 28, 0.15);
-    --color-bg-5: rgba(107, 33, 168, 0.15);
-    --color-bg-6: rgba(194, 65, 12, 0.15);
-    --color-bg-7: rgba(190, 24, 93, 0.15);
-    --color-bg-8: rgba(8, 145, 178, 0.15);
-
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-primary-active: var(--color-teal-800);
-    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-error: var(--color-red-400);
-    --color-success: var(--color-teal-300);
-    --color-warning: var(--color-orange-400);
-    --color-info: var(--color-gray-300);
-    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-  }
-}
-
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
-}
-
-html {
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding: 0;
+  padding: var(--space-24);
+  font-family: var(--font-family-base);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* Custom Styles */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-24);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header {
-    text-align: center;
-    margin-bottom: var(--space-32);
-    padding-bottom: var(--space-24);
-    border-bottom: 2px solid var(--color-border);
+  text-align: center;
+  margin-bottom: var(--space-32);
+  padding-bottom: var(--space-24);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .header h1 {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-8) 0;
+  font-size: var(--font-size-3xl);
+  margin: 0 0 var(--space-8) 0;
 }
 
-.header h2 {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-secondary);
-    margin: 0;
+.nav-buttons {
+  display: flex;
+  gap: var(--space-12);
+  margin-bottom: var(--space-24);
+  flex-wrap: wrap;
 }
 
-.controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-24);
-    margin-bottom: var(--space-32);
+.nav-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.control-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-12);
+.nav-btn:hover {
+  border-color: var(--color-primary);
 }
 
-.control-label {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
+.nav-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
 }
 
-.day-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8);
+.day-selector {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  flex-wrap: wrap;
 }
 
-.day-tab {
-    flex: 1;
-    min-width: 100px;
-    padding: var(--space-12) var(--space-16);
-    background: var(--color-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-standard);
-    text-align: center;
+.day-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
 }
 
-.day-tab:hover {
-    background: var(--color-secondary-hover);
-}
-
-.day-tab.active {
-    background: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    border-color: var(--color-primary);
-}
-
-.recipes-btn {
-    background: var(--color-bg-3);
-    border: 2px solid var(--color-success);
-    font-weight: var(--font-weight-bold);
-}
-
-.recipes-btn:hover {
-    background: var(--color-bg-3);
-    border-color: var(--color-success);
-    transform: translateY(-2px);
-}
-
-.recipes-btn.active {
-    background: var(--color-success);
-    color: var(--color-btn-primary-text);
-    border-color: var(--color-success);
+.day-btn.active {
+  background: var(--color-primary);
+  color: white;
 }
 
 .person-toggle {
-    display: flex;
-    gap: var(--space-12);
+  display: flex;
+  gap: var(--space-12);
+  margin-bottom: var(--space-24);
 }
 
 .person-btn {
-    flex: 1;
-    padding: var(--space-16) var(--space-24);
-    background: var(--color-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.person-btn:hover {
-    background: var(--color-secondary-hover);
+  flex: 1;
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .person-btn.active {
-    background: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
 }
 
-.meals-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-24);
+.meals-grid {
+  display: grid;
+  gap: var(--space-24);
 }
 
 .meal-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-24);
-    box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
 }
 
-.meal-card.colazione {
-    background: var(--color-bg-2);
-}
-
-.meal-card.pranzo {
-    background: var(--color-bg-3);
-}
-
-.meal-card.cena {
-    background: var(--color-bg-1);
-}
+.meal-card.colazione { background: rgba(59, 130, 246, 0.08); }
+.meal-card.pranzo { background: rgba(34, 197, 94, 0.08); }
+.meal-card.cena { background: rgba(245, 158, 11, 0.08); }
 
 .meal-title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-16) 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0 0 var(--space-8) 0;
+  text-transform: uppercase;
 }
 
-.meal-subtitle {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-16) 0;
+.meal-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--space-16);
+  color: var(--color-text-secondary);
 }
 
 .section-title {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: var(--space-20) 0 var(--space-12) 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  margin: var(--space-16) 0 var(--space-8) 0;
+  text-transform: uppercase;
 }
 
-.section-title:first-of-type {
-    margin-top: 0;
+ul {
+  margin: 0;
+  padding-left: var(--space-24);
 }
 
-.ingredients-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+li {
+  margin-bottom: var(--space-8);
+  line-height: 1.5;
 }
 
-.ingredients-list li {
-    padding: var(--space-8) 0;
-    padding-left: var(--space-24);
-    position: relative;
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
-    color: var(--color-text);
+.hidden { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  margin-top: var(--space-24);
 }
 
-.ingredients-list li::before {
-    content: "•";
-    position: absolute;
-    left: var(--space-8);
-    color: var(--color-primary);
-    font-weight: var(--font-weight-bold);
+th, td {
+  border: 1px solid var(--color-border);
+  padding: var(--space-12);
+  text-align: left;
+  font-size: var(--font-size-sm);
 }
 
-.preparation-text {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-}
-
-/* Recipes Section */
-.recipes-container {
-    display: none;
-}
-
-.recipes-container.active {
-    display: block;
-}
-
-.back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-8);
-    padding: var(--space-12) var(--space-24);
-    background: var(--color-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-standard);
-    margin-bottom: var(--space-24);
-}
-
-.back-btn:hover {
-    background: var(--color-secondary-hover);
-}
-
-.recipes-title {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-32) 0;
-    text-align: center;
-}
-
-.recipe-category {
-    margin-bottom: var(--space-32);
-}
-
-.category-title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-20) 0;
-    padding-bottom: var(--space-12);
-    border-bottom: 2px solid var(--color-border);
-    text-transform: uppercase;
+th {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
 }
 
 .recipe-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-24);
-    margin-bottom: var(--space-20);
-    box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  margin-bottom: var(--space-24);
 }
 
-.recipe-card:hover {
-    box-shadow: var(--shadow-md);
+.recipe-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0 0 var(--space-16) 0;
 }
 
-.recipe-name {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin: 0 0 var(--space-16) 0;
+.badge {
+  display: inline-block;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-12);
 }
 
-.weekly-plan {
-    display: block;
+.badge-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--color-text);
+  border: 1px solid rgba(245, 158, 11, 0.4);
 }
 
-.weekly-plan.hidden {
-    display: none;
+.badge-success {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--color-text);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.person-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  margin-bottom: var(--space-16);
+}
+
+.person-card.eric {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.person-card.chiara {
+  border-color: rgba(236, 72, 153, 0.4);
+  background: rgba(236, 72, 153, 0.05);
+}
+
+.person-name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-12);
+  text-transform: uppercase;
+}
+
+.person-card.eric .person-name {
+  color: rgba(29, 78, 216, 1);
+}
+
+.person-card.chiara .person-name {
+  color: rgba(190, 24, 93, 1);
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: var(--space-16);
-    }
-    
-    .header h1 {
-        font-size: var(--font-size-3xl);
-    }
-    
-    .day-tabs {
-        flex-direction: column;
-    }
-    
-    .day-tab {
-        min-width: auto;
-    }
-}
-
-@media print {
-    .controls {
-        display: none;
-    }
-    
-    .meal-card {
-        page-break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
-    
-    body {
-        background: white;
-    }
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
 }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
+        <div class="header">
             <h1>Piano Nutrizionale Settimanale</h1>
             <h2>Eric e Chiara</h2>
-        </header>
-
-        <div class="controls">
-            <div class="control-group">
-                <div class="control-label">Seleziona Giorno</div>
-                <div class="day-tabs" id="dayTabs">
-                    <button class="day-tab active" data-day="lunedi">Lunedì</button>
-                    <button class="day-tab" data-day="martedi">Martedì</button>
-                    <button class="day-tab" data-day="mercoledi">Mercoledì</button>
-                    <button class="day-tab" data-day="giovedi">Giovedì</button>
-                    <button class="day-tab" data-day="venerdi">Venerdì</button>
-                    <button class="day-tab" data-day="sabato">Sabato</button>
-                    <button class="day-tab" data-day="domenica">Domenica</button>
-                    <button class="day-tab recipes-btn" id="recipesBtn">📖 RICETTE</button>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">Seleziona Persona</div>
-                <div class="person-toggle">
-                    <button class="person-btn active" data-person="eric">Eric</button>
-                    <button class="person-btn" data-person="chiara">Chiara</button>
-                </div>
-            </div>
         </div>
 
-        <div class="weekly-plan" id="weeklyPlan">
-            <div class="meals-container" id="mealsContainer">
-                <!-- Meals will be dynamically inserted here -->
-            </div>
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showView('daily')">PIANO GIORNALIERO</button>
+            <button class="nav-btn" onclick="showView('table')">TABELLA SETTIMANALE</button>
+            <button class="nav-btn" onclick="showView('recipes')">RICETTE</button>
         </div>
 
-        <div class="recipes-container" id="recipesContainer">
-            <button class="back-btn" id="backBtn">← Torna al Piano Settimanale</button>
-            <h2 class="recipes-title">Ricette Consigliate dal Nutrizionista</h2>
-            <div id="recipesContent">
-                <!-- Recipes will be dynamically inserted here -->
-            </div>
+        <div id="dailyView">
+            <div class="day-selector" id="daySelector"></div>
+
+            <div class="meals-grid" id="mealsGrid"></div>
+        </div>
+
+        <div id="tableView" class="hidden">
+            <h2>Tabella Settimanale Completa</h2>
+            <div id="weeklyTable"></div>
+        </div>
+
+        <div id="recipesView" class="hidden">
+            <h2>Ricette Disponibili</h2>
+            <div id="recipesList"></div>
         </div>
     </div>
 
     <script>
-        const recipesData = {
-            colazioni: [
-                {
-                    nome: "Fiocchi di Latte con Frutta e Miele",
-                    ingredienti: ["200g Fiocchi di latte freschi", "1 frutto fresco (kiwi, mela, banana)", "1 cucchiaino miele", "10g frutta secca oleosa (noci, mandorle, nocciole)"],
-                    preparazione: "Versare i fiocchi di latte in una ciotola. Tagliare il frutto fresco a pezzetti e aggiungerli ai fiocchi. Condire con un cucchiaino di miele come dolcificante naturale. Aggiungere la frutta secca oleosa scelta (noci, mandorle o nocciole). Mescolare delicatamente e consumare subito. È un'ottima colazione proteica e cremosa."
-                },
-                {
-                    nome: "Ricotta con Frutta",
-                    ingredienti: ["150g Ricotta vaccina senza crema di latte (Eric) o 100g (Chiara)", "1 frutto fresco di stagione", "1 cucchiaino miele (opzionale)", "10g frutta secca oleosa a piacere"],
-                    preparazione: "Versare la ricotta in una ciotola. Tagliare il frutto fresco a pezzetti e disporlo sulla ricotta. Se desideri, aggiungi un cucchiaino di miele per dolcificare. Completa con la frutta secca oleosa scelta. La ricotta è versatile e può essere consumata sia a colazione che come dolce dopo i pasti."
-                },
-                {
-                    nome: "Pancake",
-                    ingredienti: ["60g farina avena", "2 albumi", "70g yogurt greco", "Bicarbonato q.b.", "Limone q.b.", "Noce di burro per la cottura"],
-                    preparazione: "Mescolare farina avena con albumi e yogurt greco, aggiungere bicarbonato e limone per ottenere un impasto omogeneo. Cuocere in padella con una noce di burro finché il pancake non sia dorato su entrambi i lati. La ricetta è per 2 pancake, quindi ne avrai per due giorni."
-                },
-                {
-                    nome: "Tiramisù Fit",
-                    ingredienti: ["150g yogurt greco 0% bianco", "1 cucchiaino miele", "2 fette biscottate integrali", "10g cioccolato fondente 85%", "Caffè q.b.", "Cacao amaro q.b."],
-                    preparazione: "Bagnare le 2 fette biscottate con caffè tiepido. Riponi le fette bagnate in una tazza. Aggiungi lo yogurt greco, 1 cucchiaino di miele per dolcificare, 1 quadretto (10g) di cioccolato fondente sbriciolato. Completa la preparazione con una spolverata di cacao amaro. Riponi in frigo e servi freddo."
-                },
-                {
-                    nome: "Avocado Toast Salato",
-                    ingredienti: ["40g pane integrale (1 fetta)", "¼ avocado maturo", "70g salmone affumicato selvaggio (oppure prosciutto cotto Rovagnati o uovo)", "1 cucchiaio olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "Limone q.b."],
-                    preparazione: "Tostare leggermente il pane integrale. Spalmare il quarto di avocado maturo sul pane con una forchettina. Disporre il salmone affumicato affettato sopra l'avocado. Condire con limone, sale e pepe a piacere."
-                }
+        const data = {lunedi:{colazione:{nome:'Colazione Differenziata',eric:{titolo:'Avocado Toast Salato',ingredienti:['40g pane integrale tostato','¼ avocado (25g)','70g salmone affumicato','Limone, sale, pepe']},chiara:{titolo:'Kefir + Frutta + Avena',ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g mandorle']}},pranzo:{nome:'Cereali e Legumi con Verdure',eric:{ingredienti:['100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','Sale e spezie q.b.']},chiara:{ingredienti:['80g misto cereali legumi secchi','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','Sale e spezie q.b.']},nota:'Ammollare i cereali e legumi 24h prima della cottura'},cena:{nome:'Passato Verdura + Prosciutto Cotto o Formaggio',eric:{ingredienti:['1 piatto passato verdura pronto','100g Prosciutto cotto OPPURE 100g Mozzarella fresca','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']},chiara:{ingredienti:['1 piatto passato verdura pronto','70g Prosciutto cotto OPPURE 100g Mozzarella fresca','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']}}},martedi:{colazione:{nome:'Porridge Overnight Oats',eric:{ingredienti:['20g fiocchi avena BIO','100ml latte parz.scremato (mettere in frigo la notte precedente)','150g yogurt greco 0%','1 frutto fresco (mela, kiwi, banana)','2 cucchiaini semi misti (lino, girasole, zucca)','1 cucchiaino miele (opzionale)']},chiara:{ingredienti:['20g fiocchi avena BIO','100ml latte parz.scremato (mettere in frigo la notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']},nota:'Preparare la sera precedente mettendo avena e latte in frigorifero'},pranzo:{nome:'Verdure + Riso + Salmone (PIATTO UNICO - SENZA PANE)',eric:{ingredienti:['1 piatto abbondante verdure miste','80g riso integrale o basmati cottura al dente','200g salmone fresco','2-3 cucchiai olio extravergine d\'oliva','Limone, sale, pepe']},chiara:{ingredienti:['1 piatto abbondante verdure miste','60g riso integrale o basmati cottura al dente','150g salmone fresco','2-3 cucchiai olio extravergine d\'oliva','Limone, sale, pepe']},badge:'SENZA PANE'},cena:{nome:'Verdure + Pollo/Tacchino/Lonza + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','150g pollo petto OPPURE tacchino OPPURE lonza','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','100g pollo petto OPPURE tacchino OPPURE lonza','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},mercoledi:{colazione:{nome:'Kefir + Frutta + Avena + Frutta Secca',eric:{ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g noci (circa 2 noci)']},chiara:{ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g mandorle (circa 5-6)']}},pranzo:{nome:'Verdure + Bresaola + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure miste crude','100g Bresaola Valtellina IGP','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure miste crude','70g Bresaola Valtellina IGP','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'Passato Verdura + Uova',eric:{ingredienti:['1 piatto passato verdura pronto','2 Uova intere (sode, alla coque o frittata con verdure)','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']},chiara:{ingredienti:['1 piatto passato verdura pronto','2 Uova intere (sode, alla coque o frittata con verdure)','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']}}},giovedi:{colazione:{nome:'Kefir + Frutta + Avena + Frutta Secca',eric:{ingredienti:['200ml Kefir bianco','1 frutto di stagione (mela, kiwi, banana)','20g fiocchi avena BIO','10g frutta secca (noci, mandorle)']},chiara:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','20g fiocchi avena BIO','10g frutta secca']}},pranzo:{nome:'Verdure + Pasta/Riso + Pesce/Carne (PIATTO UNICO - SENZA PANE)',eric:{ingredienti:['1 piatto abbondante verdure','80g pasta o riso integrale cottura al dente','200g pesce fresco OPPURE 150g carne bianca','2-3 cucchiai olio extravergine d\'oliva','Pomodoro passato se pasta, o verdure per riso']},chiara:{ingredienti:['1 piatto abbondante verdure','60g pasta o riso integrale cottura al dente','150g pesce fresco OPPURE 100g carne bianca','2-3 cucchiai olio extravergine d\'oliva','Pomodoro passato se pasta']},badge:'PIATTO UNICO'},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco (branzino, orata, merluzzo, salmone)','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},venerdi:{colazione:{nome:'Porridge Overnight Oats',eric:{ingredienti:['20g fiocchi avena BIO + 100ml latte (notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']},chiara:{ingredienti:['20g fiocchi avena BIO + 100ml latte (notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']}},pranzo:{nome:'Verdure + Uova/Formaggio + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','2 Uova intere OPPURE 100g Formaggio (mozzarella/ricotta)','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','2 Uova intere OPPURE 100g Formaggio','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'PIZZA - Pasto Libero',eric:{ingredienti:['Pizza a scelta con verdure','Prosciutto/mozzarella a piacere','Insalata mista antipasto','Acqua naturale','Dessert opzionale (frutta, gelato)']},chiara:{ingredienti:['Pizza a scelta con verdure','Prosciutto/mozzarella a piacere','Insalata mista antipasto','Acqua naturale','Dessert opzionale']},badge:'PASTO LIBERO'}},sabato:{colazione:{nome:'Kefir + Frutta (SENZA AVENA)',eric:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','Tè o caffè senza zucchero']},chiara:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','Tè o caffè senza zucchero']}},pranzo:{nome:'Cereali e Legumi con Verdure',eric:{ingredienti:['100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','1 cucchiaino parmigiano (opzionale)']},chiara:{ingredienti:['80g misto cereali legumi secchi','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','1 cucchiaino parmigiano (opzionale)']}},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},domenica:{colazione:{nome:'Pancake + Confettura + Latte + Caffè',eric:{ingredienti:['1 pancake','Confettura senza zuccheri Rigoni di Asiago','150ml latte parz.scremato','Caffè se gradito']},chiara:{ingredienti:['1 pancake','Confettura senza zuccheri','150ml latte parz.scremato','Caffè se gradito']}},pranzo:{nome:'Verdure + Pollo/Tacchino/Lonza + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','150g pollo petto OPPURE tacchino OPPURE lonza','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','100g pollo petto OPPURE tacchino OPPURE lonza','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}}}
+
+        const ricette = {
+            colazioni_dolci: [
+                {titolo:'Pancake Low Carb',fonte:'nutrizionista',tempo:'10 minuti',ingredienti:['60g farina di avena','2 albumi di uova BIO','70g yogurt greco bianco 0%','1 pizzico di bicarbonato di sodio','Qualche goccia di limone','50ml latte parz.scremato','Noce di burro per la padella'],preparazione:'Mescolare farina di avena, albumi, yogurt greco, bicarbonato e limone fino a ottenere un composto omogeneo. Riscaldare padella antiaderente con noce di burro. Versare il composto e cuocere fino a doratura su entrambi i lati. Consiglio: prepararne alcuni nel fine settimana per scaldare al mattino.',note:'Ricetta dal nutrizionista. Porzione per 2 pancake. Può essere congelato e scaldato.',varianti:['Aggiungere 10g cioccolato fondente 85%','Usare frutta fresca come topping']},
+                {titolo:'Porridge Overnight Oats',fonte:'nutrizionista',tempo:'0 minuti (preparazione notturna)',ingredienti:['20g fiocchi di avena BIO','100ml latte parz.scremato','150g yogurt greco 0%','1 porzione frutta di stagione (kiwi, mela, banana)','2 cucchiaini semi misti (lino, girasole, zucca) OPPURE 10g frutta secca'],preparazione:'Sera precedente: mettere in frigorifero avena e latte per tutta la notte. Al mattino: unire yogurt greco, frutta fresca a pezzi e semi/frutta secca. Mescolare bene. Servire freddo dal frigo.',note:'Ricetta dal nutrizionista. Perfetto per colazione veloce. Preparare la sera prima.',varianti:['Usare frutti di bosco invece di kiwi','Aggiungere cannella per sapore']},
+                {titolo:'Tiramisù Fit',fonte:'nutrizionista',tempo:'0 minuti (assembly)',ingredienti:['150g yogurt greco 0% bianco','1 cucchiaino miele','2 fette biscottate integrali','10g cioccolato fondente 85%','1 cucchiaino cacao amaro','Caffè freddo q.b.'],preparazione:'Bagnare le fette biscottate con caffè freddo. Disporre in una tazza. Aggiungere yogurt greco, miele, cioccolato sbriciolato e cacao. Completare con una spolverata di cacao amaro. Servire freddo dal frigo.',note:'Ricetta dal nutrizionista. Dolce ma leggero. Perfetto come colazione speciale.',varianti:['Usare caffè d\'orzo per versione più leggera']},
+                {titolo:'Kefir con Avena e Frutta',fonte:'nutrizionista',tempo:'0 minuti',ingredienti:['200ml Kefir bianco al naturale (tipo MILK)','1 porzione frutta di stagione (kiwi, mela)','20g fiocchi avena BIO','10g frutta secca (noci, mandorle, nocciole) OPPURE 10g cioccolato fondente 85%'],preparazione:'Versare Kefir in tazza. Aggiungere frutta fresca tagliata a pezzetti. Cospargere di fiocchi avena. Aggiungere frutta secca scelta. Mescolare.',note:'Ricetta dal nutrizionista. Semplice e veloce. Perfetto per digestione.',varianti:['Varia frutta secondo stagione','Usa semi invece di frutta secca']},
+                {titolo:'Yogurt Greco Creativo',fonte:'creativa',tempo:'0 minuti',ingredienti:['150g yogurt greco 0-2% bianco','1 porzione frutta di stagione','20g fiocchi avena BIO','10g frutta secca a scelta (noci, mandorle, nocciole)'],preparazione:'Versare yogurt in tazza. Aggiungere frutta tagliata. Cospargere avena e frutta secca.',note:'Versatile: varia la frutta secondo la stagione. Ricco di proteine e probiotici.',varianti:['Aggiungere miele','Usare frutti di bosco congelati']},
+                {titolo:'Frullato Proteico',fonte:'creativa',tempo:'5 minuti',ingredienti:['200ml latte parz.scremato','150g yogurt greco 0%','1 frutto di stagione','10g mandorle','Limone q.b.'],preparazione:'Frullare insieme latte, yogurt, frutto e mandorle. Aggiungere limone. Servire freddo.',note:'Bevanda nutriente e saziante. Perfetto pre-allenamento.',varianti:['Aggiungere cannella','Usare banana per versione più dolce']}
             ],
-            carni: [
-                {
-                    nome: "Cubetti di Pollo alla Curcuma e Avocado",
-                    ingredienti: ["120g petto di pollo", "12g avocado", "Qualche pomodorino", "½ cucchiaino curcuma in polvere", "Sale q.b.", "Pepe q.b.", "1 rametto timo fresco"],
-                    preparazione: "Tagliate il petto di pollo a cubetti da circa 4 cm per lato. Sbucciate l'avocado, sciacquate i pomodorini e tagliate tutto a dadini. Scaldate bene una padella antiaderente e cuocete il pollo muovendolo di tanto in tanto in modo da dorarlo su tutti i lati (circa 10-12 minuti). Una volta pronto aggiungete la curcuma, saltate leggermente, spolverate con pepe e mescolate. Mettete nel piatto i cubetti di pollo, aggiungete i dadini di avocado e pomodoro, guarnite con qualche foglia di timo fresco."
-                },
-                {
-                    nome: "Pollo Aromatizzato al Timo",
-                    ingredienti: ["120g petto di pollo", "1 spicchio aglio", "20g olive nere", "10g capperi dissalati", "Timo fresco q.b.", "1 cucchiaino olio extravergine d'oliva", "1-2 mestoli brodo vegetale", "Sale q.b.", "Pepe q.b."],
-                    preparazione: "Rosolare il pollo con l'olio, l'aglio schiacciato, il sale e il pepe per 10 minuti fino a dorare leggermente. Unire le olive nere tagliate a metà e private del nocciolo, i capperi dissalati ben sciacquati, il timo fresco e il brodo vegetale con un dado privo di glutammato di sodio. Coprire e cuocere per altri 45-50 minuti a fuoco medio-basso, mescolando di tanto in tanto e aggiungendo brodo se necessario."
-                }
+            colazioni_salate: [
+                {titolo:'Avocado Toast',fonte:'nutrizionista',tempo:'5 minuti',ingredienti:['40g pane integrale ben tostato','¼ avocado maturo (circa 25g polpa)','50-70g salmone affumicato selvaggio OPPURE prosciutto cotto di qualità OPPURE 1 uovo cotto','1 cucchiaio olio extravergine d\'oliva','Limone, sale, pepe q.b.'],preparazione:'Tostare il pane in tostapane. Spalmare la polpa di avocado sul pane con una forchettina. Disporre salmone affumicato affettato (o prosciutto o uovo cotto). Condire con limone, sale e pepe.',note:'Ricetta dal nutrizionista. ATTENZIONE: se consumato a colazione, non mangiare salmone/uovo/prosciutto a pranzo o cena lo stesso giorno.',varianti:['Aggiungere pomodorini','Usare uova strapazzate invece di salmone']},
+                {titolo:'Frittata alle Verdure',fonte:'creativa',tempo:'15 minuti',ingredienti:['2 uova intere BIO','1 piatto di verdure miste (zucchine, spinaci, broccoli, peperoni)','2 cucchiai olio extravergine d\'oliva','Sale, pepe, erbe aromatiche q.b.'],preparazione:'Cuocere verdure tagliate in padella con 1 cucchiaio olio. Sbattere uova con sale e pepe. Versare su verdure. Cuocere a fuoco medio finché non sia cotta (circa 10 minuti). Completare con erbe.',note:'Proteica e ricca di verdure. Può essere preparata la sera prima.',varianti:['Aggiungere formaggio','Usare solo spinaci per versione più leggera']},
+                {titolo:'Uova Strapazzate',fonte:'creativa',tempo:'10 minuti',ingredienti:['2 uova intere BIO','2 cucchiai olio extravergine d\'oliva','40g pane integrale tostato','Erbe aromatiche (prezzemolo, timo)','Sale, pepe q.b.'],preparazione:'Riscaldare padella con olio. Aggiungere uova sbattute. Mescolare continuamente fino a cottura. Condire con sale, pepe e erbe. Servire con pane tostato.',note:'Proteica e veloce. Ottima alternativa al salmone a colazione.',varianti:['Aggiungere pomodorini','Servire con avocado']}
             ],
-            pesci: [
-                {
-                    nome: "Salmone Fresco con Pomodorini e Olive",
-                    ingredienti: ["700-800g salmone fresco senza pelle e spine", "500-600g pomodorini ciliegini", "100g olive nere", "Basilico fresco q.b.", "Olio extravergine d'oliva q.b.", "Sale iodato q.b.", "Pepe q.b."],
-                    preparazione: "Preparate una padella con un velo di acqua e qualche foglia di basilico tritata. Scaldate la padella a fuoco alto e mettete a cuocere i filetti di salmone, girandoli spesso su ambo i lati senza farli cuocere troppo (circa 3-4 minuti per lato). Terminata la cottura lasciateli riposare. Aggiungete i pomodorini lavati e tagliati a metà, olive nere, sale e pepe. Riaccendete il fuoco per qualche minuto e aggiungete ancora del basilico tritato fresco. Dopo massimo 5 minuti di cottura chiudete il fuoco, lasciate raffreddare leggermente e servite nei piatti condendo a crudo con un filo di olio extravergine d'oliva."
-                },
-                {
-                    nome: "Salmone Marinato al Lime e Zenzero con Semi di Chia",
-                    ingredienti: ["1 lime", "2 cm di radice di zenzero fresco", "180-200g salmone fresco senza pelle", "10g semi di chia", "30g misticanza (insalata mista)", "Sale q.b.", "Pepe q.b."],
-                    preparazione: "Grattugiate la scorza di un lime e mettetela da parte. Spremete il succo, miscelatelo allo zenzero grattugiato fresco e versate il condimento marinato sul filetto di salmone. Lasciate marinare per 10 minuti a temperatura ambiente. Poi tamponate il salmone con un pezzo di carta da cucina e ricoprite la superficie con i semi di chia premendoli leggermente. Scaldate bene una padella antiaderente e cuocete a fiamma viva il salmone per tre minuti per lato (mantenendolo al dente). Mettete nel piatto le foglie d'insalata mista, adagiatevi sopra il salmone tagliato a fette, spolverate con un pizzico di sale, pepe e guarnite con scorza di lime grattugiata."
-                },
-                {
-                    nome: "Seppioline con Asparagi",
-                    ingredienti: ["200g seppie pulite", "200g asparagi freschi", "1 ciuffo prezzemolo fresco", "1 spicchio aglio", "Peperoncino fresco q.b.", "1 cucchiaino olio extravergine d'oliva", "1-2 mestoli acqua bollente", "Sale q.b."],
-                    preparazione: "Pulire le seppie eliminando la sacca di inchiostro e tagliarle a rondelle o a strisce sottili. Rosolare in padella l'aglio schiacciato con un po' d'acqua e olio a fiamma bassa (3-4 minuti). Aggiungete le seppie e lasciarle scottare e cuocere lentamente per 45 minuti, aggiungendo di tanto in tanto dell'acqua calda per evitare che si secchino. A parte, pulite gli asparagi e tagliateli, quindi cuoceteli in acqua salata bollente per circa 10 minuti finché non siano al dente. Scolateli e uniteli alle seppie negli ultimi 5 minuti di cottura. Completate con prezzemolo tritato fresco, sale e pepe a piacere."
-                }
+            piatti_unici: [
+                {titolo:'Insalata di Riso Freddo',fonte:'creativa',tempo:'15 minuti (solo riso)',ingredienti:['80g riso basmati o venere','1 piatto verdure miste crude (pomodori, cetrioli, peperoni, rucola)','200g pesce fresco grigliato (branzino, orata, merluzzo) OPPURE 100g formaggio fresco','2-3 cucchiai olio extravergine d\'oliva','½ limone','Sale, pepe, erbe q.b.'],preparazione:'Cuocere riso al dente, sciacquare con acqua fredda e far raffreddare. Tagliare verdure a pezzetti. Grigliare pesce con limone e erbe. Mescolare riso, verdure, pesce. Condire con olio, sale e pepe.',note:'Piatto unico comodo e fresco. Perfetto d\'estate o per pranzi al sacco.',varianti:['Aggiungere olive','Usare tonno in scatola al naturale']},
+                {titolo:'Insalata di Farro',fonte:'creativa',tempo:'20 minuti (solo farro)',ingredienti:['80g farro integrale','1 piatto verdure miste','150g carne magra cotta (pollo grigliato, tacchino)','2-3 cucchiai olio extravergine d\'oliva','Sale, pepe, limone q.b.'],preparazione:'Cuocere farro al dente, raffreddare. Cuocere/grigliare carne. Aggiungere verdure tagliate. Mescolare tutto. Condire con olio, limone, sale e pepe.',note:'Ricca di fibre. Più saziante del riso.',varianti:['Aggiungere noci','Usare formaggio invece di carne']},
+                {titolo:'Bowl di Verdure',fonte:'creativa',tempo:'15 minuti',ingredienti:['1 piatto abbondante verdure miste (crude e grigliate)','100g formaggio fresco (mozzarella) OPPURE 200g pesce fresco','30g semi misti','2-3 cucchiai olio extravergine d\'oliva','Limone, sale, pepe q.b.'],preparazione:'Mescolare verdure crude e grigliate. Aggiungere formaggio o pesce. Cospargere di semi. Condire con olio, limone, sale e pepe.',note:'Molto versatile. Varia verdure secondo stagione.',varianti:['Aggiungere avocado','Usare hummus come condimento']},
+                {titolo:'Insalata di Pasta Fredda',fonte:'creativa',tempo:'15 minuti',ingredienti:['80g pasta integrale','1 piatto verdure miste','150g tonno al naturale OPPURE mozzarella','2-3 cucchiai olio extravergine d\'oliva','Basilico, sale, pepe q.b.'],preparazione:'Cuocere pasta al dente, raffreddare sotto acqua fredda. Tagliare verdure. Mescolare pasta, verdure e proteine. Condire con olio, basilico, sale e pepe.',note:'Perfetto per pranzo al sacco o picnic.',varianti:['Aggiungere pomodorini','Usare pesto leggero']},
+                {titolo:'Insalata Mista Proteica',fonte:'creativa',tempo:'10 minuti',ingredienti:['1 piatto lattuga/rucola/spinaci','150g pollo grigliato OPPURE 100g formaggio','1 carota','1 cetriolo','2-3 cucchiai olio extravergine d\'oliva','Limone, sale q.b.'],preparazione:'Lavare e asciugare verdure. Tagliare in pezzi. Aggiungere proteine. Condire con olio, limone e sale.',note:'Leggera ma saziante. Ottima per cena veloce.',varianti:['Aggiungere noci','Usare aceto balsamico']}
             ],
-            latticini: [
-                {
-                    nome: "Ricotta con Verdure (Cena)",
-                    ingredienti: ["150g Ricotta vaccina (Eric) o 100g (Chiara)", "1 piatto abbondante di verdure di stagione (spinaci, zucchine, broccoli, bietole)", "2-3 cucchiai olio extravergine d'oliva", "Sale, pepe e spezie a piacere", "Passato di verdura già pronto"],
-                    preparazione: "Preparare le verdure di stagione scelte: lessarle al vapore o cuocerle in padella con poca acqua e spezie. Riscaldare il passato di verdura in una pentola. In una ciotola, mettere la ricotta e mescolala leggermente. Versare il passato caldo e aggiungere le verdure cotte. Condire il tutto con olio extravergine, sale e pepe. La ricotta si amalgamerà leggermente con il caldo, creando una cremosità piacevole."
-                }
+            legumi: [
+                {titolo:'Hummus di Ceci',fonte:'nutrizionista',tempo:'45 minuti (ceci già cotti)',ingredienti:['400g ceci secchi (cotti dopo ammollo di almeno 12h)','100g semi di sesamo','150ml acqua calda','Succo di mezzo limone','30g olio extravergine d\'oliva','1 cucchiaino paprika affumicata','1 spicchio aglio','Sale fino q.b.','Pepe nero q.b.','1 ciuffo prezzemolo fresco'],preparazione:'1. Sbucciare aglio, dividere a metà e togliere l\'anima interna. Tritare finemente. 2. Lavare e asciugare prezzemolo, tritare finemente. 3. Pestare semi di sesamo. Dopo qualche istante aggiungere olio di oliva a filo, pizzico di sale, acqua calda. 4. Aggiungere ceci cotti e continuare a pestare. 5. Spremere limone e aggiungere aglio tritato e prezzemolo. Salare, pepare, mescolare. 6. Aromatizzare con prezzemolo fresco, paprika affumicata e filo di olio. Servire con pane integrale tostato e verdure crude.',note:'Ricetta dal nutrizionista. 6 porzioni. Conservare in frigorifero fino a 5 giorni.',varianti:['Aggiungere curcuma','Usare ceci in scatola per velocità']},
+                {titolo:'Vellutata di Legumi',fonte:'nutrizionista',tempo:'30 minuti',ingredienti:['80g lenticchie secche oppure fagioli','1 porzione verdure di stagione (carote, sedano, cipolla)','500ml brodo vegetale','2 cucchiai olio extravergine d\'oliva','Sale, pepe, spezie q.b.'],preparazione:'Cuocere legumi in brodo vegetale. Aggiungere verdure di stagione tagliate. Cuocere fino a cottura (circa 30 minuti). Frullare parzialmente per ottenere consistenza vellutata. Condire con olio, sale e spezie. Servire con 1 fettina pane integrale tostato.',note:'Ricetta dal nutrizionista. Leggera e nutriente.',varianti:['Aggiungere patate','Usare curry per sapore esotico']},
+                {titolo:'Minestrone Completo',fonte:'creativa',tempo:'40 minuti',ingredienti:['1 piatto abbondante verdure miste (zucchine, broccoli, carote, spinaci, pomodori)','80g legumi misti (fagioli, lenticchie, ceci)','200g patate','1-2 cucchiai cereali (riso, farro, pastina)','Brodo vegetale q.b.','2 cucchiai olio extravergine d\'oliva','1 cucchiaino parmigiano (opzionale)'],preparazione:'Portare brodo a ebollizione. Aggiungere verdure e patate tagliate. Cuocere 10 minuti. Aggiungere legumi (ammollati e cotti). Cuocere altri 15 minuti. Aggiungere cereali negli ultimi 15-20 minuti. Condire con olio, sale, spezie e opzionalmente parmigiano.',note:'Piatto completo. Perfetto per cena d\'inverno.',varianti:['Aggiungere pomodoro','Usare solo lenticchie rosse']},
+                {titolo:'Passato di Verdure',fonte:'creativa',tempo:'25 minuti',ingredienti:['1 piatto verdure miste (zucchine, carote, broccoli)','200g patate','500ml brodo vegetale','2 cucchiai olio extravergine d\'oliva','Sale, pepe q.b.'],preparazione:'Tagliare verdure e patate. Cuocere in brodo fino a cottura. Frullare completamente. Condire con olio, sale e pepe.',note:'Leggero e digeribile. Perfetto per cena.',varianti:['Aggiungere zenzero','Usare latte vegetale']},
+                {titolo:'Zuppa di Lenticchie',fonte:'creativa',tempo:'35 minuti',ingredienti:['80g lenticchie secche','Verdure (carote, sedano, cipolla)','500ml brodo vegetale','2 cucchiai olio extravergine d\'oliva','Spezie (cumino, curry) q.b.'],preparazione:'Far bollire lenticchie in brodo. Aggiungere verdure tagliate. Cuocere fino a cottura (30-35 minuti). Frullare parzialmente. Condire con olio e spezie.',note:'Ricca di proteine vegetali. Molto saziante.',varianti:['Aggiungere pomodoro','Usare lenticchie rosse per cottura veloce']},
+                {titolo:'Pasta e Fagioli',fonte:'creativa',tempo:'30 minuti',ingredienti:['60g pasta integrale','80g fagioli cotti','Verdure (pomodori, sedano, carota)','500ml brodo vegetale','2 cucchiai olio extravergine d\'oliva','Erbe aromatiche q.b.'],preparazione:'Cuocere pasta in brodo. Aggiungere fagioli e verdure tagliate. Cuocere fino a cottura della pasta. Condire con olio ed erbe.',note:'Piatto completo tradizionale italiano.',varianti:['Aggiungere pancetta magra','Usare ceci invece di fagioli']}
+            ],
+            secondi: [
+                {titolo:'Pollo Grigliato',fonte:'creativa',tempo:'15 minuti',ingredienti:['150g petto di pollo senza pelle','2 cucchiai olio extravergine d\'oliva','Succo di mezzo limone','Erbe aromatiche (rosmarino, timo, origano)','Sale, pepe q.b.'],preparazione:'Marinare pollo in olio, limone e erbe per 30 minuti. Grigliare su piastra calda per circa 6-8 minuti per lato. Condire con sale e pepe.',note:'Proteico e magro. Perfetto per palestra.',varianti:['Usare paprika affumicata','Marinare con yogurt greco']},
+                {titolo:'Pollo al Forno',fonte:'creativa',tempo:'25 minuti',ingredienti:['150g petto di pollo','Verdure (zucchine, pomodori)','2 cucchiai olio extravergine d\'oliva','Erbe aromatiche','Sale, pepe q.b.'],preparazione:'Disporre pollo e verdure su teglia. Condire con olio, erbe, sale e pepe. Cuocere a 180°C per 25 minuti.',note:'Facile e veloce. Si cuoce da solo.',varianti:['Aggiungere patate','Usare limone']},
+                {titolo:'Tacchino Grigliato',fonte:'creativa',tempo:'12 minuti',ingredienti:['150g fesa di tacchino','2 cucchiai olio extravergine d\'oliva','Limone, erbe, sale q.b.'],preparazione:'Marinare tacchino con olio, limone ed erbe. Grigliare 6 minuti per lato.',note:'Molto magro. Ottimo per dieta.',varianti:['Usare senape','Aggiungere salvia']},
+                {titolo:'Pesce al Vapore',fonte:'creativa',tempo:'15 minuti',ingredienti:['200g pesce fresco (merluzzo, nasello)','Limone, erbe, sale q.b.','2 cucchiai olio extravergine d\'oliva'],preparazione:'Cuocere pesce a vapore per 12-15 minuti. Condire con olio, limone, erbe e sale.',note:'Metodo più leggero. Mantiene nutrienti.',varianti:['Aggiungere zenzero','Usare vino bianco']},
+                {titolo:'Pesce al Forno in Cartoccio',fonte:'creativa',tempo:'18 minuti',ingredienti:['200g pesce fresco (branzino, orata, merluzzo, nasello)','1 piatto verdure tagliate (zucchine, pomodori, peperoni)','2 cucchiai olio extravergine d\'oliva','Succo di limone','Erbe aromatiche (salvia, rosmarino, aneto)','Sale, pepe q.b.'],preparazione:'Disporre carta da forno su teglia. Mettere al centro verdure tagliate a listarelle. Posizionare pesce sopra. Condire con olio, limone, erbe, sale e pepe. Chiudere il cartoccio. Cuocere al forno a 180°C per 15-18 minuti. Servire nel cartoccio.',note:'Nutriente e gustoso. Mantiene i sapori.',varianti:['Aggiungere olive','Usare vino bianco']},
+                {titolo:'Merluzzo Fresco',fonte:'creativa',tempo:'15 minuti',ingredienti:['200g merluzzo fresco','2 cucchiai olio extravergine d\'oliva','Limone, prezzemolo, sale q.b.'],preparazione:'Cuocere merluzzo in padella o al forno. Condire con olio, limone e prezzemolo.',note:'Delicato e leggero. Perfetto per cena.',varianti:['Gratinare con pangrattato','Cuocere al vapore']},
+                {titolo:'Orata Grigliata',fonte:'creativa',tempo:'20 minuti',ingredienti:['200g orata fresca','2 cucchiai olio extravergine d\'oliva','Limone, rosmarino, sale q.b.'],preparazione:'Grigliare orata intera o in filetti. Condire con olio, limone e rosmarino.',note:'Sapore intenso. Ricca di omega 3.',varianti:['Cuocere al forno','Marinare con aglio']},
+                {titolo:'Salmone al Forno',fonte:'creativa',tempo:'15 minuti',ingredienti:['200g salmone fresco','2 cucchiai olio extravergine d\'oliva','Succo di limone','Erbe (aneto, salvia)','Verdure grigliate di contorno'],preparazione:'Disporre salmone su teglia. Condire con olio, limone e erbe. Cuocere a 180°C per 12-15 minuti. Servire con verdure grigliate.',note:'Ricco di Omega 3. Proteico e delizioso.',varianti:['Usare miele e senape','Cuocere in crosta di sale']},
+                {titolo:'Coniglio al Forno',fonte:'creativa',tempo:'40 minuti',ingredienti:['150g coniglio a pezzi','Verdure (carote, patate)','2 cucchiai olio extravergine d\'oliva','Erbe (rosmarino, salvia)','Sale, pepe q.b.'],preparazione:'Disporre coniglio e verdure in teglia. Condire con olio, erbe, sale e pepe. Cuocere a 180°C per 40 minuti.',note:'Carne magra e tenera. Piatto tradizionale.',varianti:['Aggiungere olive','Marinare con vino bianco']},
+                {titolo:'Uova Sode/Frittata',fonte:'creativa',tempo:'10 minuti',ingredienti:['2 uova intere BIO','Verdure opzionali','Sale, pepe q.b.','1 cucchiaio olio (per frittata)'],preparazione:'Uova sode: bollire 8-10 minuti. Frittata: sbattere uova, cuocere in padella con verdure.',note:'Proteiche ed economiche. Veloci da preparare.',varianti:['Aggiungere formaggio','Usare solo albumi']},
+                {titolo:'Lonza Naturale',fonte:'creativa',tempo:'15 minuti',ingredienti:['150g lonza di maiale','2 cucchiai olio extravergine d\'oliva','Erbe, sale, pepe q.b.'],preparazione:'Grigliare o cuocere lonza in padella. Condire con erbe, sale e pepe.',note:'Magra se sgrassata. Sapore delicato.',varianti:['Marinare con miele','Cuocere al forno']}
             ],
             contorni: [
-                {
-                    nome: "Hummus di Ceci",
-                    ingredienti: ["200g ceci secchi (ammollati per 24 ore)", "2 spicchi aglio", "Succo di 1 limone", "3-4 cucchiai olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "1 pizzico paprika dolce", "Acqua di cottura dei ceci q.b."],
-                    preparazione: "Mettere i ceci in ammollo per 24 ore in acqua fredda, cambiandola se possibile durante il giorno. Sciacquarli bene e cuocerli in acqua salata fino a renderli morbidi (circa 1-2 ore a fuoco medio o in pentola a pressione 20 minuti). Scolare i ceci mantenendo da parte parte dell'acqua di cottura. Frullare i ceci cotti con aglio, succo di limone fresco, olio extravergine d'oliva, sale e pepe. Aggiungere l'acqua di cottura poco a poco mentre frullate fino a raggiungere la consistenza desiderata (cremosa e liscia). Versare in una ciotola, fare un piccolo incavo al centro, versarvi un filo di olio EVO e una spolverata di paprika dolce. Servire con crostini di pane integrale tostato."
-                },
-                {
-                    nome: "Vellutata di Legumi e Verdure",
-                    ingredienti: ["150g legumi misti secchi (lenticchie rosse, fagioli, ceci - mix a piacere)", "200g verdure di stagione (carote, sedano, zucchine, broccoli)", "1 cipolla media", "2 spicchi aglio", "4-5 mestoli brodo vegetale leggero", "2 cucchiai olio extravergine d'oliva", "Sale q.b.", "Pepe q.b.", "Prezzemolo fresco q.b.", "Pane integrale tostato per crostini"],
-                    preparazione: "Ammollare i legumi misti secchi per 24 ore in acqua fredda. Sciacquarli bene e riporli in una pentola. Tritare la cipolla e l'aglio finemente e farli rosolare brevemente in olio extravergine. Aggiungere i legumi sciacquati, le verdure tagliate a pezzi grossi e il brodo vegetale. Portare a ebollizione, quindi abbassare il fuoco e cuocere a fuoco medio per 45-60 minuti fino a quando tutti gli ingredienti siano ben cotti e teneri. A cottura ultimata, frullare il tutto con un frullatore ad immersione fino a ottenere una consistenza liscia e vellutata, aggiungendo brodo se troppo densa. Aggiustare di sale e pepe. Versare nei piatti, guarnire con un filo di olio EVO e prezzemolo fresco tritato. Servire con crostini di pane integrale tostato per inzupparvi dentro."
-                }
+                {titolo:'Verdure Grigliate',fonte:'creativa',tempo:'10 minuti',ingredienti:['1 piatto verdure miste (zucchine, melanzane, peperoni, broccoli, cipolla)','2-3 cucchiai olio extravergine d\'oliva','Succo di limone','Sale, pepe, erbe q.b.'],preparazione:'Tagliare verdure a fette. Scaldare piastra o griglia. Grigliare verdure fino a cottura. Condire con olio, limone, sale, pepe e erbe.',note:'Versatile e facile. Servire calde o fredde.',varianti:['Aggiungere aceto balsamico','Marinare prima di grigliare']},
+                {titolo:'Verdure al Vapore',fonte:'creativa',tempo:'12 minuti',ingredienti:['1 piatto verdure (broccoli, cavolfiore, carote, zucchine)','2 cucchiai olio extravergine d\'oliva','Limone, sale q.b.'],preparazione:'Cuocere verdure a vapore fino a cottura. Condire con olio, limone e sale.',note:'Metodo più sano. Mantiene vitamine.',varianti:['Aggiungere sesamo','Usare erbe aromatiche']},
+                {titolo:'Insalata Mista',fonte:'creativa',tempo:'0 minuti',ingredienti:['1 piatto abbondante lattuga/rucola','1 pomodoro','1 cetriolo','1 carota','2-3 cucchiai olio extravergine d\'oliva','½ limone','Sale, pepe q.b.'],preparazione:'Lavare e asciugare verdure. Tagliare in pezzi. Condire con olio, limone, sale e pepe.',note:'Perfetta come contorno ad ogni pasto.',varianti:['Aggiungere semi','Usare aceto di mele']},
+                {titolo:'Zucchine Grigliate',fonte:'creativa',tempo:'8 minuti',ingredienti:['2-3 zucchine medie','2 cucchiai olio extravergine d\'oliva','Aglio, prezzemolo, sale q.b.'],preparazione:'Tagliare zucchine a fette. Grigliare su piastra. Condire con olio, aglio e prezzemolo.',note:'Semplice e veloce. Molto versatile.',varianti:['Aggiungere menta','Usare aceto balsamico']},
+                {titolo:'Broccoli al Vapore',fonte:'creativa',tempo:'10 minuti',ingredienti:['1 piatto broccoli','2 cucchiai olio extravergine d\'oliva','Limone, aglio, sale q.b.'],preparazione:'Cuocere broccoli a vapore 8-10 minuti. Condire con olio, limone e aglio.',note:'Ricchi di vitamine. Molto salutari.',varianti:['Aggiungere peperoncino','Saltare in padella dopo vapore']}
             ]
-        };
-
-        // Menu data with all constraints properly implemented
-        const menuData = {
-            lunedi: {
-                eric: {
-                    colazione: {
-                        nome: "Kefir + Avena + Frutta",
-                        ingredienti: [
-                            "200ml Kefir bianco",
-                            "1 kiwi fresco",
-                            "20g fiocchi avena BIO",
-                            "10g mandorle"
-                        ],
-                        preparazione: "Versare il kefir in una tazza. Aggiungere il kiwi tagliato a pezzetti, cospargere di fiocchi avena e mandorle. Mescolare."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Bresaola + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure miste crude (rucola, pomodori, cetrioli, lattuga)",
-                            "100g Bresaola Valtellina IGP",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 mela o pera (150g frutta)",
-                            "Sale e pepe q.b."
-                        ],
-                        preparazione: "Preparare un piatto abbondante di verdure miste crude. Condire con olio e limone. Disporre la bresaola affettata. Accompagnare con pane integrale tostato. Completare con frutta fresca."
-                    },
-                    cena: {
-                        nome: "Passato di Verdura Pronto (piatto principale)",
-                        ingredienti: [
-                            "1 piatto abbondante di passato di verdura già pronto (quello che avete in casa) - PIATTO PRINCIPALE OBBLIGATORIO",
-                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (OPZIONALE)",
-                            "Sale e spezie q.b.",
-                            "---",
-                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
-                            "OPPURE 2 Uova intere (sode, alla coque, frittata con verdure)",
-                            "OPPURE 100-120g Carne a scelta (pollo, tacchino, vitello, coniglio)",
-                            "OPPURE 150-200g Pesce fresco (branzino, merluzzo, orata, salmone fresco)",
-                            "OPPURE 80-100g Formaggio (mozzarella, parmigiano, ricotta)",
-                            "OPPURE 70g Bresaola o Salmone affumicato"
-                        ],
-                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto che avete in casa. Aggiungere opzionalmente 1-2 cucchiai di riso/farro/pastina crudo negli ultimi 15-20 minuti di riscaldamento. Condire con olio extravergine, sale e spezie. Aggiungere parmigiano se gradito. Servire in una ciotola generosa. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo piatto proteico a scelta tra le opzioni sopra. Il passato da solo è però perfettamente completo e nutriente grazie ai legumi."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Kefir + Avena + Frutta",
-                        ingredienti: [
-                            "200ml Kefir bianco",
-                            "1 kiwi fresco",
-                            "20g fiocchi avena BIO",
-                            "10g mandorle"
-                        ],
-                        preparazione: "Versare il kefir in una tazza. Aggiungere il kiwi tagliato a pezzetti, fiocchi avena e mandorle. Mescolare."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Bresaola + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure miste crude",
-                            "70g Bresaola Valtellina IGP",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 mela o pera (150g frutta)",
-                            "Sale e pepe q.b."
-                        ],
-                        preparazione: "Preparare un piatto abbondante di verdure miste crude. Condire con olio e limone. Disporre la bresaola affettata. Accompagnare con pane integrale tostato. Completare con frutta fresca."
-                    },
-                    cena: {
-                        nome: "Passato di Verdura Pronto (piatto principale)",
-                        ingredienti: [
-                            "1 piatto abbondante di passato di verdura già pronto (stesso di Eric) - PIATTO PRINCIPALE OBBLIGATORIO",
-                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (OPZIONALE)",
-                            "Sale e spezie q.b.",
-                            "---",
-                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
-                            "OPPURE 2 Uova intere (sode, alla coque, frittata)",
-                            "OPPURE 70-80g Carne a scelta",
-                            "OPPURE 100-150g Pesce fresco",
-                            "OPPURE 60g Formaggio",
-                            "OPPURE 50g Bresaola o Salmone affumicato"
-                        ],
-                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire con olio e sale. Aggiungere parmigiano se gradito. Servire. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo piatto proteico a scelta tra le opzioni sopra. Il passato da solo è però completo grazie ai legumi."
-                    }
-                }
-            },
-            martedi: {
-                eric: {
-                    colazione: {
-                        nome: "Avocado Toast Salato - COLAZIONE SALATA",
-                        ingredienti: [
-                            "40g pane integrale (1 fetta tostata)",
-                            "¼ avocado maturo (ca 25g)",
-                            "70g salmone affumicato selvaggio",
-                            "1 cucchiaio olio extravergine d'oliva",
-                            "Sale, pepe e limone q.b."
-                        ],
-                        preparazione: "Tostare il pane integrale. Spalmare il quarto di avocado sul pane. Disporre il salmone affumicato affettato. Condire con limone, sale e pepe."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Pasta + Pesce - PASTO COMODO PALESTRA",
-                        ingredienti: [
-                            "1 piatto abbondante verdure (zucchine, broccoli, pomodori)",
-                            "80g pasta integrale Senatore Cappelli cottura al dente",
-                            "200g pesce fresco DIVERSO DA SALMONE (branzino, merluzzo, orata)",
-                            "3-4 cucchiai pomodoro passato",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "Sale, pepe, aglio e prezzemolo q.b."
-                        ],
-                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce in padella con olio, aglio e prezzemolo con verdure. Condire la pasta con pomodoro passato, olio e spezie. Servire il pesce come secondo con verdure. PASTO COMODO E VELOCE PRIMA DELLA PALESTRA."
-                    },
-                    cena: {
-                        nome: "Passato di Verdura Pronto (piatto principale)",
-                        ingredienti: [
-                            "1 piatto abbondante di passato di verdura già pronto (quello che avete in casa) - PIATTO PRINCIPALE OBBLIGATORIO",
-                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (OPZIONALE)",
-                            "Sale e spezie q.b.",
-                            "---",
-                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
-                            "OPPURE 2 Uova intere (sode, alla coque, frittata con verdure)",
-                            "OPPURE 100-120g Carne a scelta (pollo, tacchino, vitello, coniglio)",
-                            "OPPURE 150-200g Pesce fresco (ma NON salmone - già usato a colazione)",
-                            "OPPURE 80-100g Formaggio",
-                            "OPPURE 70g Bresaola (ma NO salmone affumicato - già a colazione)"
-                        ],
-                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire con olio, sale e spezie. Aggiungere parmigiano se gradito. Servire. 2. SECONDO OPZIONALE: Se desiderate, potete aggiungere un secondo proteico a scelta (escluso salmone perché già consumato a colazione). Il passato da solo è completo."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Yogurt Greco + Avena + Frutta",
-                        ingredienti: [
-                            "150g yogurt greco 0-2% bianco",
-                            "1 kiwi fresco",
-                            "20g fiocchi avena BIO",
-                            "10g noci (2 noci)"
-                        ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi tagliato a pezzetti, fiocchi avena e noci sgusciate. Mescolare. (Diversa da Eric che ha salato)"
-                    },
-                    pranzo: {
-                        nome: "Verdure + Pasta + Pesce - PASTO COMODO",
-                        ingredienti: [
-                            "1 piatto abbondante verdure (zucchine, broccoli, pomodori)",
-                            "60g pasta integrale Senatore Cappelli cottura al dente",
-                            "150g pesce fresco (branzino, merluzzo, orata - stesso di Eric)",
-                            "3-4 cucchiai pomodoro passato",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "Sale, pepe, aglio e prezzemolo q.b."
-                        ],
-                        preparazione: "Cuocere la pasta al dente. Nel frattempo rosolare il pesce con olio, aglio e prezzemolo con verdure. Condire la pasta. Servire il pesce con verdure."
-                    },
-                    cena: {
-                        nome: "Passato di Verdura Pronto (piatto principale)",
-                        ingredienti: [
-                            "1 piatto abbondante di passato di verdura già pronto (stesso di Eric) - PIATTO PRINCIPALE OBBLIGATORIO",
-                            "1-2 cucchiai riso crudo o farro crudo o pastina (OPZIONALE)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (OPZIONALE)",
-                            "Sale e spezie q.b.",
-                            "---",
-                            "SECONDO PIATTO OPZIONALE (scegli solo se desideri):",
-                            "OPPURE 2 Uova intere (sode, alla coque, frittata)",
-                            "OPPURE 80-100g Carne a scelta",
-                            "OPPURE 120-150g Pesce fresco",
-                            "OPPURE 80g Formaggio",
-                            "OPPURE 60g Bresaola"
-                        ],
-                        preparazione: "1. PIATTO PRINCIPALE (OBBLIGATORIO): Scaldare il passato di verdura già pronto. Aggiungere opzionalmente cereali. Condire e servire. 2. SECONDO OPZIONALE: Se desiderate, aggiungete un secondo proteico a scelta. Il passato è completo da solo."
-                    }
-                }
-            },
-            mercoledi: {
-                eric: {
-                    colazione: {
-                        nome: "Yogurt Greco + Avena + Frutta",
-                        ingredienti: [
-                            "150g yogurt greco 0-2% bianco",
-                            "1 kiwi fresco",
-                            "20g fiocchi avena BIO",
-                            "10g noci (2 noci)"
-                        ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi, fiocchi avena e noci sgusciate. Mescolare."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Formaggio Mozzarella + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure miste crude (pomodori, lattuga, cetrioli)",
-                            "100g mozzarella vaccina fresca",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 limone",
-                            "1 arancia o pera (150g)"
-                        ],
-                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere. Condire con olio e limone. Accompagnare con pane tostato. Completare con frutta fresca."
-                    },
-                    cena: {
-                        nome: "Verdure + Pesce + Pane + Frutta",
-                        ingredienti: [
-                            "200g pesce fresco (branzino, orata, merluzzo, nasello, dentice)",
-                            "1 piatto abbondante verdure (broccoli, zucchine)",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, limone, aglio e erbe (timo, rosmarino) q.b."
-                        ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe a 180°C per 15-20 minuti. Aggiungere verdure grigliate o al vapore. Servire con pane e frutta."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Yogurt Greco + Avena + Frutta",
-                        ingredienti: [
-                            "150g yogurt greco 0-2% bianco",
-                            "1 kiwi fresco",
-                            "20g fiocchi avena BIO",
-                            "10g mandorle"
-                        ],
-                        preparazione: "Versare lo yogurt greco in una tazza. Aggiungere il kiwi, fiocchi avena e mandorle. Mescolare."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Formaggio Mozzarella + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure miste crude",
-                            "100g mozzarella vaccina fresca",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 limone",
-                            "1 arancia o pera (150g)"
-                        ],
-                        preparazione: "Preparare un piatto di verdure fresche. Tagliare la mozzarella a pezzetti e aggiungere. Condire con olio e limone. Accompagnare con pane tostato. Completare con frutta fresca."
-                    },
-                    cena: {
-                        nome: "Verdure + Pesce + Pane + Frutta",
-                        ingredienti: [
-                            "150g pesce fresco (branzino, orata, merluzzo, nasello, dentice)",
-                            "1 piatto abbondante verdure (broccoli, zucchine)",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, limone, aglio e erbe q.b."
-                        ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio con olio, limone e erbe. Aggiungere verdure grigliate. Servire con pane e frutta."
-                    }
-                }
-            },
-            giovedi: {
-                eric: {
-                   colazione: {
-                        nome: "Tiramisù Fit",
-                        ingredienti: [
-                            "150g yogurt greco 0% bianco",
-                            "1 cucchiaino miele",
-                            "2 fette biscottate integrali",
-                            "10g cioccolato fondente 85% (1 quadretto)",
-                            "Caffè q.b.",
-                            "1 cucchiaino cacao amaro"
-                        ],
-                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt greco, miele, cioccolato sbriciolato e cacao. Servire freddo dal frigo."
-                    },
-                     pranzo: {
-                        nome: "Verdure + Pasta + Carne o pesce - PASTO COMODO PALESTRA",
-                        ingredienti: [
-                            "1 piatto abbondante verdure (zucchine, broccoli)",
-                            "80g farro integrale cottura al dente",
-                            "150g petto di pollo senza pelle",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, aglio, prezzemolo q.b.",
-                            "OPPURE piatto unico Pasta(o riso o farro) + verdure (broccoli, zucchine ecc) + pesce o carne (tonno, pollo, salmone)"
-                        ],
-                        preparazione: "Cuocere il farro al dente. Nel frattempo grigliare il pollo con olio, aglio e verdure. Condire il farro con olio e spezie. Servire il pollo come secondo con verdure e frutta. PASTO COMODO E VELOCE PER PALESTRA."
-                    },
-                    cena: {
-                        nome: "Cereali e Legumi con Verdure",
-                        ingredienti: [
-                            "100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)",
-                            "1 piatto abbondante verdure (broccoletti, cavoli)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (opzionale)",
-                            "Sale e spezie q.b."
-                        ],
-                        preparazione: "Mettere cereali legumi in ammollo 24h prima. Eliminare acqua. Cuocere con verdure di stagione, aromi e sale. Condire con olio. Aggiungere parmigiano se gradito."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Tiramisù Fit",
-                        ingredienti: [
-                            "150g yogurt greco 0% bianco",
-                            "1 cucchiaino miele",
-                            "2 fette biscottate integrali",
-                            "10g cioccolato fondente 85% (1 quadretto)",
-                            "Caffè q.b.",
-                            "1 cucchiaino cacao amaro"
-                        ],
-                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt greco, miele, cioccolato sbriciolato e cacao. Servire freddo dal frigo."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Pasta + Carne o pesce",
-                        ingredienti: [
-                            "1 piatto abbondante verdure (zucchine, broccoli)",
-                            "60g farro integrale cottura al dente",
-                            "100g petto di pollo senza pelle",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, aglio, prezzemolo q.b.",
-                            "OPPURE piatto unico Pasta(o riso o farro) + verdure (broccoli, zucchine ecc) + pesce o carne (tonno, pollo, salmone)"
-                        ],
-                        preparazione: "Cuocere il farro al dente. Nel frattempo grigliare il pollo con olio, aglio e verdure. Condire il farro. Servire il pollo con verdure e frutta."
-                    },
-                    cena: {
-                        nome: "Cereali e Legumi con Verdure",
-                        ingredienti: [
-                            "80g misto cereali legumi secchi",
-                            "1 piatto abbondante verdure (broccoletti, cavoli)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 cucchiaino parmigiano (opzionale)",
-                            "Sale e spezie q.b."
-                        ],
-                        preparazione: "Mettere cereali legumi in ammollo 24h prima. Eliminare acqua. Cuocere con verdure, aromi e sale. Condire con olio."
-                    }
-                }
-            },
-            venerdi: {
-                eric: {
-                    colazione: {
-                        nome: "Porridge Overnight Oats",
-                        ingredienti: [
-                            "20g fiocchi avena BIO",
-                            "100ml latte parz.scremato",
-                            "150g yogurt greco 0%",
-                            "1 frutto fresco (mela/kiwi)",
-                            "2 cucchiaini semi misti (lino, girasole, zucca)",
-                            "Miele 1 cucchiaino (opzionale)"
-                        ],
-                        preparazione: "La sera: mettere in frigorifero avena e latte per tutta la notte. Al mattino aggiungere yogurt greco, frutta a pezzetti, semi e miele. Mescolare bene."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Uova + Pane + Frutta",
-                        ingredienti: [
-                            "2 uova intere (sode o alla coque)",
-                            "1 piatto abbondante verdure",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Preparare le uova sode o alla coque. Preparare verdure di stagione crude o cotte. Condire con olio, sale e pepe. Accompagnare con pane tostato e frutta."
-                    },
-                    cena: {
-                        nome: "PIZZA - PASTO LIBERO",
-                        ingredienti: [
-                            "Pizza a scelta con verdure",
-                            "Prosciutto crudo/cotto, mozzarella, affettati vari",
-                            "Insalata mista come antipasto",
-                            "Acqua naturale",
-                            "Opzionale: dessert con frutta e gelato"
-                        ],
-                        preparazione: "PASTO TOTALMENTE LIBERO - NO RESTRIZIONI. Iniziare con insalata mista. Scegliere pizza con verdure e proteine a piacere. Se gradito dessert con frutta e gelato. Bere acqua naturale."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Porridge Overnight Oats",
-                        ingredienti: [
-                            "20g fiocchi avena BIO",
-                            "100ml latte parz.scremato",
-                            "150g yogurt greco 0%",
-                            "1 frutto fresco",
-                            "2 cucchiaini semi misti",
-                            "Miele 1 cucchiaino (opzionale)"
-                        ],
-                        preparazione: "La sera: mettere in frigorifero avena e latte per tutta la notte. Al mattino aggiungere yogurt greco, frutta, semi e miele. Mescolare."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Uova + Pane + Frutta",
-                        ingredienti: [
-                            "2 uova intere (sode o alla coque)",
-                            "1 piatto abbondante verdure",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Preparare le uova. Preparare verdure di stagione. Condire con olio, sale e pepe. Accompagnare con pane tostato e frutta."
-                    },
-                    cena: {
-                        nome: "PIZZA - PASTO LIBERO",
-                        ingredienti: [
-                            "Pizza a scelta con verdure",
-                            "Prosciutto crudo/cotto, mozzarella, affettati vari",
-                            "Insalata mista come antipasto",
-                            "Acqua naturale",
-                            "Opzionale: dessert"
-                        ],
-                        preparazione: "PASTO TOTALMENTE LIBERO. Iniziare con insalata. Scegliere pizza con verdure e proteine a piacere. Dessert opzionale. Bere acqua naturale."
-                    }
-                }
-            },
-            sabato: {
-                eric: {
-                    colazione: {
-                        nome: "Tiramisù Fit",
-                        ingredienti: [
-                            "150g yogurt greco 0% bianco",
-                            "1 cucchiaino miele",
-                            "2 fette biscottate integrali",
-                            "10g cioccolato fondente 85% (1 quadretto)",
-                            "Caffè q.b.",
-                            "1 cucchiaino cacao amaro"
-                        ],
-                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt greco, miele, cioccolato sbriciolato e cacao. Servire freddo dal frigo."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Riso + Pesce - COMODO",
-                        ingredienti: [
-                            "1 piatto abbondante verdure (insalata mista, pomodori)",
-                            "80g riso basmati o venere cottura al dente",
-                            "200g pesce fresco (branzino, orata, dentice, nasello)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, limone, prezzemolo q.b."
-                        ],
-                        preparazione: "Cuocere il riso al dente, far raffreddare. Grigliare il pesce con limone e erbe. Preparare insalata fredda di riso con verdure e pesce. Servire con frutta."
-                    },
-                    cena: {
-                        nome: "Verdure + Pesce DIVERSO + Pane + Frutta + Cioccolato",
-                        ingredienti: [
-                            "200g pesce fresco DIVERSO dal pranzo (sgombro, merluzzo, trota, nasello se non usato a pranzo)",
-                            "1 piatto verdure grigliate",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "20g cioccolato fondente 85% (2 quadretti)",
-                            "Sale, pepe, limone, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C con olio, limone e erbe. Aggiungere verdure. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Tiramisù Fit",
-                        ingredienti: [
-                            "150g yogurt greco 0% bianco",
-                            "1 cucchiaino miele",
-                            "2 fette biscottate integrali",
-                            "10g cioccolato fondente 85%",
-                            "Caffè q.b.",
-                            "1 cucchiaino cacao amaro"
-                        ],
-                        preparazione: "Bagnare le biscottate con caffè. Disporre in tazza. Aggiungere yogurt, miele, cioccolato e cacao. Servire freddo."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Riso + Pesce - COMODO",
-                        ingredienti: [
-                            "1 piatto abbondante verdure",
-                            "60g riso basmati o venere cottura al dente",
-                            "150g pesce fresco (branzino, orata, dentice, nasello)",
-                            "2 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, limone, prezzemolo q.b."
-                        ],
-                        preparazione: "Cuocere il riso al dente. Grigliare il pesce con limone e erbe. Preparare insalata fredda di riso con verdure e pesce. Servire con frutta."
-                    },
-                    cena: {
-                        nome: "Verdure + Pesce DIVERSO + Pane + Frutta + Cioccolato",
-                        ingredienti: [
-                            "150g pesce fresco DIVERSO dal pranzo (sgombro, merluzzo, trota, nasello se non usato)",
-                            "1 piatto verdure grigliate",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "20g cioccolato fondente 85%",
-                            "Sale, pepe, limone, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
-                    }
-                }
-            },
-            domenica: {
-                eric: {
-                   colazione: {
-                        nome: "Pancake + Confettura + Latte - COLAZIONE COMODA",
-                        ingredienti: [
-                            "1 pancake",
-                            "Confettura senza zuccheri Rigoni di Asiago (velo)",
-                            "150ml latte parz.scremato",
-                            "Caffè se gradito"
-                        ],
-                        preparazione: "Preparare il pancake. Cuocere con burro. Condire con confettura. Accompagnare con latte e caffè. STESSA DI ERIC - COMODA."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Coniglio + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure",
-                            "150g coniglio fresco o surgelato",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco (mela, pera)",
-                            "Sale, pepe, rosmarino, timo q.b."
-                        ],
-                        preparazione: "Cuocere il coniglio al forno con erbe (rosmarino, timo), olio e limone a 180°C per 30-40 minuti. Preparare verdure grigliate. Servire con pane e frutta."
-                    },
-                    cena: {
-                        nome: "Verdure + Salmone + Pane + Frutta + Cioccolato",
-                        ingredienti: [
-                            "200g salmone fresco",
-                            "1 piatto abbondante verdure",
-                            "60-70g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco (150g)",
-                            "20g cioccolato fondente 85% (2 quadretti)",
-                            "Sale, pepe, limone, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Cuocere il salmone al forno in cartoccio a 180°C con olio, limone e erbe. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato."
-                    }
-                },
-                chiara: {
-                    colazione: {
-                        nome: "Pancake + Confettura + Latte - COLAZIONE COMODA",
-                        ingredienti: [
-                            "1 pancake",
-                            "Confettura senza zuccheri Rigoni di Asiago (velo)",
-                            "150ml latte parz.scremato",
-                            "Caffè se gradito"
-                        ],
-                        preparazione: "Preparare il pancake. Cuocere con burro. Condire con confettura. Accompagnare con latte e caffè. STESSA DI ERIC - COMODA."
-                    },
-                    pranzo: {
-                        nome: "Verdure + Coniglio + Pane + Frutta",
-                        ingredienti: [
-                            "1 piatto abbondante verdure",
-                            "100g coniglio fresco o surgelato",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco",
-                            "Sale, pepe, rosmarino, timo q.b."
-                        ],
-                        preparazione: "Cuocere il coniglio al forno con erbe, olio e limone. Preparare verdure grigliate. Servire con pane e frutta."
-                    },
-                    cena: {
-                        nome: "Verdure + Pesce DIVERSO DA SALMONE + Pane + Frutta + Cioccolato",
-                        ingredienti: [
-                            "150g pesce fresco DIVERSO DA SALMONE (branzino, orata, merluzzo, nasello, dentice, sgombro, trota)",
-                            "1 piatto abbondante verdure",
-                            "40-50g pane integrale tostato",
-                            "2-3 cucchiai olio extravergine d'oliva",
-                            "1 frutto fresco (150g)",
-                            "20g cioccolato fondente 85%",
-                            "Sale, pepe, limone, erbe aromatiche q.b."
-                        ],
-                        preparazione: "Cuocere il pesce al forno in cartoccio a 180°C. Aggiungere verdure grigliate. Servire con pane e frutta. Dopo cena: 2 quadretti cioccolato. NO SALMONE perché Eric ha salmone affumicato a colazione."
-                    }
-                }
-            }
         };
 
         let currentDay = 'lunedi';
         let currentPerson = 'eric';
-        let currentView = 'weekly'; // 'weekly' or 'recipes'
+        let currentView = 'daily';
+
+        const giorni = ['lunedi','martedi','mercoledi','giovedi','venerdi','sabato','domenica'];
+        const giorniLabel = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
+
+        function init() {
+            renderDaySelector();
+            renderMeals();
+        }
+
+        function renderDaySelector() {
+            const html = giorni.map((g,i) => 
+                `<button class="day-btn ${g===currentDay?'active':''}" onclick="selectDay('${g}')">${giorniLabel[i]}</button>`
+            ).join('');
+            document.getElementById('daySelector').innerHTML = html;
+        }
+
+        function selectDay(day) {
+            currentDay = day;
+            renderDaySelector();
+            renderMeals();
+        }
+
+
 
         function renderMeals() {
-            const meals = menuData[currentDay][currentPerson];
-            const container = document.getElementById('mealsContainer');
-            
-            // Helper function to render ingredients with optional sections
-            function renderIngredients(ingredienti) {
-                let html = '';
-                let inOptionalSection = false;
-                let mainIngredients = [];
-                let optionalIngredients = [];
+            const dayData = data[currentDay];
+            const html = ['colazione','pranzo','cena'].map(tipo => {
+                const meal = dayData[tipo];
+                const badgeHtml = meal.badge ? `<div class="badge badge-warning">${meal.badge}</div>` : '';
                 
-                ingredienti.forEach(ing => {
-                    if (ing === '---') {
-                        inOptionalSection = true;
-                    } else if (inOptionalSection) {
-                        optionalIngredients.push(ing);
-                    } else {
-                        mainIngredients.push(ing);
-                    }
+                if (meal.eric && meal.chiara) {
+                    // Meal has separate sections for Eric and Chiara
+                    return `
+                        <div class="meal-card ${tipo}">
+                            <h3 class="meal-title">${tipo}</h3>
+                            <div class="meal-name">${meal.nome}</div>
+                            ${badgeHtml}
+                            ${meal.nota ? `<div style="font-style: italic; margin-bottom: var(--space-12); font-size: var(--font-size-sm);">${meal.nota}</div>` : ''}
+                            <div class="two-column-layout">
+                                <div class="person-card eric">
+                                    <div class="person-name">Eric</div>
+                                    ${meal.eric.titolo ? `<div style="font-weight: 600; margin-bottom: var(--space-8);">${meal.eric.titolo}</div>` : ''}
+                                    <div class="section-title">Ingredienti</div>
+                                    <ul>
+                                        ${meal.eric.ingredienti.map(i => `<li>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="person-card chiara">
+                                    <div class="person-name">Chiara</div>
+                                    ${meal.chiara.titolo ? `<div style="font-weight: 600; margin-bottom: var(--space-8);">${meal.chiara.titolo}</div>` : ''}
+                                    <div class="section-title">Ingredienti</div>
+                                    <ul>
+                                        ${meal.chiara.ingredienti.map(i => `<li>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // Single person view
+                    const personData = currentPerson === 'eric' ? meal.eric : meal.chiara;
+                    return `
+                        <div class="meal-card ${tipo}">
+                            <h3 class="meal-title">${tipo}</h3>
+                            <div class="meal-name">${meal.nome}</div>
+                            ${badgeHtml}
+                            ${meal.nota ? `<div style="font-style: italic; margin-bottom: var(--space-12);">${meal.nota}</div>` : ''}
+                            <div class="section-title">Ingredienti</div>
+                            <ul>
+                                ${personData.ingredienti.map(i => `<li>${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            }).join('');
+            document.getElementById('mealsGrid').innerHTML = html;
+        }
+
+        function showView(view) {
+            currentView = view;
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('dailyView').classList.toggle('hidden', view !== 'daily');
+            document.getElementById('tableView').classList.toggle('hidden', view !== 'table');
+            document.getElementById('recipesView').classList.toggle('hidden', view !== 'recipes');
+
+            if (view === 'table') renderTable();
+            if (view === 'recipes') renderRecipes();
+        }
+
+        function renderTable() {
+            let html = '<table><thead><tr><th>Giorno</th><th>Persona</th><th>Colazione</th><th>Pranzo</th><th>Cena</th></tr></thead><tbody>';
+            
+            giorni.forEach((g,i) => {
+                ['eric','chiara'].forEach((p,j) => {
+                    const dayData = data[g];
+                    html += `<tr>${j===0?`<td rowspan="2"><strong>${giorniLabel[i]}</strong></td>`:''}`;
+                    html += `<td><strong>${p.toUpperCase()}</strong></td>`;
+                    
+                    // Colazione
+                    const colazione = dayData.colazione;
+                    const colazioneData = colazione[p];
+                    const colazioneTitolo = colazioneData.titolo || colazione.nome;
+                    html += `<td><strong>${colazioneTitolo}</strong><br><small>${colazioneData.ingredienti.slice(0,2).join(', ')}...</small></td>`;
+                    
+                    // Pranzo
+                    const pranzo = dayData.pranzo;
+                    const pranzoData = pranzo[p];
+                    const pranzoBadge = pranzo.badge ? ` <span style="background: rgba(245,158,11,0.3); padding: 2px 6px; border-radius: 4px; font-size: 10px;">${pranzo.badge}</span>` : '';
+                    html += `<td><strong>${pranzo.nome}</strong>${pranzoBadge}<br><small>${pranzoData.ingredienti.slice(0,2).join(', ')}...</small></td>`;
+                    
+                    // Cena
+                    const cena = dayData.cena;
+                    const cenaData = cena[p];
+                    const cenaBadge = cena.badge ? ` <span style="background: rgba(34,197,94,0.3); padding: 2px 6px; border-radius: 4px; font-size: 10px;">${cena.badge}</span>` : '';
+                    html += `<td><strong>${cena.nome}</strong>${cenaBadge}<br><small>${cenaData.ingredienti.slice(0,2).join(', ')}...</small></td>`;
+                    
+                    html += '</tr>';
                 });
-                
-                // Render main ingredients
-                if (mainIngredients.length > 0) {
-                    html += '<div class="section-title">Piatto Principale (Obbligatorio)</div>';
-                    html += '<ul class="ingredients-list">';
-                    mainIngredients.forEach(ing => {
-                        html += `<li>${ing}</li>`;
-                    });
-                    html += '</ul>';
-                }
-                
-                // Render optional section
-                if (optionalIngredients.length > 0) {
-                    html += '<div class="section-title" style="color: var(--color-warning); margin-top: var(--space-24);">⭐ Secondo Piatto Opzionale (se desideri)</div>';
-                    html += '<p class="preparation-text" style="margin-bottom: var(--space-12); font-style: italic; color: var(--color-text-secondary);">Il passato è completo da solo. Puoi aggiungere un secondo solo se lo desideri:</p>';
-                    html += '<ul class="ingredients-list" style="background: rgba(var(--color-warning-rgb), 0.05); padding: var(--space-16); border-radius: var(--radius-base); border-left: 3px solid var(--color-warning);">';
-                    optionalIngredients.forEach(ing => {
-                        html += `<li>${ing}</li>`;
-                    });
-                    html += '</ul>';
-                }
-                
-                return html;
+            });
+            
+            html += '</tbody></table>';
+            document.getElementById('weeklyTable').innerHTML = html;
+        }
+
+        let currentCategory = 'tutte';
+        let searchQuery = '';
+        let selectedRecipe = null;
+
+        function renderRecipes() {
+            if (selectedRecipe) {
+                renderRecipeDetail();
+                return;
             }
+
+            const html = `
+                <div style="margin-bottom: var(--space-24);">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Cerca ricetta per nome..." 
+                           onkeyup="handleSearch(event)" style="margin-bottom: var(--space-16);">
+                    
+                    <div style="display: flex; gap: var(--space-8); flex-wrap: wrap; margin-bottom: var(--space-24);">
+                        <button class="day-btn ${currentCategory==='tutte'?'active':''}" onclick="filterCategory('tutte')">Tutte</button>
+                        <button class="day-btn ${currentCategory==='colazioni_dolci'?'active':''}" onclick="filterCategory('colazioni_dolci')">Colazioni Dolci</button>
+                        <button class="day-btn ${currentCategory==='colazioni_salate'?'active':''}" onclick="filterCategory('colazioni_salate')">Colazioni Salate</button>
+                        <button class="day-btn ${currentCategory==='piatti_unici'?'active':''}" onclick="filterCategory('piatti_unici')">Piatti Unici</button>
+                        <button class="day-btn ${currentCategory==='legumi'?'active':''}" onclick="filterCategory('legumi')">Legumi</button>
+                        <button class="day-btn ${currentCategory==='secondi'?'active':''}" onclick="filterCategory('secondi')">Secondi Proteici</button>
+                        <button class="day-btn ${currentCategory==='contorni'?'active':''}" onclick="filterCategory('contorni')">Contorni</button>
+                    </div>
+                </div>
+                
+                <div id="recipesContainer"></div>
+            `;
+            document.getElementById('recipesList').innerHTML = html;
+            renderRecipesList();
+        }
+
+        function showRecipeDetail(categoria, titolo) {
+            const unescapedTitle = titolo.replace(/&apos;/g, "'");
+            const foundRecipe = ricette[categoria].find(r => r.titolo === unescapedTitle);
+            if (foundRecipe) {
+                selectedRecipe = {...foundRecipe, categoria: categoria};
+                renderRecipeDetail();
+            }
+        }
+
+        function renderRecipesList() {
+            let allRecipes = [];
             
-            // Check if dinner has optional section (Monday/Tuesday)
-            const hasOptionalDinner = (currentDay === 'lunedi' || currentDay === 'martedi') && 
-                                     meals.cena.ingredienti.some(ing => ing === '---');
-            
-            let cenaIngredientsHtml = '';
-            if (hasOptionalDinner) {
-                cenaIngredientsHtml = renderIngredients(meals.cena.ingredienti);
+            if (currentCategory === 'tutte') {
+                Object.keys(ricette).forEach(cat => {
+                    ricette[cat].forEach(r => {
+                        allRecipes.push({...r, categoria: cat});
+                    });
+                });
             } else {
-                cenaIngredientsHtml = `
-                    <div class="section-title">Ingredienti</div>
-                    <ul class="ingredients-list">
-                        ${meals.cena.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                    </ul>
-                `;
+                allRecipes = ricette[currentCategory].map(r => ({...r, categoria: currentCategory}));
             }
-            
-            container.innerHTML = `
-                <div class="meal-card colazione">
-                    <h3 class="meal-title">Colazione</h3>
-                    <div class="meal-subtitle">${meals.colazione.nome}</div>
-                    <div class="section-title">Ingredienti</div>
-                    <ul class="ingredients-list">
-                        ${meals.colazione.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                    </ul>
-                    <div class="section-title">Preparazione</div>
-                    <p class="preparation-text">${meals.colazione.preparazione}</p>
-                </div>
 
-                <div class="meal-card pranzo">
-                    <h3 class="meal-title">Pranzo</h3>
-                    <div class="meal-subtitle">${meals.pranzo.nome}</div>
-                    <div class="section-title">Ingredienti</div>
-                    <ul class="ingredients-list">
-                        ${meals.pranzo.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                    </ul>
-                    <div class="section-title">Preparazione</div>
-                    <p class="preparation-text">${meals.pranzo.preparazione}</p>
-                </div>
+            if (searchQuery) {
+                allRecipes = allRecipes.filter(r => 
+                    r.titolo.toLowerCase().includes(searchQuery.toLowerCase())
+                );
+            }
 
-                <div class="meal-card cena">
-                    <h3 class="meal-title">Cena</h3>
-                    <div class="meal-subtitle">${meals.cena.nome}</div>
-                    ${cenaIngredientsHtml}
-                    <div class="section-title">Preparazione</div>
-                    <p class="preparation-text">${meals.cena.preparazione}</p>
+            const categoryLabels = {
+                colazioni_dolci: 'Colazioni Dolci',
+                colazioni_salate: 'Colazioni Salate',
+                piatti_unici: 'Piatti Unici',
+                legumi: 'Legumi',
+                secondi: 'Secondi Proteici',
+                contorni: 'Contorni'
+            };
+
+            const html = allRecipes.map(r => {
+                const escapedTitle = r.titolo.replace(/'/g, "&apos;");
+                return `
+                <div class="recipe-card" style="cursor: pointer;" onclick="showRecipeDetail('${r.categoria}', '${escapedTitle}')"> 
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-12);">
+                        <div class="recipe-title">${r.titolo}</div>
+                        <div class="badge ${r.fonte==='nutrizionista'?'badge-success':'badge-warning'}">
+                            ${r.fonte==='nutrizionista'?'Dal Nutrizionista':'Creativa'}
+                        </div>
+                    </div>
+                    <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                        <strong>Categoria:</strong> ${categoryLabels[r.categoria]} • <strong>Tempo:</strong> ${r.tempo}
+                    </div>
+                    <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                        ${r.ingredienti.slice(0, 3).join(', ')}${r.ingredienti.length > 3 ? '...' : ''}
+                    </div>
+                    <div style="margin-top: var(--space-12); color: var(--color-primary); font-weight: 600; font-size: var(--font-size-sm);">
+                        Clicca per dettagli →
+                    </div>
                 </div>
             `;
-        }
+            }).join('');
 
-        // Day tabs event listeners
-        document.getElementById('dayTabs').addEventListener('click', (e) => {
-            if (e.target.classList.contains('day-tab')) {
-                document.querySelectorAll('.day-tab').forEach(tab => tab.classList.remove('active'));
-                e.target.classList.add('active');
-                currentDay = e.target.dataset.day;
-                renderMeals();
+            const container = document.getElementById('recipesContainer');
+            if (container) {
+                container.innerHTML = html || '<p style="text-align: center; color: var(--color-text-secondary);">Nessuna ricetta trovata.</p>';
+                
+                // Add click handlers
+                document.querySelectorAll('.recipe-item').forEach((item, index) => {
+                    item.addEventListener('click', function() {
+                        selectedRecipe = window.currentRecipesList[index];
+                        renderRecipeDetail();
+                    });
+                });
             }
-        });
-
-        // Person toggle event listeners
-        document.querySelectorAll('.person-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.person-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentPerson = btn.dataset.person;
-                renderMeals();
-            });
-        });
-
-        // Recipes view functions
-        function renderRecipes() {
-            const container = document.getElementById('recipesContent');
-            
-            let html = '';
-            
-            // Colazioni
-            html += '<div class="recipe-category">';
-            html += '<h3 class="category-title">Colazioni</h3>';
-            recipesData.colazioni.forEach(recipe => {
-                html += `
-                    <div class="recipe-card">
-                        <h4 class="recipe-name">${recipe.nome}</h4>
-                        <div class="section-title">Ingredienti</div>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                        </ul>
-                        <div class="section-title">Preparazione</div>
-                        <p class="preparation-text">${recipe.preparazione}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            // Latticini
-            html += '<div class="recipe-category">';
-            html += '<h3 class="category-title">Latticini - Ricotta e Fiocchi di Latte</h3>';
-            recipesData.latticini.forEach(recipe => {
-                html += `
-                    <div class="recipe-card">
-                        <h4 class="recipe-name">${recipe.nome}</h4>
-                        <div class="section-title">Ingredienti</div>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                        </ul>
-                        <div class="section-title">Preparazione</div>
-                        <p class="preparation-text">${recipe.preparazione}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            // Carni
-            html += '<div class="recipe-category">';
-            html += '<h3 class="category-title">Piatti Principali - Carni</h3>';
-            recipesData.carni.forEach(recipe => {
-                html += `
-                    <div class="recipe-card">
-                        <h4 class="recipe-name">${recipe.nome}</h4>
-                        <div class="section-title">Ingredienti</div>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                        </ul>
-                        <div class="section-title">Preparazione</div>
-                        <p class="preparation-text">${recipe.preparazione}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            // Pesci
-            html += '<div class="recipe-category">';
-            html += '<h3 class="category-title">Piatti Principali - Pesci</h3>';
-            recipesData.pesci.forEach(recipe => {
-                html += `
-                    <div class="recipe-card">
-                        <h4 class="recipe-name">${recipe.nome}</h4>
-                        <div class="section-title">Ingredienti</div>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                        </ul>
-                        <div class="section-title">Preparazione</div>
-                        <p class="preparation-text">${recipe.preparazione}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            // Contorni
-            html += '<div class="recipe-category">';
-            html += '<h3 class="category-title">Contorni e Piatti Unici</h3>';
-            recipesData.contorni.forEach(recipe => {
-                html += `
-                    <div class="recipe-card">
-                        <h4 class="recipe-name">${recipe.nome}</h4>
-                        <div class="section-title">Ingredienti</div>
-                        <ul class="ingredients-list">
-                            ${recipe.ingredienti.map(ing => `<li>${ing}</li>`).join('')}
-                        </ul>
-                        <div class="section-title">Preparazione</div>
-                        <p class="preparation-text">${recipe.preparazione}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            container.innerHTML = html;
         }
 
-        function showRecipes() {
-            currentView = 'recipes';
-            document.getElementById('weeklyPlan').classList.add('hidden');
-            document.getElementById('recipesContainer').classList.add('active');
-            document.querySelectorAll('.day-tab').forEach(tab => tab.classList.remove('active'));
-            document.getElementById('recipesBtn').classList.add('active');
+        function filterCategory(cat) {
+            currentCategory = cat;
+            searchQuery = '';
             renderRecipes();
         }
 
-        function showWeeklyPlan() {
-            currentView = 'weekly';
-            document.getElementById('weeklyPlan').classList.remove('hidden');
-            document.getElementById('recipesContainer').classList.remove('active');
-            document.getElementById('recipesBtn').classList.remove('active');
-            // Restore the active day tab
-            document.querySelectorAll('.day-tab').forEach(tab => {
-                if (tab.dataset.day === currentDay) {
-                    tab.classList.add('active');
-                }
-            });
+        function handleSearch(event) {
+            searchQuery = event.target.value;
+            renderRecipesList();
         }
 
-        // Recipes button event listener
-        document.getElementById('recipesBtn').addEventListener('click', () => {
-            showRecipes();
-        });
 
-        // Back button event listener
-        document.getElementById('backBtn').addEventListener('click', () => {
-            showWeeklyPlan();
-        });
 
-        // Initial render
-        renderMeals();
+        function renderRecipeDetail() {
+            const categoryLabels = {
+                colazioni_dolci: 'Colazioni Dolci',
+                colazioni_salate: 'Colazioni Salate',
+                piatti_unici: 'Piatti Unici',
+                legumi: 'Legumi',
+                secondi: 'Secondi Proteici',
+                contorni: 'Contorni'
+            };
+
+            let html = '<div style="margin-bottom: var(--space-24);">';
+            html += '<button class="btn btn--secondary" onclick="closeRecipeDetail()" style="margin-bottom: var(--space-16); padding: var(--space-8) var(--space-16); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text); cursor: pointer; border-radius: var(--radius-base);">';
+            html += '&larr; Torna alle ricette';
+            html += '</button>';
+            html += '<button class="btn btn--primary" onclick="printRecipe()" style="margin-left: var(--space-12); padding: var(--space-8) var(--space-16); background: var(--color-primary); color: white; border: none; cursor: pointer; border-radius: var(--radius-base);">';
+            html += '&#128424; Stampa Ricetta';
+            html += '</button>';
+            html += '</div>';
+            
+            html += '<div class="recipe-card" id="printableRecipe">';
+            html += '<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-16);">';
+            html += '<h2 style="margin: 0; font-size: var(--font-size-3xl);">' + selectedRecipe.titolo + '</h2>';
+            const badgeClass = selectedRecipe.fonte === 'nutrizionista' ? 'badge-success' : 'badge-warning';
+            const badgeText = selectedRecipe.fonte === 'nutrizionista' ? 'Dal Nutrizionista' : 'Creativa';
+            html += '<div class="badge ' + badgeClass + '">' + badgeText + '</div>';
+            html += '</div>';
+            
+            html += '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); margin-bottom: var(--space-24); padding: var(--space-16); background: rgba(var(--color-brown-600-rgb), 0.05); border-radius: var(--radius-base);">';
+            html += '<div><strong>Categoria:</strong> ' + categoryLabels[selectedRecipe.categoria] + '</div>';
+            html += '<div><strong>Tempo di preparazione:</strong> ' + selectedRecipe.tempo + '</div>';
+            html += '</div>';
+            
+            html += '<div class="section-title">INGREDIENTI</div>';
+            html += '<ul style="margin-bottom: var(--space-24);">';
+            selectedRecipe.ingredienti.forEach(function(i) {
+                html += '<li>' + i + '</li>';
+            });
+            html += '</ul>';
+            
+            html += '<div class="section-title">PREPARAZIONE</div>';
+            html += '<p style="line-height: 1.8; margin-bottom: var(--space-24);">' + selectedRecipe.preparazione + '</p>';
+            
+            if (selectedRecipe.note) {
+                html += '<div class="section-title">NOTE NUTRIZIONALI/CONSIGLI</div>';
+                html += '<div style="padding: var(--space-16); background: rgba(33, 128, 141, 0.08); border-left: 4px solid var(--color-primary); border-radius: var(--radius-base); margin-bottom: var(--space-24);">';
+                html += selectedRecipe.note;
+                html += '</div>';
+            }
+            
+            if (selectedRecipe.varianti && selectedRecipe.varianti.length > 0) {
+                html += '<div class="section-title">VARIANTI POSSIBILI</div>';
+                html += '<ul>';
+                selectedRecipe.varianti.forEach(function(v) {
+                    html += '<li>' + v + '</li>';
+                });
+                html += '</ul>';
+            }
+            
+            html += '</div>';
+            document.getElementById('recipesList').innerHTML = html;
+        }
+
+        function closeRecipeDetail() {
+            selectedRecipe = null;
+            renderRecipes();
+        }
+
+        function printRecipe() {
+            const printContent = document.getElementById('printableRecipe').innerHTML;
+            const printWindow = window.open('', '', 'width=800,height=600');
+            if (!printWindow) {
+                alert('Impossibile aprire la finestra di stampa. Controlla le impostazioni del browser.');
+                return;
+            }
+            printWindow.document.write('<html><head><title>Stampa Ricetta - ' + selectedRecipe.titolo + '</title>');
+            printWindow.document.write('<style>');
+            printWindow.document.write('body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }');
+            printWindow.document.write('h2 { color: #134252; }');
+            printWindow.document.write('ul { margin: 10px 0; padding-left: 20px; }');
+            printWindow.document.write('li { margin-bottom: 8px; }');
+            printWindow.document.write('.section-title { font-weight: bold; font-size: 14px; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }');
+            printWindow.document.write('.badge { display: inline-block; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; }');
+            printWindow.document.write('.badge-success { background: rgba(34, 197, 94, 0.2); }');
+            printWindow.document.write('.badge-warning { background: rgba(245, 158, 11, 0.2); }');
+            printWindow.document.write('</style></head><body>');
+            printWindow.document.write(printContent);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function() {
+                printWindow.print();
+            }, 250);
+        }
+
+        init();
     </script>
 </body>
 </html>
