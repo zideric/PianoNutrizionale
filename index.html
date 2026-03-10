@@ -4,37 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Nutrizionale - Eric e Chiara</title>
-    <style>
-:root {
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    :root {
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   --font-size-sm: 12px;
   --font-size-base: 14px;
   --font-size-lg: 16px;
   --font-size-xl: 18px;
   --font-size-2xl: 20px;
   --font-size-3xl: 24px;
+  --space-4: 4px;
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
@@ -42,9 +21,35 @@
   --space-32: 32px;
   --radius-base: 8px;
   --radius-lg: 12px;
+
+  --color-teal-500-rgb: 33, 128, 141;
 }
 
-* { box-sizing: border-box; }
+.light-theme {
+  --color-background: #fcfcf9;
+  --color-surface: #ffffff;
+  --color-text: #13343b;
+  --color-text-secondary: #626c71;
+  --color-primary: #21808d;
+  --color-primary-hover: #1d6f7a;
+  --color-border: rgba(94, 82, 64, 0.2);
+  --color-card-border: rgba(94, 82, 64, 0.12);
+}
+
+.dark-theme {
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-primary: #32b8c6;
+  --color-primary-hover: #45c9d7;
+  --color-border: rgba(255, 255, 255, 0.2);
+  --color-card-border: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -53,6 +58,7 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   font-size: var(--font-size-base);
+  transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -65,6 +71,7 @@ body {
   margin-bottom: var(--space-32);
   padding-bottom: var(--space-24);
   border-bottom: 2px solid var(--color-border);
+  position: relative;
 }
 
 .header h1 {
@@ -72,6 +79,19 @@ body {
   margin: 0 0 var(--space-8) 0;
 }
 
+.theme-switcher {
+  position: absolute;
+  top: var(--space-24);
+  right: var(--space-24);
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  color: var(--color-text);
+}
 .nav-buttons {
   display: flex;
   gap: var(--space-12);
@@ -90,10 +110,12 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  color: var(--color-text);
 }
 
 .nav-btn:hover {
   border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .nav-btn.active {
@@ -118,6 +140,7 @@ body {
   border-radius: var(--radius-base);
   cursor: pointer;
   font-size: var(--font-size-sm);
+  color: var(--color-text);
 }
 
 .day-btn.active {
@@ -139,6 +162,7 @@ body {
   border-radius: var(--radius-base);
   cursor: pointer;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .person-btn.active {
@@ -157,11 +181,28 @@ body {
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   padding: var(--space-24);
+  transition: background 0.3s;
 }
 
-.meal-card.colazione { background: rgba(59, 130, 246, 0.08); }
-.meal-card.pranzo { background: rgba(34, 197, 94, 0.08); }
-.meal-card.cena { background: rgba(245, 158, 11, 0.08); }
+.meal-card.colazione {
+  background: rgba(59, 130, 246, 0.08);
+}
+.meal-card.pranzo {
+  background: rgba(34, 197, 94, 0.08);
+}
+.meal-card.cena {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.dark-theme .meal-card.colazione {
+  background: rgba(59, 130, 246, 0.2);
+}
+.dark-theme .meal-card.pranzo {
+  background: rgba(34, 197, 94, 0.2);
+}
+.dark-theme .meal-card.cena {
+  background: rgba(245, 158, 11, 0.2);
+}
 
 .meal-title {
   font-size: var(--font-size-xl);
@@ -194,7 +235,9 @@ li {
   line-height: 1.5;
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 table {
   width: 100%;
@@ -203,7 +246,8 @@ table {
   margin-top: var(--space-24);
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--color-border);
   padding: var(--space-12);
   text-align: left;
@@ -264,9 +308,17 @@ th {
   background: rgba(59, 130, 246, 0.05);
 }
 
+.dark-theme .person-card.eric {
+  background: rgba(59, 130, 246, 0.15);
+}
+
 .person-card.chiara {
   border-color: rgba(236, 72, 153, 0.4);
   background: rgba(236, 72, 153, 0.05);
+}
+
+.dark-theme .person-card.chiara {
+  background: rgba(236, 72, 153, 0.15);
 }
 
 .person-name {
@@ -302,6 +354,9 @@ th {
         <div class="header">
             <h1>Piano Nutrizionale Settimanale</h1>
             <h2>Eric e Chiara</h2>
+            <div class="theme-switcher">
+                <button id="theme-toggle">🌙</button>
+            </div>
         </div>
 
         <div class="nav-buttons">
@@ -721,6 +776,31 @@ th {
                 printWindow.print();
             }, 250);
         }
+
+
+        function setTheme(theme) {
+            document.body.className = theme;
+            localStorage.setItem('theme', theme);
+            const themeToggle = document.getElementById('theme-toggle');
+            if (theme === 'dark-theme') {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌙';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = localStorage.getItem('theme') || 'light-theme';
+            const newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+            setTheme(newTheme);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light-theme';
+            setTheme(savedTheme);
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', toggleTheme);
+        });
 
         init();
     </script>
