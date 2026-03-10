@@ -403,10 +403,6 @@ th {
 
                     <div id="recipesView" class="hidden">
                         <h2>Ricette Disponibili</h2>
-                        <div class="season-switcher" style="margin-bottom: var(--space-16);">
-                            <button class="day-btn" onclick="filterSeason('estate')">Estate</button>
-                            <button class="day-btn" onclick="filterSeason('inverno')">Inverno</button>
-                        </div>
                         <div id="recipesList"></div>
                     </div>    </div>
 
@@ -844,15 +840,22 @@ th {
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light-theme';
+            const savedSeason = localStorage.getItem('season') || 'estate';
+            
             setTheme(savedTheme);
+            currentSeason = savedSeason;
+            
             const themeToggle = document.getElementById('theme-toggle');
             themeToggle.addEventListener('click', toggleTheme);
-            const savedSeason = localStorage.getItem('season') || 'estate';
-            filterSeason(savedSeason);
+
+            init();
         });
 
-
-        init();
+        function init() {
+            renderDaySelector();
+            renderMeals();
+            renderRecipes();
+        }
     </script>
 </body>
 </html>
