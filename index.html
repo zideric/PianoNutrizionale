@@ -5,406 +5,748 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Nutrizionale - Eric e Chiara</title>
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 11px;
   --font-size-sm: 12px;
   --font-size-base: 14px;
   --font-size-lg: 16px;
   --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 28px;
+  --space-2: 2px;
   --space-4: 4px;
+  --space-6: 6px;
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
+  --space-20: 20px;
   --space-24: 24px;
   --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --radius-sm: 8px;
   --radius-base: 12px;
   --radius-lg: 16px;
-
-  --color-teal-500-rgb: 33, 128, 141;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.05);
 }
 
 .light-theme {
-  --color-background: #f0f2f5;
+  --color-background: #f5f3ef;
   --color-surface: #ffffff;
-  --color-text: #333333;
-  --color-text-secondary: #666666;
-  --color-primary: #007bff;
-  --color-primary-hover: #0056b3;
-  --color-border: #e0e0e0;
-  --color-card-border: #dddddd;
+  --color-surface-alt: #f0ede8;
+  --color-surface-hover: #faf8f5;
+  --color-text: #1c1b1f;
+  --color-text-secondary: #605d6b;
+  --color-text-muted: #9994a8;
+  --color-primary: #2e7d5e;
+  --color-primary-hover: #1f5f46;
+  --color-primary-light: rgba(46,125,94,0.1);
+  --color-border: #e5e2da;
+  --color-border-subtle: #eeebe4;
+  --colazione-bg: #fffbeb;
+  --colazione-border: #f59e0b;
+  --colazione-title: #92400e;
+  --pranzo-bg: #f0fdf4;
+  --pranzo-border: #22c55e;
+  --pranzo-title: #14532d;
+  --cena-bg: #eff6ff;
+  --cena-border: #3b82f6;
+  --cena-title: #1e3a8a;
+  --eric-color: #1d6eb8;
+  --eric-bg: rgba(29,110,184,0.06);
+  --eric-border: rgba(29,110,184,0.25);
+  --chiara-color: #be185d;
+  --chiara-bg: rgba(190,24,93,0.05);
+  --chiara-border: rgba(190,24,93,0.25);
+  --header-bg: linear-gradient(135deg, #1a4731 0%, #2e7d5e 60%, #3d9970 100%);
+  --header-text: rgba(255,255,255,0.95);
+  --header-subtext: rgba(255,255,255,0.7);
 }
 
 .dark-theme {
-  --color-background: #18191a;
-  --color-surface: #242526;
-  --color-text: #e4e6eb;
-  --color-text-secondary: #b0b3b8;
-  --color-primary: #2d88ff;
-  --color-primary-hover: #529fff;
-  --color-border: #3a3b3c;
-  --color-card-border: #404040;
+  --color-background: #0e1117;
+  --color-surface: #161b27;
+  --color-surface-alt: #1e2435;
+  --color-surface-hover: #1a2030;
+  --color-text: #e8e6f0;
+  --color-text-secondary: #9490a4;
+  --color-text-muted: #635f73;
+  --color-primary: #4ecaa0;
+  --color-primary-hover: #3db88e;
+  --color-primary-light: rgba(78,202,160,0.12);
+  --color-border: #252b3b;
+  --color-border-subtle: #1e2435;
+  --colazione-bg: rgba(251,191,36,0.08);
+  --colazione-border: #fbbf24;
+  --colazione-title: #fcd34d;
+  --pranzo-bg: rgba(78,202,160,0.08);
+  --pranzo-border: #4ecaa0;
+  --pranzo-title: #6ee7be;
+  --cena-bg: rgba(99,132,235,0.08);
+  --cena-border: #6384eb;
+  --cena-title: #93a8f4;
+  --eric-color: #60a5fa;
+  --eric-bg: rgba(96,165,250,0.1);
+  --eric-border: rgba(96,165,250,0.25);
+  --chiara-color: #f472b6;
+  --chiara-bg: rgba(244,114,182,0.08);
+  --chiara-border: rgba(244,114,182,0.25);
+  --header-bg: linear-gradient(135deg, #0a1a14 0%, #0f2618 60%, #132e20 100%);
+  --header-text: rgba(255,255,255,0.95);
+  --header-subtext: rgba(255,255,255,0.55);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding: var(--space-24);
+  padding: 0;
   font-family: var(--font-family-base);
   background: var(--color-background);
   color: var(--color-text);
   font-size: var(--font-size-base);
   transition: background 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 0 var(--space-16) var(--space-40);
 }
 
+/* HEADER */
 .header {
-  text-align: center;
+  background: var(--header-bg);
+  padding: var(--space-32) var(--space-24) var(--space-40);
   margin-bottom: var(--space-32);
-  padding-bottom: var(--space-24);
-  border-bottom: 2px solid var(--color-border);
+  text-align: center;
   position: relative;
+  overflow: hidden;
 }
-
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 220px; height: 220px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -70px; left: -40px;
+  width: 280px; height: 280px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.header-emoji {
+  font-size: 40px;
+  display: block;
+  margin-bottom: var(--space-8);
+}
 .header h1 {
   font-size: var(--font-size-3xl);
-  margin: 0 0 var(--space-8) 0;
+  font-weight: 800;
+  margin: 0 0 var(--space-4);
+  color: var(--header-text);
+  letter-spacing: -0.5px;
 }
-
+.header h2 {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  margin: 0;
+  color: var(--header-subtext);
+  letter-spacing: 0.5px;
+}
 .theme-switcher {
   position: absolute;
-  top: var(--space-24);
-  right: var(--space-24);
+  top: var(--space-16);
+  right: var(--space-16);
 }
-
 #theme-toggle {
-  background: none;
-  border: none;
-  font-size: var(--font-size-2xl);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 18px;
   cursor: pointer;
-  color: var(--color-text);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  padding: 0;
 }
+#theme-toggle:hover { background: rgba(255,255,255,0.25); }
+
+/* NAVIGATION */
 .nav-buttons {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-6);
   margin-bottom: var(--space-24);
-  flex-wrap: wrap;
+  background: var(--color-surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
 }
-
 .nav-btn {
   flex: 1;
-  min-width: 200px;
-  padding: var(--space-16);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  padding: var(--space-12) var(--space-16);
+  background: transparent;
+  border: none;
   border-radius: var(--radius-lg);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  color: var(--color-text);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-base);
 }
-
 .nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: var(--color-primary);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
 }
-
 .nav-btn.active {
   background: var(--color-primary);
   color: white;
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+/* DAY SELECTOR */
 .day-selector {
   display: flex;
-  gap: var(--space-8);
-  margin-bottom: var(--space-16);
+  gap: var(--space-6);
+  margin-bottom: var(--space-20);
   flex-wrap: wrap;
 }
-
 .day-btn {
   flex: 1;
-  min-width: 80px;
-  padding: var(--space-12);
+  min-width: 72px;
+  padding: var(--space-8) var(--space-12);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
   cursor: pointer;
   font-size: var(--font-size-sm);
-  color: var(--color-text);
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: var(--font-family-base);
 }
-
 .day-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
 }
-
 .day-btn.active {
   background: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
+/* PERSON TOGGLE */
 .person-toggle {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-8);
   margin-bottom: var(--space-24);
 }
-
 .person-btn {
   flex: 1;
-  padding: var(--space-16);
+  padding: var(--space-12) var(--space-16);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg);
   cursor: pointer;
   font-weight: 600;
-  color: var(--color-text);
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+  font-family: var(--font-family-base);
 }
-
 .person-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-primary);
   color: var(--color-primary);
 }
-
 .person-btn.active {
   background: var(--color-primary);
   color: white;
   border-color: var(--color-primary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
+/* MEALS */
 .meals-grid {
   display: grid;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
-
 .meal-card {
   background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-24);
-  transition: background 0.3s;
+  border-radius: var(--radius-xl);
+  padding: var(--space-20) var(--space-24);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
-
 .meal-card.colazione {
-  background: rgba(59, 130, 246, 0.08);
+  background: var(--colazione-bg);
+  border-left: 4px solid var(--colazione-border);
 }
 .meal-card.pranzo {
-  background: rgba(34, 197, 94, 0.08);
+  background: var(--pranzo-bg);
+  border-left: 4px solid var(--pranzo-border);
 }
 .meal-card.cena {
-  background: rgba(245, 158, 11, 0.08);
+  background: var(--cena-bg);
+  border-left: 4px solid var(--cena-border);
 }
-
-.dark-theme .meal-card.colazione {
-  background: rgba(59, 130, 246, 0.2);
+.meal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
 }
-.dark-theme .meal-card.pranzo {
-  background: rgba(34, 197, 94, 0.2);
-}
-.dark-theme .meal-card.cena {
-  background: rgba(245, 158, 11, 0.2);
-}
-
+.meal-icon { font-size: 20px; }
 .meal-title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xs);
   font-weight: 700;
-  margin: 0 0 var(--space-8) 0;
   text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0;
 }
-
+.meal-card.colazione .meal-title { color: var(--colazione-title); }
+.meal-card.pranzo .meal-title { color: var(--pranzo-title); }
+.meal-card.cena .meal-title { color: var(--cena-title); }
 .meal-name {
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  margin-bottom: var(--space-16);
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin: 0 0 var(--space-12);
+  color: var(--color-text);
+  line-height: 1.3;
 }
-
+.meal-nota {
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-16);
+  padding: var(--space-8) var(--space-12);
+  background: rgba(0,0,0,0.03);
+  border-radius: var(--radius-sm);
+}
+.dark-theme .meal-nota { background: rgba(255,255,255,0.04); }
+.meal-subtitle {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
 .section-title {
   font-weight: 700;
+  font-size: var(--font-size-xs);
+  margin: var(--space-16) 0 var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+}
+ul { margin: 0; padding-left: var(--space-20); }
+li { margin-bottom: var(--space-6); line-height: 1.6; }
+.hidden { display: none; }
+
+/* PERSON CARDS */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+}
+@media (max-width: 768px) {
+  .two-column-layout { grid-template-columns: 1fr; }
+}
+.person-card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  border: 1.5px solid var(--color-border);
+}
+.person-card.eric {
+  background: var(--eric-bg);
+  border-color: var(--eric-border);
+}
+.person-card.chiara {
+  background: var(--chiara-bg);
+  border-color: var(--chiara-border);
+}
+.person-name {
   font-size: var(--font-size-sm);
-  margin: var(--space-16) 0 var(--space-8) 0;
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.person-card.eric .person-name { color: var(--eric-color); }
+.person-card.chiara .person-name { color: var(--chiara-color); }
+
+/* BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  margin-bottom: var(--space-12);
+  letter-spacing: 0.3px;
   text-transform: uppercase;
 }
-
-ul {
-  margin: 0;
-  padding-left: var(--space-24);
+.badge-warning {
+  background: rgba(245,158,11,0.12);
+  color: #92400e;
+  border: 1px solid rgba(245,158,11,0.3);
+}
+.dark-theme .badge-warning {
+  color: #fcd34d;
+  background: rgba(251,191,36,0.15);
+  border-color: rgba(251,191,36,0.3);
+}
+.badge-success {
+  background: rgba(34,197,94,0.1);
+  color: #14532d;
+  border: 1px solid rgba(34,197,94,0.3);
+}
+.dark-theme .badge-success {
+  color: #6ee7b7;
+  background: rgba(78,202,160,0.15);
+  border-color: rgba(78,202,160,0.3);
 }
 
-li {
-  margin-bottom: var(--space-8);
-  line-height: 1.5;
+/* TABLE */
+.table-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin: 0 0 var(--space-20);
 }
-
-.hidden {
-  display: none;
-}
-
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: var(--color-surface);
-  margin-top: var(--space-24);
-}
-
-th,
-td {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
-  padding: var(--space-12);
+}
+th, td {
+  border-bottom: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-12) var(--space-16);
   text-align: left;
   font-size: var(--font-size-sm);
+  vertical-align: top;
 }
-
+th:last-child, td:last-child { border-right: none; }
+tbody tr:last-child td { border-bottom: none; }
 th {
   background: var(--color-primary);
   color: white;
   font-weight: 700;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
-
-.recipe-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-24);
-  margin-bottom: var(--space-24);
-}
-
-.recipe-title {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  margin: 0 0 var(--space-16) 0;
-}
-
-.badge {
+tbody tr:hover td { background: var(--color-surface-hover); }
+.table-badge {
   display: inline-block;
-  padding: var(--space-4) var(--space-12);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-sm);
+  background: rgba(245,158,11,0.2);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* RECIPES */
+.recipes-title {
+  font-size: var(--font-size-2xl);
   font-weight: 700;
-  margin-bottom: var(--space-12);
+  margin: 0 0 var(--space-20);
 }
-
-.badge-warning {
-  background: rgba(245, 158, 11, 0.2);
-  color: var(--color-text);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-}
-
-.badge-success {
-  background: rgba(34, 197, 94, 0.2);
-  color: var(--color-text);
-  border: 1px solid rgba(34, 197, 94, 0.4);
-}
-
-.person-card {
+.season-tabs {
+  display: inline-flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+  padding: var(--space-4);
   background: var(--color-surface);
-  border: 2px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-16);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+.season-tab {
+  padding: var(--space-6) var(--space-16);
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+  font-family: var(--font-family-base);
+}
+.season-tab.active {
+  background: var(--color-primary);
+  color: white;
+}
+.search-wrapper {
+  position: relative;
   margin-bottom: var(--space-16);
 }
-
-.person-card.eric {
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(59, 130, 246, 0.05);
+.search-icon {
+  position: absolute;
+  left: var(--space-16);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
 }
-
-.dark-theme .person-card.eric {
-  background: rgba(59, 130, 246, 0.15);
+.search-input {
+  width: 100%;
+  padding: var(--space-12) var(--space-16) var(--space-12) 44px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
 }
-
-.person-card.chiara {
-  border-color: rgba(236, 72, 153, 0.4);
-  background: rgba(236, 72, 153, 0.05);
+.search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
-
-.dark-theme .person-card.chiara {
-  background: rgba(236, 72, 153, 0.15);
+.search-input::placeholder { color: var(--color-text-muted); }
+.filter-chips {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-24);
 }
-
-.person-name {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  margin-bottom: var(--space-12);
-  text-transform: uppercase;
+.filter-chip {
+  padding: var(--space-6) var(--space-12);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: var(--font-family-base);
 }
-
-.person-card.eric .person-name {
-  color: rgba(29, 78, 216, 1);
+.filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
 }
-
-.person-card.chiara .person-name {
-  color: rgba(190, 24, 93, 1);
+.filter-chip.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
 }
-
-.two-column-layout {
+.recipes-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-16);
 }
+.recipe-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-20);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+.recipe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+.recipe-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+.recipe-meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.recipe-preview {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.recipe-cta {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
 
-@media (max-width: 768px) {
-  .two-column-layout {
-    grid-template-columns: 1fr;
-  }
+/* RECIPE DETAIL */
+.back-bar {
+  display: flex;
+  gap: var(--space-12);
+  margin-bottom: var(--space-20);
+  align-items: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-family-base);
+  border: 1.5px solid transparent;
+  line-height: 1.4;
+}
+.btn-secondary {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+.btn-primary:hover { background: var(--color-primary-hover); }
+.recipe-detail-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-md);
+}
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-16);
+  margin-bottom: var(--space-20);
+  padding-bottom: var(--space-20);
+  border-bottom: 1px solid var(--color-border);
+}
+.detail-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+.detail-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  margin-bottom: var(--space-24);
+  padding: var(--space-16);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-lg);
+}
+.detail-info-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+.detail-info-value {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-weight: 500;
+}
+.detail-notes {
+  padding: var(--space-16);
+  background: var(--color-primary-light);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: var(--space-24);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+.empty-state {
+  text-align: center;
+  padding: var(--space-48) var(--space-24);
+  color: var(--color-text-secondary);
 }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Piano Nutrizionale Settimanale</h1>
-            <h2>Eric e Chiara</h2>
-            <div class="theme-switcher">
-                <button id="theme-toggle">🌙</button>
-            </div>
+    <div class="header">
+        <span class="header-emoji">🥗</span>
+        <h1>Piano Nutrizionale</h1>
+        <h2>Eric &amp; Chiara</h2>
+        <div class="theme-switcher">
+            <button id="theme-toggle">🌙</button>
         </div>
+    </div>
 
+    <div class="container">
         <div class="nav-buttons">
-            <button class="nav-btn active" onclick="showView('daily')">PIANO GIORNALIERO</button>
-            <button class="nav-btn" onclick="showView('table')">TABELLA SETTIMANALE</button>
-            <button class="nav-btn" onclick="showView('recipes')">RICETTE</button>
+            <button class="nav-btn active" onclick="showView('daily')">📅 Piano Giornaliero</button>
+            <button class="nav-btn" onclick="showView('table')">📊 Tabella</button>
+            <button class="nav-btn" onclick="showView('recipes')">📖 Ricette</button>
         </div>
 
         <div id="dailyView">
             <div class="day-selector" id="daySelector"></div>
-
             <div class="meals-grid" id="mealsGrid"></div>
         </div>
 
         <div id="tableView" class="hidden">
-            <h2>Tabella Settimanale Completa</h2>
+            <h2 class="table-title">Tabella Settimanale</h2>
             <div id="weeklyTable"></div>
         </div>
 
-                    <div id="recipesView" class="hidden">
-                        <h2>Ricette Disponibili</h2>
-                        <div id="recipesList"></div>
-                    </div>    </div>
+        <div id="recipesView" class="hidden">
+            <h2 class="recipes-title">Ricette</h2>
+            <div id="recipesList"></div>
+        </div>
+    </div>
 
     <script>
         const data = {lunedi:{colazione:{nome:'Colazione Differenziata',eric:{titolo:'Avocado Toast Salato',ingredienti:['40g pane integrale tostato','¼ avocado (25g)','70g salmone affumicato','Limone, sale, pepe']},chiara:{titolo:'Kefir + Frutta + Avena',ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g mandorle']}},pranzo:{nome:'Cereali e Legumi con Verdure',eric:{ingredienti:['100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','Sale e spezie q.b.']},chiara:{ingredienti:['80g misto cereali legumi secchi','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','Sale e spezie q.b.']},nota:'Ammollare i cereali e legumi 24h prima della cottura'},cena:{nome:'Passato Verdura + Prosciutto Cotto o Formaggio',eric:{ingredienti:['1 piatto passato verdura pronto','100g Prosciutto cotto OPPURE 100g Mozzarella fresca','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']},chiara:{ingredienti:['1 piatto passato verdura pronto','70g Prosciutto cotto OPPURE 100g Mozzarella fresca','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']}}},martedi:{colazione:{nome:'Porridge Overnight Oats',eric:{ingredienti:['20g fiocchi avena BIO','100ml latte parz.scremato (mettere in frigo la notte precedente)','150g yogurt greco 0%','1 frutto fresco (mela, kiwi, banana)','2 cucchiaini semi misti (lino, girasole, zucca)','1 cucchiaino miele (opzionale)']},chiara:{ingredienti:['20g fiocchi avena BIO','100ml latte parz.scremato (mettere in frigo la notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']},nota:'Preparare la sera precedente mettendo avena e latte in frigorifero'},pranzo:{nome:'Verdure + Riso + Salmone (PIATTO UNICO - SENZA PANE)',eric:{ingredienti:['1 piatto abbondante verdure miste','80g riso integrale o basmati cottura al dente','200g salmone fresco','2-3 cucchiai olio extravergine d\'oliva','Limone, sale, pepe']},chiara:{ingredienti:['1 piatto abbondante verdure miste','60g riso integrale o basmati cottura al dente','150g salmone fresco','2-3 cucchiai olio extravergine d\'oliva','Limone, sale, pepe']},badge:'SENZA PANE'},cena:{nome:'Verdure + Pollo/Tacchino/Lonza + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','150g pollo petto OPPURE tacchino OPPURE lonza','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','100g pollo petto OPPURE tacchino OPPURE lonza','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},mercoledi:{colazione:{nome:'Kefir + Frutta + Avena + Frutta Secca',eric:{ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g noci (circa 2 noci)']},chiara:{ingredienti:['200ml Kefir bianco','1 kiwi fresco','20g fiocchi avena BIO','10g mandorle (circa 5-6)']}},pranzo:{nome:'Verdure + Bresaola + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure miste crude','100g Bresaola Valtellina IGP','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure miste crude','70g Bresaola Valtellina IGP','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'Passato Verdura + Uova',eric:{ingredienti:['1 piatto passato verdura pronto','2 Uova intere (sode, alla coque o frittata con verdure)','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']},chiara:{ingredienti:['1 piatto passato verdura pronto','2 Uova intere (sode, alla coque o frittata con verdure)','2-3 cucchiai olio extravergine d\'oliva','Opzionale: 1-2 cucchiai riso/farro']}}},giovedi:{colazione:{nome:'Kefir + Frutta + Avena + Frutta Secca',eric:{ingredienti:['200ml Kefir bianco','1 frutto di stagione (mela, kiwi, banana)','20g fiocchi avena BIO','10g frutta secca (noci, mandorle)']},chiara:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','20g fiocchi avena BIO','10g frutta secca']}},pranzo:{nome:'Verdure + Pasta/Riso + Pesce/Carne (PIATTO UNICO - SENZA PANE)',eric:{ingredienti:['1 piatto abbondante verdure','80g pasta o riso integrale cottura al dente','200g pesce fresco OPPURE 150g carne bianca','2-3 cucchiai olio extravergine d\'oliva','Pomodoro passato se pasta, o verdure per riso']},chiara:{ingredienti:['1 piatto abbondante verdure','60g pasta o riso integrale cottura al dente','150g pesce fresco OPPURE 100g carne bianca','2-3 cucchiai olio extravergine d\'oliva','Pomodoro passato se pasta']},badge:'PIATTO UNICO'},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco (branzino, orata, merluzzo, salmone)','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},venerdi:{colazione:{nome:'Porridge Overnight Oats',eric:{ingredienti:['20g fiocchi avena BIO + 100ml latte (notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']},chiara:{ingredienti:['20g fiocchi avena BIO + 100ml latte (notte precedente)','150g yogurt greco 0%','1 frutto fresco','2 cucchiaini semi misti','1 cucchiaino miele (opzionale)']}},pranzo:{nome:'Verdure + Uova/Formaggio + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','2 Uova intere OPPURE 100g Formaggio (mozzarella/ricotta)','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','2 Uova intere OPPURE 100g Formaggio','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'PIZZA - Pasto Libero',eric:{ingredienti:['Pizza a scelta con verdure','Prosciutto/mozzarella a piacere','Insalata mista antipasto','Acqua naturale','Dessert opzionale (frutta, gelato)']},chiara:{ingredienti:['Pizza a scelta con verdure','Prosciutto/mozzarella a piacere','Insalata mista antipasto','Acqua naturale','Dessert opzionale']},badge:'PASTO LIBERO'}},sabato:{colazione:{nome:'Kefir + Frutta (SENZA AVENA)',eric:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','Tè o caffè senza zucchero']},chiara:{ingredienti:['200ml Kefir bianco','1 frutto di stagione','Tè o caffè senza zucchero']}},pranzo:{nome:'Cereali e Legumi con Verdure',eric:{ingredienti:['100g misto cereali legumi secchi (orzo, farro, fagioli, lenticchie)','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','1 cucchiaino parmigiano (opzionale)']},chiara:{ingredienti:['80g misto cereali legumi secchi','1 piatto abbondante verdure di stagione','2-3 cucchiai olio extravergine d\'oliva','1 cucchiaino parmigiano (opzionale)']}},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}},domenica:{colazione:{nome:'Pancake + Confettura + Latte + Caffè',eric:{ingredienti:['1 pancake','Confettura senza zuccheri Rigoni di Asiago','150ml latte parz.scremato','Caffè se gradito']},chiara:{ingredienti:['1 pancake','Confettura senza zuccheri','150ml latte parz.scremato','Caffè se gradito']}},pranzo:{nome:'Verdure + Pollo/Tacchino/Lonza + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','150g pollo petto OPPURE tacchino OPPURE lonza','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','100g pollo petto OPPURE tacchino OPPURE lonza','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}},cena:{nome:'Verdure + Pesce + Pane + Frutta',eric:{ingredienti:['1 piatto abbondante verdure','200g pesce fresco','60-70g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']},chiara:{ingredienti:['1 piatto abbondante verdure','150g pesce fresco','40-50g pane integrale tostato','2-3 cucchiai olio extravergine d\'oliva','1 frutto fresco (150g)']}}}}
@@ -494,51 +836,47 @@ th {
 
         function renderMeals() {
             const dayData = data[currentDay];
+            const mealIcons = { colazione: '☀️', pranzo: '🥗', cena: '🌙' };
+            const mealLabels = { colazione: 'Colazione', pranzo: 'Pranzo', cena: 'Cena' };
             const html = ['colazione','pranzo','cena'].map(tipo => {
                 const meal = dayData[tipo];
                 const badgeHtml = meal.badge ? `<div class="badge badge-warning">${meal.badge}</div>` : '';
-                
+                const headerHtml = `<div class="meal-header"><span class="meal-icon">${mealIcons[tipo]}</span><h3 class="meal-title">${mealLabels[tipo]}</h3></div>`;
+                const notaHtml = meal.nota ? `<div class="meal-nota">${meal.nota}</div>` : '';
+
                 if (meal.eric && meal.chiara) {
-                    // Meal has separate sections for Eric and Chiara
                     return `
                         <div class="meal-card ${tipo}">
-                            <h3 class="meal-title">${tipo}</h3>
+                            ${headerHtml}
                             <div class="meal-name">${meal.nome}</div>
                             ${badgeHtml}
-                            ${meal.nota ? `<div style="font-style: italic; margin-bottom: var(--space-12); font-size: var(--font-size-sm);">${meal.nota}</div>` : ''}
+                            ${notaHtml}
                             <div class="two-column-layout">
                                 <div class="person-card eric">
                                     <div class="person-name">Eric</div>
-                                    ${meal.eric.titolo ? `<div style="font-weight: 600; margin-bottom: var(--space-8);">${meal.eric.titolo}</div>` : ''}
+                                    ${meal.eric.titolo ? `<div class="meal-subtitle">${meal.eric.titolo}</div>` : ''}
                                     <div class="section-title">Ingredienti</div>
-                                    <ul>
-                                        ${meal.eric.ingredienti.map(i => `<li>${i}</li>`).join('')}
-                                    </ul>
+                                    <ul>${meal.eric.ingredienti.map(i => `<li>${i}</li>`).join('')}</ul>
                                 </div>
                                 <div class="person-card chiara">
                                     <div class="person-name">Chiara</div>
-                                    ${meal.chiara.titolo ? `<div style="font-weight: 600; margin-bottom: var(--space-8);">${meal.chiara.titolo}</div>` : ''}
+                                    ${meal.chiara.titolo ? `<div class="meal-subtitle">${meal.chiara.titolo}</div>` : ''}
                                     <div class="section-title">Ingredienti</div>
-                                    <ul>
-                                        ${meal.chiara.ingredienti.map(i => `<li>${i}</li>`).join('')}
-                                    </ul>
+                                    <ul>${meal.chiara.ingredienti.map(i => `<li>${i}</li>`).join('')}</ul>
                                 </div>
                             </div>
                         </div>
                     `;
                 } else {
-                    // Single person view
                     const personData = currentPerson === 'eric' ? meal.eric : meal.chiara;
                     return `
                         <div class="meal-card ${tipo}">
-                            <h3 class="meal-title">${tipo}</h3>
+                            ${headerHtml}
                             <div class="meal-name">${meal.nome}</div>
                             ${badgeHtml}
-                            ${meal.nota ? `<div style="font-style: italic; margin-bottom: var(--space-12);">${meal.nota}</div>` : ''}
+                            ${notaHtml}
                             <div class="section-title">Ingredienti</div>
-                            <ul>
-                                ${personData.ingredienti.map(i => `<li>${i}</li>`).join('')}
-                            </ul>
+                            <ul>${personData.ingredienti.map(i => `<li>${i}</li>`).join('')}</ul>
                         </div>
                     `;
                 }
@@ -577,13 +915,13 @@ th {
                     // Pranzo
                     const pranzo = dayData.pranzo;
                     const pranzoData = pranzo[p];
-                    const pranzoBadge = pranzo.badge ? ` <span style="background: rgba(245,158,11,0.3); padding: 2px 6px; border-radius: 4px; font-size: 10px;">${pranzo.badge}</span>` : '';
+                    const pranzoBadge = pranzo.badge ? ` <span class="table-badge">${pranzo.badge}</span>` : '';
                     html += `<td><strong>${pranzo.nome}</strong>${pranzoBadge}<br><small>${pranzoData.ingredienti.slice(0,2).join(', ')}...</small></td>`;
                     
                     // Cena
                     const cena = dayData.cena;
                     const cenaData = cena[p];
-                    const cenaBadge = cena.badge ? ` <span style="background: rgba(34,197,94,0.3); padding: 2px 6px; border-radius: 4px; font-size: 10px;">${cena.badge}</span>` : '';
+                    const cenaBadge = cena.badge ? ` <span class="table-badge">${cena.badge}</span>` : '';
                     html += `<td><strong>${cena.nome}</strong>${cenaBadge}<br><small>${cenaData.ingredienti.slice(0,2).join(', ')}...</small></td>`;
                     
                     html += '</tr>';
@@ -607,25 +945,27 @@ th {
 
             const html = `
                 <div style="margin-bottom: var(--space-24);">
-                    <div class="season-switcher" style="margin-bottom: var(--space-16);">
-                        <button class="day-btn ${currentSeason === 'estate' ? 'active' : ''}" onclick="filterSeason('estate')">Estate</button>
-                        <button class="day-btn ${currentSeason === 'inverno' ? 'active' : ''}" onclick="filterSeason('inverno')">Inverno</button>
+                    <div class="season-tabs">
+                        <button class="season-tab ${currentSeason === 'estate' ? 'active' : ''}" onclick="filterSeason('estate')">☀️ Estate</button>
+                        <button class="season-tab ${currentSeason === 'inverno' ? 'active' : ''}" onclick="filterSeason('inverno')">❄️ Inverno</button>
                     </div>
-                    <input type="text" id="searchInput" class="form-control" placeholder="Cerca ricetta per nome..." 
-                           onkeyup="handleSearch(event)" style="margin-bottom: var(--space-16);">
-                    
-                    <div style="display: flex; gap: var(--space-8); flex-wrap: wrap; margin-bottom: var(--space-24);">
-                        <button class="day-btn ${currentCategory==='tutte'?'active':''}" onclick="filterCategory('tutte')">Tutte</button>
-                        <button class="day-btn ${currentCategory==='colazioni_dolci'?'active':''}" onclick="filterCategory('colazioni_dolci')">Colazioni Dolci</button>
-                        <button class="day-btn ${currentCategory==='colazioni_salate'?'active':''}" onclick="filterCategory('colazioni_salate')">Colazioni Salate</button>
-                        <button class="day-btn ${currentCategory==='piatti_unici'?'active':''}" onclick="filterCategory('piatti_unici')">Piatti Unici</button>
-                        <button class="day-btn ${currentCategory==='piatti_estivi'?'active':''}" onclick="filterCategory('piatti_estivi')">Piatti Estivi</button>
-                        <button class="day-btn ${currentCategory==='legumi'?'active':''}" onclick="filterCategory('legumi')">Legumi</button>
-                        <button class="day-btn ${currentCategory==='secondi'?'active':''}" onclick="filterCategory('secondi')">Secondi Proteici</button>
-                        <button class="day-btn ${currentCategory==='contorni'?'active':''}" onclick="filterCategory('contorni')">Contorni</button>
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" class="search-input" placeholder="Cerca ricetta per nome..."
+                               onkeyup="handleSearch(event)">
+                    </div>
+                    <div class="filter-chips">
+                        <button class="filter-chip ${currentCategory==='tutte'?'active':''}" onclick="filterCategory('tutte')">Tutte</button>
+                        <button class="filter-chip ${currentCategory==='colazioni_dolci'?'active':''}" onclick="filterCategory('colazioni_dolci')">Colazioni Dolci</button>
+                        <button class="filter-chip ${currentCategory==='colazioni_salate'?'active':''}" onclick="filterCategory('colazioni_salate')">Colazioni Salate</button>
+                        <button class="filter-chip ${currentCategory==='piatti_unici'?'active':''}" onclick="filterCategory('piatti_unici')">Piatti Unici</button>
+                        <button class="filter-chip ${currentCategory==='piatti_estivi'?'active':''}" onclick="filterCategory('piatti_estivi')">Piatti Estivi</button>
+                        <button class="filter-chip ${currentCategory==='legumi'?'active':''}" onclick="filterCategory('legumi')">Legumi</button>
+                        <button class="filter-chip ${currentCategory==='secondi'?'active':''}" onclick="filterCategory('secondi')">Secondi Proteici</button>
+                        <button class="filter-chip ${currentCategory==='contorni'?'active':''}" onclick="filterCategory('contorni')">Contorni</button>
                     </div>
                 </div>
-                
+
                 <div id="recipesContainer"></div>
             `;
             document.getElementById('recipesList').innerHTML = html;
@@ -672,41 +1012,29 @@ th {
                 contorni: 'Contorni'
             };
 
-            const html = allRecipes.map(r => {
+            const cards = allRecipes.map(r => {
                 const escapedTitle = r.titolo.replace(/'/g, "&apos;");
                 return `
-                <div class="recipe-card" style="cursor: pointer;" onclick="showRecipeDetail('${r.categoria}', '${escapedTitle}')"> 
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-12);">
+                <div class="recipe-card" onclick="showRecipeDetail('${r.categoria}', '${escapedTitle}')">
+                    <div class="recipe-card-header">
                         <div class="recipe-title">${r.titolo}</div>
                         <div class="badge ${r.fonte==='nutrizionista'?'badge-success':'badge-warning'}">
-                            ${r.fonte==='nutrizionista'?'Dal Nutrizionista':'Creativa'}
+                            ${r.fonte==='nutrizionista'?'Nutriz.':'Creativa'}
                         </div>
                     </div>
-                    <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
-                        <strong>Categoria:</strong> ${categoryLabels[r.categoria]} • <strong>Tempo:</strong> ${r.tempo}
-                    </div>
-                    <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
-                        ${r.ingredienti.slice(0, 3).join(', ')}${r.ingredienti.length > 3 ? '...' : ''}
-                    </div>
-                    <div style="margin-top: var(--space-12); color: var(--color-primary); font-weight: 600; font-size: var(--font-size-sm);">
-                        Clicca per dettagli →
-                    </div>
+                    <div class="recipe-meta">${categoryLabels[r.categoria]} · ⏱ ${r.tempo}</div>
+                    <div class="recipe-preview">${r.ingredienti.slice(0, 3).join(', ')}${r.ingredienti.length > 3 ? '...' : ''}</div>
+                    <div class="recipe-cta">Vedi ricetta →</div>
                 </div>
             `;
             }).join('');
 
+            const html = cards
+                ? `<div class="recipes-grid">${cards}</div>`
+                : '<p class="empty-state">Nessuna ricetta trovata.</p>';
+
             const container = document.getElementById('recipesContainer');
-            if (container) {
-                container.innerHTML = html || '<p style="text-align: center; color: var(--color-text-secondary);">Nessuna ricetta trovata.</p>';
-                
-                // Add click handlers
-                document.querySelectorAll('.recipe-item').forEach((item, index) => {
-                    item.addEventListener('click', function() {
-                        selectedRecipe = window.currentRecipesList[index];
-                        renderRecipeDetail();
-                    });
-                });
-            }
+            if (container) container.innerHTML = html;
         }
 
         function filterCategory(cat) {
@@ -737,54 +1065,51 @@ th {
                 contorni: 'Contorni'
             };
 
-            let html = '<div style="margin-bottom: var(--space-24);">';
-            html += '<button class="btn btn--secondary" onclick="closeRecipeDetail()" style="margin-bottom: var(--space-16); padding: var(--space-8) var(--space-16); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text); cursor: pointer; border-radius: var(--radius-base);">';
-            html += '&larr; Torna alle ricette';
-            html += '</button>';
-            html += '<button class="btn btn--primary" onclick="printRecipe()" style="margin-left: var(--space-12); padding: var(--space-8) var(--space-16); background: var(--color-primary); color: white; border: none; cursor: pointer; border-radius: var(--radius-base);">';
-            html += '&#128424; Stampa Ricetta';
-            html += '</button>';
-            html += '</div>';
-            
-            html += '<div class="recipe-card" id="printableRecipe">';
-            html += '<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-16);">';
-            html += '<h2 style="margin: 0; font-size: var(--font-size-3xl);">' + selectedRecipe.titolo + '</h2>';
             const badgeClass = selectedRecipe.fonte === 'nutrizionista' ? 'badge-success' : 'badge-warning';
             const badgeText = selectedRecipe.fonte === 'nutrizionista' ? 'Dal Nutrizionista' : 'Creativa';
-            html += '<div class="badge ' + badgeClass + '">' + badgeText + '</div>';
-            html += '</div>';
-            
-            html += '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); margin-bottom: var(--space-24); padding: var(--space-16); background: rgba(var(--color-brown-600-rgb), 0.05); border-radius: var(--radius-base);">';
-            html += '<div><strong>Categoria:</strong> ' + categoryLabels[selectedRecipe.categoria] + '</div>';
-            html += '<div><strong>Tempo di preparazione:</strong> ' + selectedRecipe.tempo + '</div>';
-            html += '</div>';
-            
-            html += '<div class="section-title">INGREDIENTI</div>';
-            html += '<ul style="margin-bottom: var(--space-24);">';
-            selectedRecipe.ingredienti.forEach(function(i) {
-                html += '<li>' + i + '</li>';
-            });
-            html += '</ul>';
-            
-            html += '<div class="section-title">PREPARAZIONE</div>';
-            html += '<p style="line-height: 1.8; margin-bottom: var(--space-24);">' + selectedRecipe.preparazione + '</p>';
-            
+
+            let html = `
+                <div class="back-bar">
+                    <button class="btn btn-secondary" onclick="closeRecipeDetail()">← Torna alle ricette</button>
+                    <button class="btn btn-primary" onclick="printRecipe()">🖨 Stampa</button>
+                </div>
+                <div class="recipe-detail-card" id="printableRecipe">
+                    <div class="detail-header">
+                        <h2 class="detail-title">${selectedRecipe.titolo}</h2>
+                        <div class="badge ${badgeClass}">${badgeText}</div>
+                    </div>
+                    <div class="detail-info-grid">
+                        <div>
+                            <span class="detail-info-label">Categoria</span>
+                            <span class="detail-info-value">${categoryLabels[selectedRecipe.categoria]}</span>
+                        </div>
+                        <div>
+                            <span class="detail-info-label">Tempo di preparazione</span>
+                            <span class="detail-info-value">⏱ ${selectedRecipe.tempo}</span>
+                        </div>
+                    </div>
+                    <div class="section-title">Ingredienti</div>
+                    <ul style="margin-bottom: var(--space-24);">
+                        ${selectedRecipe.ingredienti.map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                    <div class="section-title">Preparazione</div>
+                    <p style="line-height: 1.8; margin-bottom: var(--space-24);">${selectedRecipe.preparazione}</p>
+            `;
+
             if (selectedRecipe.note) {
-                html += '<div class="section-title">NOTE NUTRIZIONALI/CONSIGLI</div>';
-                html += '<div style="padding: var(--space-16); background: rgba(33, 128, 141, 0.08); border-left: 4px solid var(--color-primary); border-radius: var(--radius-base); margin-bottom: var(--space-24);">';
-                html += selectedRecipe.note;
-                html += '</div>';
+                html += `
+                    <div class="section-title">Note &amp; Consigli</div>
+                    <div class="detail-notes">${selectedRecipe.note}</div>
+                `;
             }
-            
+
             if (selectedRecipe.varianti && selectedRecipe.varianti.length > 0) {
-                html += '<div class="section-title">VARIANTI POSSIBILI</div>';
-                html += '<ul>';
-                selectedRecipe.varianti.forEach(function(v) {
-                    html += '<li>' + v + '</li>';
-                });
-                html += '</ul>';
+                html += `
+                    <div class="section-title">Varianti</div>
+                    <ul>${selectedRecipe.varianti.map(v => `<li>${v}</li>`).join('')}</ul>
+                `;
             }
-            
+
             html += '</div>';
             document.getElementById('recipesList').innerHTML = html;
         }
